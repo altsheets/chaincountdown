@@ -11,19 +11,18 @@
 </h2>
 <p>Designing the url:</p>
 <ul>
-  <li><a href="http://localhost:8888//">http://localhost:8888//</a> and <a href="http://localhost:8888///">http://localhost:8888///</a> and <a href="http://localhost:8888/nxt/">http://localhost:8888/nxt/</a> and <a href="http://localhost:8888/nxt/1000000">http://localhost:8888/nxt/1000000</a> or<em> any other wrongly formatted url</em></li>
-  <li><a href="http://localhost:8888/wrongcoin">http://localhost:8888/wrongcoin</a></li>
-  <li><a href="http://localhost:8888/nxt/">http://localhost:8888/nxt/</a></li>
-  <li><a href="http://localhost:8888/nxt/abc.png">http://localhost:8888/nxt/abc.png</a></li>
-  <li><a href="http://localhost:8888/nxt/1000000.tif">http://localhost:8888/nxt/1000000.tif</a></li>
-  <li><a href="http://localhost:8888/nxt/1000000.gif?font=aniceone">http://localhost:8888/nxt/1000000.gif?font=aniceone</a></li>
-  <li><a href="http://localhost:8888/nxt/1000000.gif?fontsize=20.">http://localhost:8888/nxt/1000000.gif?fontsize=20.</a></li>
-  <li><a href="http://localhost:8888/nxt/1000000.gif?color=red">http://localhost:8888/nxt/1000000.gif?color=red</a></li>
-  <li><a href="http://localhost:8888/nxt/10000000000000000.png">http://localhost:8888/nxt/10000000000000000.png</a></li>
+  <li><a href="//">http://localhost:8888//</a> and <a href="///">http://localhost:8888///</a> and <a href="/nxt/">http://localhost:8888/nxt/</a> and <a href="/nxt/1000000">http://localhost:8888/nxt/1000000</a> or<em> any other wrongly formatted url</em></li>
+  <li><a href="/wrongcoin">http://localhost:8888/wrongcoin</a></li>
+  <li><a href="/nxt/abc.png">http://localhost:8888/nxt/abc.png</a></li>
+  <li><a href="/nxt/1000000.tif">http://localhost:8888/nxt/1000000.tif</a></li>
+  <li><a href="/nxt/1000000.gif?font=aniceone">http://localhost:8888/nxt/1000000.gif?font=aniceone</a></li>
+  <li><a href="/nxt/1000000.gif?fontsize=20.">http://localhost:8888/nxt/1000000.gif?fontsize=20.</a></li>
+  <li><a href="/nxt/1000000.gif?color=red">http://localhost:8888/nxt/1000000.gif?color=red</a></li>
+  <li><a href="/nxt/10000000000000000.png">http://localhost:8888/nxt/10000000000000000.png</a></li>
 </ul>
 <p>Results in an image showing an error:</p>
 <ul>
-  <li><a href="http://localhost:8888/nxt/0.png">http://localhost:8888/nxt/0.png</a></li>
+  <li><a href="/nxt/0.png">http://localhost:8888/nxt/0.png</a></li>
   <li>if the apiserver is offline</li>
   <li>if the apiserver is not fully synced yet</li>
   <li>if the apiserver returns problems</li>
