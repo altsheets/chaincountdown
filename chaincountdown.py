@@ -5,8 +5,9 @@
 @summary:  HttpServer which returns time estimation to targetblock of nxt/hz. 
            Image rendered at request. Choosable heading, fontsizes & colors.
 
-@version:  v10 at 2015/08/10 08:08 UTC = nxt-block 493868 = hz block 418735
-@since:           2015/08/05 03:00 UTC ~ 39 hours of hard & enjoyable work
+@version:  v11 "Conceptual Thunderstorm" 
+                at after 2015/08/10 16:50 UTC ~ nxt-block 494158 = hz-block 419023
+@since:                  2015/08/05 03:00 UTC ~ 44 hours of hard & enjoyable work
 
 @manual:   see index.html page at http://....:8888/    
 @requires: NXT / HZ / BURST / ... server for: getBlockchainStatus & getBlock
@@ -14,9 +15,10 @@
 @author:   AltSheets
 @license:  Giveback license v05  - http://altsheets.ddns.net/give/
 
-@donate:   Donation address exclusive to this project: 
+@reward:       Bitcoin address exclusive to this epic.. 
                [BTC] 13whfNFT2dse7eiuNXVkuJivjxqSXHrW4j
                         Thanks a lot! Much appreciated!
+                        
 @donate:    or other currencies:
                NXT-CMKU-ZQYK-V6CD-9UHF4 or 
                NHZ-Q675-SGBG-LQ43-D38L6 or
@@ -28,8 +30,8 @@
                Altfolio http://altfolio.ddns.net - free trial!
 
 @related:   chaincountdown.py was created for the nxthacks2015
-            where I submitted my amazing "AssetGraphs.py"
-                http://altsheets.ddns.net/assetgraphs
+                 where I submitted my amazing "AssetGraphs.py"
+                         http://altsheets.ddns.net/assetgraphs
 '''
 
 from config import TIMEOUT
