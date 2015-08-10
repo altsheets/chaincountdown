@@ -26,8 +26,8 @@ chown -R ccdserve:ccdserve /opt/altsheets/
 chmod g+w /opt/altsheets/ 
 
 # this is probably already set in the github repository
-chmod u+x /opt/altsheets/chaincountdown/server.py
-chmod g+x /opt/altsheets/chaincountdown/server.py
+chmod ug+x /opt/altsheets/chaincountdown/server.py
+chmod ug+x /opt/altsheets/chaincountdown/imaging.py
 
 #
 # manual start (stop with Ctrl-C):
@@ -36,6 +36,9 @@ chmod g+x /opt/altsheets/chaincountdown/server.py
 # or on separate screen (leave with Ctrl-A D)
 sudo apt-get update; sudo apt-get install screen
 screen -S CCD /opt/altsheets/chaincountdown/server.py
+
+# generate the allfonts.png image for your /fonts/ folder:
+/opt/altsheets/chaincountdown/imaging.py
 
 # all good (apart from that it is running as root)? 
 # Then you can move on:

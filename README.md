@@ -32,4 +32,6 @@ Placed under my [giveback license v05](http://altsheets.ddns.net/give). Please g
 Much more infos, e.g. on how to choose better colors, sizes, font, etc:  
 http://altsheets.ddns.net:8888
 
-**TL;DR: A Blockchain aware countdown timer !**
+**TL;DR:**
+ 
+** A Blockchain aware countdown timer !**
