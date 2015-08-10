@@ -1,0 +1,295 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>chaincountdown.py server by AltSheets - countdown pic for blockchains</title>
+
+<link href="yo.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+<h1>todo.html</h1>
+<p>Brainstorming for <a href="/">chaincountdown.py</a> versions v12, v17, v25, and v38. <br />
+(Begun after version v10 = 10/August/2015)</p>
+<p align="center">Do you feel like extending / improving / implementing any of these?<br />
+  Then <a href="#contact">contact</a> me please. Because some of these things I definitely want to do myself.</p>
+<h2>TOC:</h2>
+<table width="100%" border="0" cellspacing="5" cellpadding="0">
+  <tr>
+    <td><ul>
+      <li>v12 = <a href="#musthaves">must-haves, soon</a></li>
+      <li>v17 = <a href="#nicetohave">nice to have</a></li>
+      <li>v25 =<a href="#whynotalso"> why not also</a></li>
+      <li>v38 = <a href="#dreamsofcrazyfutures">dreams of crazy futures</a></li>
+    </ul></td>
+    <td align="center">Please see <a href="architecture.html">architecture.html</a> for the <br />
+    grand, terrific, jaw-dropping dreams <br />
+    of an underslept, and hyper-active <br />
+    <span class="orangehalf"><strong>Alt</strong></span><strong><span class="greenhalf">Sheets</span><span class="redhalf">Dev</span></strong></td>
+  </tr>
+</table>
+<h3><a name="musthaves" id="musthaves"></a>v12 = must-haves, soon</h3>
+<p>Stuff that would be<em> nice to already have it</em>. (... but unfortunately, my body cries for sleep every 24 hours... )</p>
+<ul>
+  <li>footer.html and topright.html for iframes (like the sidebar.html in the <a href="http://altsheets.ddns.net/assetgraphs/">AssetGraphs.py NxtHacks2015 presentation</a> <em>-&gt; click the title</em></li>
+  <li>get rid to the FONTS[:-1] again, 
+    <ul>
+      <li>it was a clever idea - until it was not anymore      </li>
+      <li>use the pseudo-font [&quot;&quot;,] only in the probably only one place where it is needed (server.py--&gt;myHandler--&gt;parseUrl)</li>
+    </ul>
+  </li>
+  <li>rename / refactoring candidates:
+    <ul>
+      <li> myHandler</li>
+      <li>concatArgs --&gt; helpers.py</li>
+    </ul>
+  </li>
+  <li><small>include into existing site, </small></li>
+  <li><small>promote thi</small>s mildly
+    <ul>
+      <li>but it shall not get viral before the server is multi-threaded (see below)</li>
+    </ul>
+  </li>
+  <li>cache the current block, 
+    <ul>
+      <li>for 1/4 of the average blocktime</li>
+      <li>instead of always calling the API</li>
+    </ul>
+  </li>
+  <li>rearrange config.py for better conceptual clustering</li>
+  <li>abstract 'theChaChaCha' a bit more, to make it easier for BGM</li>
+</ul>
+<p>What do you think about these ideas? Please give <a href="https://github.com/altsheets/chaincountdown/wiki/TodoMustHaves">feedback in our wikiwiki</a>.</p>
+<h3><a name="nicetohave" id="nicetohave"></a>v17 = nice to have</h3>
+<p>This will happen - but perhaps not tomorrow?</p>
+<ul>
+  <li><small><a name="empiricalblocktimes" id="empiricalblocktimes"></a>measure the actual empirical blocktimes, instead of hardcoded 1.9 minutes per block</small>
+    <ul>
+      <li><small>daily (hourly?) estimation of current empirical chain speed; give speeds as image</small>
+        <ul>
+          <li>that is why we need not only apis-&gt;getBlockchainStatus          </li>
+          <li>but also apis-&gt;getBlock (int past_height)</li>
+        </ul>
+      </li>
+      <li>esp. Bitcoin blocktime has become quite irregular ...? spam, spv, blocksize ... *meh*</li>
+    </ul>
+  </li>
+  <li> <a name="webpagecounter" id="webpagecounter"></a>a simple incremental counter for these webpages (old school style)
+<ul>
+      <li>but which give numbers for how often
+        <ul>
+          <li>each of these pages were called</li>
+          <li>each of the chains accessed</li>
+          <li>how many hours of work went into this project</li>
+          <li>lol</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li> center the fonts vertically
+    <ul>
+      <li>see <a href="index.html#allfonts">allfonts.png</a> - it really looks bad that each font just sits where it wants to be. (Hey - font designers ... standardization ? ? ?)</li>
+      <li> first iteration: manually
+        <ul>
+          <li> similar to the config.py--&gt;FONTMINIMA dictionary 
+            <ul>
+              <li>with the help of the &quot;python imaging_tests.py&quot; sample images</li>
+            </ul>
+          </li>
+          <li> i.e. for each font find the best vertical offset, 
+            <ul>
+              <li>until all are ~ on the middle line</li>
+            </ul>
+          </li>
+          <li> later - automatic analysis: 
+            <ul>
+              <li>simply find the &quot;centers line of gravity&quot; </li>
+              <li>for a 
+                <ul>
+                  <li>standard-distributed </li>
+                  <li>English</li>
+                  <li>random text  </li>
+                  <li>in one long line</li>
+                  <li>-&gt; by counting pixels. </li>
+                </ul>
+              </li>
+              <li>Physics. Easy. Done.</li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li> docker script for full server droplet install</li>
+  <li>abstract the coin API access --&gt; <a href="architecture.html#coinclass">architecture.html#coinclass</a></li>
+</ul>
+<p>What do you think about these ideas? Please give <a href="https://github.com/altsheets/chaincountdown/wiki/TodoNiceToHave">feedback in our wikiwiki</a>.</p>
+<h3><a name="whynotalso" id="nicetohave2"></a>v25 = why not also</h3>
+<p>If we(!) really get to here, something big will have happened. <br />
+It might probably be related to... <em><a href="#funding">funding</a></em> ...  but not only.</p>
+<ul>
+  <li>multi-threaded http server
+    <ul>
+      <li>the current server is not. </li>
+      <li>Ouch, yesterday when I announced this 
+        <ul>
+          <li>in bitcointalk AND in nxtforum in the same minute ... </li>
+          <li>... it crashed, and without any error message, it just got stuck. *meh*</li>
+        </ul>
+      </li>
+      <li>examples: 
+        <ul>
+          <li>http://pymotw.com/2/BaseHTTPServer/#threading-and-forking</li>
+          <li>            VERY old (2001!) post: http://www.gossamer-threads.com/lists/python/python/62247</li>
+          <li>            MultithreadedSimpleHTTPServer https://github.com/Nakiami/MultithreadedSimpleHTTPServer</li>
+          <li>            incl. do_POST https://mafayyaz.wordpress.com/2013/02/08/writing-simple-http-server-in-python-with-rest-and-json/</li>
+          <li>            google search https://www.google.de/search?q=multi-threaded+BaseHTTPRequestHandler</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li> server-app can replace/complement server.py
+    <ul>
+      <li>try out heroku, etc.</li>
+      <li>        the standalone server is nice, isn't it?</li>
+      <li>but to deploy it in a standard app container - &quot;why not also&quot; !</li>
+    </ul>
+  </li>
+  <li>fully templated image text
+    <ul>
+      <li>so that all the text lines in the middle </li>
+      <li>can be re-formulated by the user</li>
+    </ul>
+  </li>
+  <li>abstract the graphics formatting completely 
+    <ul>
+      <li>color, font, etc</li>
+      <li>so that it can be used for any other generated image 
+        <ul>
+          <li>e.g. <a href="#empiricalblocktimes">blocktime measurements</a>, see above</li>
+          <li>e.g. <a href="#webpagecounter">webpage counter</a>, see above</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li>user can demand image width and/or height, 
+    <ul>
+      <li>and all fontsizes are calculated accordingly</li>
+    </ul>
+  </li>
+  <li>pull <em>styles </em>from one <strong><span class="orange">CSS</span></strong> instead of from many url-query parameters</li>
+</ul>
+<p>What do you think about these ideas? Please give <a href="https://github.com/altsheets/chaincountdown/wiki/TodoWhyNotAlso">feedback in our wikiwiki</a>.</p>
+<h3><a name="dreamsofcrazyfutures" id="nicetohave3"></a>v38 = dreams of crazy futures</h3>
+<p>We have an office. Paid holidays. An innovative workout machine ...on which my geek body gets in shape, but I can still watch youtube videos (to learn new programming languages of course). And a threeandahalfdays working week - the week<em>end</em> becomes a week<em>half</em> - so during the other half ... we just <em>love</em> to implement the future:</p>
+<ul>
+  <li>architecture
+    <ul>
+      <li>the better we abstract, the more stable the building.</li>
+      <li>the more stable the building, the higher (and more multiple) it can become</li>
+      <li>a lot of this can (only) be developed in: Words. Images. Music.</li>
+      <li>so ... **tattaa** the future <span class="orange"><strong>architecture</strong></span> has gotten its own page: <a href="architecture.html">architecture.html</a></li>
+    </ul>
+  </li>
+  <li>blockchain-agnostic
+    <ul>
+      <li>a new coin dev only needs to fill in an XML file 
+        <ul>
+          <li>with a crazy good GUI</li>
+        </ul>
+      </li>
+      <li>which specifies the API access for his newly born coin
+        <ul>
+          <li>and he can immediately use all our services</li>
+        </ul>
+      </li>
+      <li>        no more programming, for each new coin</li>
+      <li>the XML file stays on <em>any </em>server,
+        <ul>
+          <li>only the URL .../yiehahcoin--ccd.xml is passed to chaincountdown.py</li>
+          <li>or ... once it is tested to in its &quot;final&quot; state
+            <ul>
+              <li>the specification is written to a BLOCKCHAIN</li>
+              <li>and links to a version of </li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+      <li>a DTD for XML files<br />
+      </li>
+    </ul>
+  </li>
+  <li>a crazy good GUI 
+    <ul>
+      <li>(do I repeat myself?)</li>
+      <li>Please GUI designer, please fall in love with this. Me I am a bit too technical ...</li>
+      <li>PDSCGP - point, draw, sweep, click - generate, and publish..</li>
+    </ul>
+  </li>
+  <li>Which could be the third UBA (universal blockchain app) 
+    <ul>
+      <li>that pulls in data from any chain, </li>
+      <li>and makes an image from it?</li>
+      <li>after <strong><span class="orangehalf">countdown</span></strong> and <strong class="orange">chainspeed</strong> images?
+        <ul>
+          <li>of course:
+            <ul>
+              <li>an &quot;account final balance&quot; image</li>
+              <li>an &quot;account total received&quot; image</li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+      <li class="greenhalf">What else do you see now ... 
+        <ul>
+          <li>when you tilt your head to the side,
+            <ul>
+              <li> and half close your eyes, 
+                <ul>
+                  <li>silently humming a silly melody?                  </li>
+                </ul>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+      <li>Which <span class="red">picture comes up</span> in your amazingly-powerful, complexity-reducing, options-creating, future-making ... soul interface --&gt;</li>
+    </ul>
+  </li>
+</ul>
+<p>--&gt; Please go crazy with  <a href="https://github.com/altsheets/chaincountdown/wiki/TodoDreamsOfCrazyFutures">unfeasible fantasies in our wikiwiki</a>.</p>
+<table width="100%" border="0" cellspacing="5" cellpadding="0">
+  <tr>
+    <td align="center" valign="top"><h2><a name="funding" id="funding"></a>@for-sale</h2>
+      <table width="100%" border="0" cellspacing="5" cellpadding="0">
+        <tr>
+          <td align="center" valign="middle"><p>You really don't know what to do with your riches?<br />
+            Everything is also for sale. Contact me for details.</p>
+            <p>And I have other products, assets, currencies, projects:<br />
+          --&gt; <a href="http://altsheets.ddns.net/give/">giveback-license-v05</a> &lt;--</p></td>
+        </tr>
+      </table>
+</td>
+    <td align="center" valign="top"><h2>@reward me</h2>
+      <table width="100%" border="0" cellspacing="5" cellpadding="0">
+        <tr>
+          <td align="center"><p>Keep your pseudoanonymity - but still help crowdfund this?</p>
+          <p>[BTC] <a href="https://blockchain.info/address/13whfNFT2dse7eiuNXVkuJivjxqSXHrW4j">13whfNFT2dse7eiuNXVkuJivjxqSXHrW4j</a></p>
+          <p>Thanks a lot! Much appreciated! </p></td>
+          <td align="center"><a href="https://blockchain.info/address/13whfNFT2dse7eiuNXVkuJivjxqSXHrW4j"><img src="QR-bitcoin-13whfNFT2dse7eiuNXVkuJivjxqSXHrW4j.png" width="200" height="200" alt="bitcoin:13whfNFT2dse7eiuNXVkuJivjxqSXHrW4j" /></a></td>
+        </tr>
+      </table>
+</td>
+  </tr>
+</table>
+
+<h3><a name="contact" id="contact"></a>@contact</h3>
+<p><strong><span class="orange">EMAIL <em>is still the best:</em></span></strong> altsheets(plus)chaincountdown(at)gmail(dot)com</p>
+<hr />
+<address>
+<p class="footer">August 10th 2015 @ 16:23 UTC = last change of <a href="http://altsheets.ddns.net:8888/todo.html">http://altsheets.ddns.net:8888/todo.html</a></p>
+</address>
+<p></p>
+<p></p>
+</body>
+</html>

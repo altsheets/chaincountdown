@@ -126,3 +126,15 @@ tr.ListHeaderColor th {
 .orange {
 	color: #FF8000;
 }
+.greenhalf {
+	color: #008000;
+}
+.redhalf {
+	color: #800000;
+}
+.orangehalf {
+	color: #804000;
+}
+.serif3 {
+	font-family: Palatino Linotype, Book Antiqua, Palatino, serif;
+}

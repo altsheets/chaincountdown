@@ -1,0 +1,157 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>chaincountdown.py server by AltSheets - countdown pic for blockchains</title>
+
+<link href="yo.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+<h1>Architecture.html</h1>
+<p>Thoughts on how to create a better <a href="/">chaincountdown.py</a> 2.0 <br />
+that </p>
+<ul>
+  <li>can be applied to any coin </li>
+  <li>as foundation for more chain-agnostic services (i.e. not only countdown)</li>
+  <li>is easy for collaborators to join in coding.</li>
+  <li>is extendable by end users (not only by the server admin).</li>
+</ul>
+<p>Please stop reading. Jump back up. Read those 4 sentences again.</p>
+<h2>TOC:</h2>
+<table width="100%" border="0" cellspacing="5" cellpadding="0">
+  <tr>
+    <td><ul>
+      <li><a href="#coinclass">Coin class</a></li>
+      <li><a href="#dtdcoin">DTD per coin (Document Type Definition) / CoinAsXML</a></li>
+      <li>Styles as CSS</li>
+      <li>ABBA = <em><span class="red">A</span></em>pps <em><span class="red">B</span></em>ecome <span class="red"><em>B</em></span>lockchain <em class="red">A</em>gnostic </li>
+    </ul></td>
+    <td align="center">Please see the <a href="todo.html">todo.html</a> for numerous, smaller ideas.</td>
+  </tr>
+</table>
+<h3><a name="coinclass" id="coinclass"></a>Innovation: Coin class</h3>
+<p>Innovation:</p>
+<ul>
+  <li>&quot;Calculate Countdown&quot; becomes universal, non-coin-specific.</li>
+  <li>    All inputs for the calculation come from the <span class="orange"><strong>Coin Class</strong></span></li>
+</ul>
+<p>Coin class:</p>
+<ul>
+  <li>one class per coin, </li>
+  <li>all inheriting from the same base class</li>
+  <li>the outside interface of this class is equal for all coins</li>
+</ul>
+<p>With must-define methods:</p>
+<ul>
+  <li>int currentBlockHeight (float maxCacheAgeMinutes)</li>
+  <li>float currentAverageBlocktime = function(int height_delta) </li>
+  <li>epochtime_ofBlockHeight(int height) # for height&lt;currentBlockHeight</li>
+</ul>
+<p>Inner workings:</p>
+<ul>
+  <li> try and create and catch all possible errors
+    <ul>
+      <li>deliver all variable error messages into the image creation! --&gt; showText</li>
+      <li>deliver those errors that will never go away ... as text. --&gt; raise Exception</li>
+    </ul>
+  </li>
+  <li>currentBlockHeight
+    <ul>
+      <li> essentially the only function that is really needed.</li>
+      <li> try to already abstract from the API specifics, when you do this!</li>
+    </ul>
+  </li>
+  <li>currentAverageBlocktime:
+    <ul>
+      <li> easiest is a constant, e.g. 
+        <ul>
+          <li> 10.0 for the (laboratory, not real world) Bitcoin blocktime; </li>
+          <li> 1.9 for NXT (laboratory/design is 1 per minute!)</li>
+          <li> 1.7 for HZ (same same)</li>
+        </ul>
+      </li>
+      <li> but a free function would help, too, 
+        <ul>
+          <li>i.e. = 13 for short term, =10 for long term, etc.</li>
+        </ul>
+      </li>
+      <li>measurement should be updated weekly, daily, hourly </li>
+    </ul>
+  </li>
+  <li> epochtime_ofBlockHeight
+    <ul>
+      <li> needed in the current chaincountdown when the server is not yet fully synced 
+        <ul>
+          <li>try it out with a half-synced nxt nrs at localhost!--&gt; config.py --&gt; SERVER</li>
+        </ul>
+      </li>
+      <li> completely hides the whole genesis block epochtime conversion (chaincountdown.py --&gt; coinTimeToHumanTime)</li>
+      <li> in: any blockheight of the past. out: epochtime (unix timestamp)</li>
+    </ul>
+  </li>
+  <li>open question: (polymorphic) time conversions as part of in the parent class?</li>
+</ul>
+<p>What do you think about these ideas? Please give <a href="https://github.com/altsheets/chaincountdown/wiki/InnovationCoinClass">feedback in our wikiwiki</a>.</p>
+<h3><a name="dtdcoin" id="dtdcoin"></a>Innovation: Document Type Definition of &quot;what-is-a-coin&quot; --&gt; XML specification</h3>
+<p>! definitely needs a catchier title !</p>
+<p>General idea:</p>
+<ul>
+  <li>a new coin dev 
+    <ul>
+      <li>only needs to fill in an <strong class="orange">XML file</strong></li>
+      <li>which specifies the API access </li>
+      <li>and chaincountdown.py will already be working for that coin</li>
+    </ul>
+  </li>
+  <li>no more programming for each new coin</li>
+  <li>the XML file 
+    <ul>
+      <li>can stay on any server, </li>
+      <li>only the URL .../yiehahcoin-ccd.xml is passed to chaincountdown.py server</li>
+    </ul>
+  </li>
+  <li>Operationalize this: 
+    <ul>
+      <li>Start writing this whole <em>bang!</em> ... but ...</li>
+      <li><span class="orangehalf"><strong>from the</strong></span> <strong><span class="red">XML &amp; DTD</span></strong> <span class="orange"><strong>files </strong></span><span class="greenhalf"><strong>downwards</strong></span>!</li>
+    </ul>
+  </li>
+</ul>
+<p>What do you think about these ideas? Please give <a href="https://github.com/altsheets/chaincountdown/wiki/InnovationCoinAsXML">feedback in our wikiwiki</a>.</p>
+<table width="100%" border="0" cellspacing="5" cellpadding="0">
+  <tr>
+    <td align="center" valign="top"><h2>@for-sale</h2>
+      <table width="100%" border="0" cellspacing="5" cellpadding="0">
+        <tr>
+          <td align="center" valign="middle"><p>You really don't know what to do with your riches?<br />
+            Everything is also for sale. Contact me for details.</p>
+            <p>And I have other products, assets, currencies, projects:<br />
+          --&gt; <a href="http://altsheets.ddns.net/give/">giveback-license-v05</a> &lt;--</p></td>
+        </tr>
+      </table>
+</td>
+    <td align="center" valign="top"><h2>@reward me</h2>
+      <table width="100%" border="0" cellspacing="5" cellpadding="0">
+        <tr>
+          <td align="center"><p>Keep your pseudoanonymity - but still help crowdfund this?</p>
+          <p>[BTC] <a href="https://blockchain.info/address/13whfNFT2dse7eiuNXVkuJivjxqSXHrW4j">13whfNFT2dse7eiuNXVkuJivjxqSXHrW4j</a></p>
+          <p>Thanks a lot! Much appreciated! </p></td>
+          <td align="center"><a href="https://blockchain.info/address/13whfNFT2dse7eiuNXVkuJivjxqSXHrW4j"><img src="QR-bitcoin-13whfNFT2dse7eiuNXVkuJivjxqSXHrW4j.png" width="200" height="200" alt="bitcoin:13whfNFT2dse7eiuNXVkuJivjxqSXHrW4j" /></a></td>
+        </tr>
+      </table>
+</td>
+  </tr>
+</table>
+
+<h3><a name="contact" id="contact"></a>@contact</h3>
+<p>In this early phase, 2nd best way to contact us is <a href="https://github.com/altsheets/chaincountdown/wiki/Feedback">writing into our wikiwiki</a>. <br />
+But <strong><span class="orange">eMail ... <em>is still the best ...:</em></span></strong> <a href="mailto:altsheets(plus)chaincountdown(at)gmail(dot)com">altsheets(plus)chaincountdown(at)gmail(dot)com</a></p>
+<hr />
+<address>
+<p class="footer">August 10th 2015 @ 16:23 UTC = last change of <a href="http://altsheets.ddns.net:8888/architecture.html">http://altsheets.ddns.net:8888/architecture.html</a></p>
+</address>
+<p></p>
+<p></p>
+</body>
+</html>

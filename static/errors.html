@@ -3,15 +3,26 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>Untitled Document</title>
+<style type="text/css">
+.serif3 {
+	font-family: Palatino Linotype, Book Antiqua, Palatino, serif;
+}
+</style>
 </head>
 
 <body>
-<h1>chaincountdownserver.py - errors.html</h1>
-<h2>these urls return different specific error messages that are caught:
-</h2>
-<p>Designing the url:</p>
+<h1 align="center">chaincountdownserver.py - errors.html</h1>
+<div align="center">
+  <p>These urls are part of the manual.</p>
+  <p>They help you to understand the software better.</p>
+  <p class="serif3"><strong><big><big>&quot;If you can break it, you have grokked it.&quot; </big></big><br />
+  (AltSheetsDev 2015/08/10)</strong></p>
+</div>
+These urls return <em>different</em> specific error messages that are caught: 
+<h2>TYPE TEXT: Designing the url</h2>
+If you ask for the impossible, exceptions are thrown = Text is returned.
 <ul>
-  <li><a href="//">http://localhost:8888//</a> and <a href="///">http://localhost:8888///</a> and <a href="/nxt/">http://localhost:8888/nxt/</a> and <a href="/nxt/1000000">http://localhost:8888/nxt/1000000</a> or<em> any other wrongly formatted url</em></li>
+  <li><a href="/nxt/">http://localhost:8888/nxt/</a> and <a href="/nxt/1000000">http://localhost:8888/nxt/1000000</a> and <a href="http://localhost:8888//">http://localhost:8888//</a> and <a href="http://localhost:8888///">http://localhost:8888///</a> and or<em> any other wrongly formatted url</em></li>
   <li><a href="/wrongcoin">http://localhost:8888/wrongcoin</a></li>
   <li><a href="/nxt/abc.png">http://localhost:8888/nxt/abc.png</a></li>
   <li><a href="/nxt/1000000.tif">http://localhost:8888/nxt/1000000.tif</a></li>
@@ -20,14 +31,19 @@
   <li><a href="/nxt/1000000.gif?color=red">http://localhost:8888/nxt/1000000.gif?color=red</a></li>
   <li><a href="/nxt/10000000000000000.png">http://localhost:8888/nxt/10000000000000000.png</a></li>
 </ul>
-<p>Results in an image showing an error:</p>
+<h2>TYPE IMAGE: <em>Transient problems</em> ...</h2>
+<p>... are ending up as an image showing the error.</p>
 <ul>
   <li><a href="/nxt/0.png">http://localhost:8888/nxt/0.png</a></li>
   <li>if the apiserver is offline</li>
   <li>if the apiserver is not fully synced yet</li>
   <li>if the apiserver returns problems</li>
 </ul>
-<p>If you find uncaught errors, please tell me.</p>
+<p><small><small>Perhaps we should create a test droplet NRS which is half-synced, and the firewall disallows P2P access, but allows API access. Anyone wanna sponsor those 5 dollars per month?</small></small></p>
+<h2>TYPE CLEVER: If you find uncaught errors ...</h2>
+<p>... please tell us. </p>
+<p>It takes 1 to 5 minutes to <a href="https://github.com/altsheets/chaincountdown/issues">create an issue</a>. </p>
+<p>Please also report what you had <em>expected to get</em>, instead of the bug.</p>
 <hr />
 <p>Back to the <a href="/">main page</a></p>
 <p>&nbsp;</p>
