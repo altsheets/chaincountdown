@@ -1,4 +1,4 @@
-# chaincountdown.py v10
+# chaincountdown.py v12
 
 Time estimation to targetblock of nxt/hz. 
 
@@ -22,6 +22,12 @@ http://altsheets.ddns.net/assetgraphs/
 ## autostart
 
     README-serverinstall.txt
+    
+## docker
+
+See https://hub.docker.com/r/altsheets/chaincountdown/ and [Dockerfile]; and this is how to start the server:
+
+    docker run -p 8888:8888 altsheets/chaincountdown 
 
 ## license
 
