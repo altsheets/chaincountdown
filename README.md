@@ -25,7 +25,7 @@ http://altsheets.ddns.net/assetgraphs/
     
 ## docker
 
-See https://hub.docker.com/r/altsheets/chaincountdown/ and [Dockerfile]; and this is how to start the server:
+See https://hub.docker.com/r/altsheets/chaincountdown/ and [Dockerfile](Dockerfile); and this is how to start the server:
 
     docker run -p 8888:8888 altsheets/chaincountdown 
 
