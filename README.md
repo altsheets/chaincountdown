@@ -19,6 +19,8 @@ http://altsheets.ddns.net/assetgraphs/
 
     python server.py
 
+For dependencies, see the apt-get install part of the [Dockerfile](Dockerfile).
+
 ## autostart
 
     README-serverinstall.txt
