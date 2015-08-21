@@ -9,11 +9,9 @@ LABEL Password="First time you run your container, a random password is generate
 
 MAINTAINER @altsheets
 
-RUN apt-get -y update && apt-get -y install sudo python python-pip python-imaging git
+RUN apt-get -y update && apt-get -y install sudo python python-pip python-imaging git && sudo pip install Pillow
 
-RUN sudo pip install Pillow
 RUN git clone https://github.com/altsheets/chaincountdown
 
 EXPOSE 8888
-
 CMD ["python", "chaincountdown/server.py"]
