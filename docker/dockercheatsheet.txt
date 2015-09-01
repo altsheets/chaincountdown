@@ -30,7 +30,8 @@ docker run -p 8888:8888 -t -i altsheets/chaincountdown /bin/bash
 
 # set a root password for ssh login on the underlying tutum/debian:jessie 
 docker run -t -i altsheets/chaincountdown /set_root_pw.sh
-docker run -p 8888:8888 -t -i altsheets/chaincountdown
+docker run -p 8888:8888 -p 2222:22 -t -i altsheets/chaincountdown
+
 
 
 # remove all containers and images of altsheets/chaincountdown

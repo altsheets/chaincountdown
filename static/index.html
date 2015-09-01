@@ -31,8 +31,9 @@
 <p align="right"><span class="small">Quote of the day:</span> &quot; <strong class="serif3"><big> If you can break it, you have grokked it. </big></strong>&quot;<span class="small">  (AltSheetsDev 2015/08/10)</span></p></td>
     <td><h2 class="orange">@news</h2>
       <ul>
+        <li><a href="#history"><strong>v13:</strong></a> Docker magic</li>
         <li>v12: my very first <a href="https://github.com/altsheets/chaincountdown/blob/master/Dockerfile">Dockerfile</a> and Hub repo <a href="https://hub.docker.com/r/altsheets/chaincountdown/">altsheets/chaincountdown</a></li>
-        <li><strong><a href="#history" class="red">v11:</a></strong> &quot;<span class="orange"><strong><a href="#history" class="orange">Conceptual Thunderstorm</a></strong></span>&quot; </li>
+        <li>v11<strong>:</strong> &quot;<span class="orange"><strong><a href="#history" class="orange">Conceptual Thunderstorm</a></strong></span>&quot; </li>
         <li>v10: font &amp; static pages improvements</li>
         <li>v09 linux server install readme</li>
         <li>v08 much: new option font; refactoring: massive reorg of the code, cleaned up</li>
@@ -100,6 +101,20 @@
 <p>Sourcecode available on <a href="https://github.com/altsheets/chaincountdown" target="_blank">GitHub altsheets</a></p>
 <h2><small>@history:</small></h2>
 <ul>
+  <li>v13: Docker magic
+    <ul>
+      <li>learnt lots about Docker</li>
+      <li>see github <a href="https://github.com/altsheets/chaincountdown/tree/master/docker">chaincountdown/docker</a>: 
+        <ul>
+          <li><a href="https://github.com/altsheets/chaincountdown/blob/master/docker/clonethenrunserver.sh">clonethenrunserver.sh</a> is run inside the container</li>
+          <li><a href="https://github.com/altsheets/chaincountdown/blob/master/docker/dockerbuild.sh">dockerbuild.sh</a> builds a container from the <a href="https://github.com/altsheets/chaincountdown/blob/master/Dockerfile">Dockerfile</a></li>
+          <li><a href="https://github.com/altsheets/chaincountdown/blob/master/docker/dockercheatsheet.txt">dockercheatsheet.txt</a> = important and useful docker commands</li>
+          <li><a href="https://github.com/altsheets/chaincountdown/blob/master/docker/README.md">README.md</a> exlaining it all</li>
+        </ul>
+      </li>
+      <li>autostarting using systemd </li>
+    </ul>
+  </li>
   <li>v12: learning Docker. My very first <a href="https://github.com/altsheets/chaincountdown/blob/master/Dockerfile"></a>
     <ul>
       <li><a href="https://github.com/altsheets/chaincountdown/blob/master/Dockerfile">Dockerfile</a>, and </li>

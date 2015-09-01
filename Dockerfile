@@ -1,3 +1,4 @@
+
 FROM tutum/debian:jessie
 
 LABEL Name="ChainCountDown.py"
@@ -19,8 +20,9 @@ RUN apt-get -y update && apt-get -y install \
 RUN sudo pip install Pillow
 
 RUN wget https://raw.githubusercontent.com/altsheets/chaincountdown/master/docker/clonethenrunserver.sh
+RUN wget https://raw.githubusercontent.com/altsheets/chaincountdown/master/docker/withssh.sh
+RUN chmod u+x clonethenrunserver.sh withssh.sh
 
 EXPOSE 8888 22
 
 CMD ["/bin/sh", "clonethenrunserver.sh"]
-
