@@ -9,10 +9,27 @@ docker run -p 8888:8888 -t -i altsheets/chaincountdown
 # how to kill if not run with -t -i
 killall -9 docker 
 
-# remove all containers of image altsheets/chaincountdown
-docker rm -f $(docker ps -a | grep altsheets/chaincountdown | awk '{print $1}')
+# show all containers and images
+docker ps -a
+docker images
 
-# remove all altsheets/chaincountdown images
+# build from Dockerfile
+docker build -t altsheets/chaincountdown .
+
+# show intermediate build steps
+docker images -a
+
+# commit to dockerhub
+docker run -p 8888:8888 -t -i altsheets/chaincountdown  # then stop it with CTRL-C
+docker ps -a
+docker commit c6d2b5604ca9 altsheets/chaincountdown
+docker push altsheets/chaincountdown
+
+# start interactive shell inside container
+docker run -p 8888:8888 -t -i altsheets/chaincountdown /bin/bash
+
+# remove all containers and images of altsheets/chaincountdown
+docker rm -f $(docker ps -a | grep altsheets/chaincountdown | awk '{print $1}')
 docker rmi $(docker images -q altsheets/chaincountdown)
 
 # remove containers newer than 58905720e2d3
@@ -22,7 +39,6 @@ docker rm $(docker ps -q --since 58905720e2d3)
 docker rm -f $(docker ps -a -q)
 docker rmi $(docker images -q)
 
-## very good docker cheat sheets at:
+## long docker cheat sheet at:
 https://github.com/wsargent/docker-cheat-sheet
-
 

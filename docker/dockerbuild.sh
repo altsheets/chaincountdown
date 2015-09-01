@@ -24,9 +24,14 @@ cd dockerCCD
 rm -f Dockerfile*
 wget https://raw.githubusercontent.com/altsheets/chaincountdown/master/Dockerfile
 
+# build from that Dockerfile
 docker build -t altsheets/chaincountdown .
+
+# run
 docker run -p 8888:8888 -t -i altsheets/chaincountdown
 
+
+# show the cheat sheet
 rm -f dockercheatsheet.txt*
 wget -q https://raw.githubusercontent.com/altsheets/chaincountdown/master/docker/dockercheatsheet.txt
 cat dockercheatsheet.txt

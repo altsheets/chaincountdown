@@ -1,5 +1,13 @@
 # docker related
 
+## start manually
+    docker run -p 8888:8888 -t -i altsheets/chaincountdown
+
+## start with systemd
+not ready yet
+
+    cp chaincountdown_systemd.service /etc/systemd/system
+
 ## Dockerfile
 The [Dockerfile](../Dockerfile) contains all instructions for building the 452MB image 'altsheets/chaincountdown'
 
