@@ -27,6 +27,7 @@ wget https://raw.githubusercontent.com/altsheets/chaincountdown/master/Dockerfil
 docker build -t altsheets/chaincountdown .
 docker run -p 8888:8888 -t -i altsheets/chaincountdown
 
+rm -f dockercheatsheet.txt*
 wget -q https://raw.githubusercontent.com/altsheets/chaincountdown/master/docker/dockercheatsheet.txt
 cat dockercheatsheet.txt
 
