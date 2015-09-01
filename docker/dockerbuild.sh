@@ -2,10 +2,11 @@ echo
 echo dockerbuild.sh for altsheets/chaincountdown
 echo
 echo This creates folder dockerCCD if not exist, 
-echo cd's into it,
-echo wget's the Dockerfile, and
+echo cd s into it,
+echo wget s the Dockerfile, and
 echo builds the image, and 
 echo starts the container.
+echo
 echo If you do not want to continue, press CTRL-C.
 echo If you want to continue, press ENTER
 read
