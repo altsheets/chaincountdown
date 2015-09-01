@@ -1,4 +1,3 @@
-
 FROM tutum/debian:jessie
 
 LABEL Name="ChainCountDown.py"
@@ -9,10 +8,16 @@ LABEL Password="First time you run your container, a random password is generate
 
 MAINTAINER @altsheets
 
-RUN apt-get -y update && apt-get -y install sudo python python-pip python-imaging git && sudo pip install Pillow
+RUN apt-get -y update
+RUN apt-get -y install sudo python python-pip python-imaging git wget
+RUN sudo pip install Pillow
+
+RUN rm -f /usr/local/bin/run.sh
+RUN wget https://raw.githubusercontent.com/altsheets/chaincountdown/master/docker/run.sh --output-document=/usr/local/bin/run.sh
+RUN chmod u+x /usr/local/bin/run.sh
 
 EXPOSE 8888
 
 # at each start, delete folder, get new git clone, start server:
+CMD ["run.sh"]
 
-CMD ["/bin/sh", "-c", "'rm -r chaincountdown; git clone https://github.com/altsheets/chaincountdown && python chaincountdown/server.py'"]
