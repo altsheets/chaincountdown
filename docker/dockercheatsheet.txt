@@ -22,11 +22,16 @@ docker images -a
 # commit to dockerhub
 docker run -p 8888:8888 -t -i altsheets/chaincountdown  # then stop it with CTRL-C
 docker ps -a
-docker commit 847d8b583f15 altsheets/chaincountdown
+docker commit 863c4a77c6d8 altsheets/chaincountdown
 docker push altsheets/chaincountdown
 
 # start interactive shell inside container
 docker run -p 8888:8888 -t -i altsheets/chaincountdown /bin/bash
+
+# set a root password for ssh login on the underlying tutum/debian:jessie 
+docker run -t -i altsheets/chaincountdown /set_root_pw.sh
+docker run -p 8888:8888 -t -i altsheets/chaincountdown
+
 
 # remove all containers and images of altsheets/chaincountdown
 docker rm -f $(docker ps -a | grep altsheets/chaincountdown | awk '{print $1}')
