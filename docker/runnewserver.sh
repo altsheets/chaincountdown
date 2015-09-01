@@ -4,7 +4,7 @@
 
 # remove if exists
 FOLDER="chaincountdown"
-[-d $FOLDER] && rm -r $FOLDER
+[ -d "$FOLDER" ] && rm -r $FOLDER
 
 # clone newest version from github  
 /usr/bin/git clone https://github.com/altsheets/chaincountdown
