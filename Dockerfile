@@ -13,11 +13,11 @@ RUN apt-get -y install sudo python python-pip python-imaging git wget
 RUN sudo pip install Pillow
 
 RUN rm -f /usr/local/bin/run.sh
-RUN wget https://raw.githubusercontent.com/altsheets/chaincountdown/master/docker/run.sh --output-document=/usr/local/bin/run.sh
+RUN wget https://raw.githubusercontent.com/altsheets/chaincountdown/master/docker/runnewserver.sh --output-document=/usr/local/bin/runnewserver.sh
 RUN chmod u+x /usr/local/bin/run.sh
 
 EXPOSE 8888
 
 # at each start, delete folder, get new git clone, start server:
-CMD ["run.sh"]
+CMD ["runnewserver.sh"]
 
