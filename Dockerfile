@@ -1,4 +1,4 @@
-ROM tutum/debian:jessie
+FROM tutum/debian:jessie
 
 LABEL Name="ChainCountDown.py"
 LABEL Description="A Blockchain aware countdown timer - rendered as a configurable image. Comes with its own webserver."
