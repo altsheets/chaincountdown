@@ -1,0 +1,18 @@
+# run server
+# exposing port of the guest to the same port on the host 
+# with TTY and interactively (so that CTRL-C works to stop the server)
+docker run -p 8888:8888 -t -i altsheets/chaincountdown
+
+# how to kill if not run with -t -i
+killall -9 docker 
+
+# remove all containers of image altsheets/chaincountdown
+docker rm -f $(docker ps -a | grep altsheets/chaincountdown | awk '{print $1}')
+
+# remove all altsheets/chaincountdown images
+docker rmi $(docker images -q altsheets/chaincountdown)
+
+## remove all containers and all images
+docker rm -f $(docker ps -a -q)
+docker rmi $(docker images -q)
+
