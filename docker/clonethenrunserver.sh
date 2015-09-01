@@ -11,6 +11,7 @@ then
    cd $FOLDER
    echo Updating to newest source code from GitHub:
    /usr/bin/git pull
+   cd ..
 else
    echo Cloning newest source code from GitHub:
    /usr/bin/git clone https://github.com/altsheets/chaincountdown

@@ -22,7 +22,7 @@ docker images -a
 # commit to dockerhub
 docker run -p 8888:8888 -t -i altsheets/chaincountdown  # then stop it with CTRL-C
 docker ps -a
-docker commit c6d2b5604ca9 altsheets/chaincountdown
+docker commit 847d8b583f15 altsheets/chaincountdown
 docker push altsheets/chaincountdown
 
 # start interactive shell inside container
