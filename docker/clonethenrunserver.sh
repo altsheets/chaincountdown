@@ -14,7 +14,7 @@ echo Cloning newest source code from GitHub:
 /usr/bin/git clone https://github.com/altsheets/chaincountdown
 
 echo Starting Server:
-echo If you have started the container with -t .. just press CTRL-C to stop. 
-echo If not .. then you have to kill it with 'killall -9 docker'.
+echo If you have started the container with '-t' ... press CTRL-C to stop. 
+echo If not ... then you have to kill it with 'killall -9 docker'.
 echo 
 /usr/bin/python chaincountdown/server.py
