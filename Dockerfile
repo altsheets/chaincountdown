@@ -12,4 +12,9 @@ MAINTAINER @altsheets
 RUN apt-get -y update && apt-get -y install sudo python python-pip python-imaging git && sudo pip install Pillow
 
 EXPOSE 8888
-CMD ["sh", "-c 'rm -r chaincountdown; git clone https://github.com/altsheets/chaincountdown && python chaincountdown/server.py'"]
+
+# at each start, delete folder, get new git clone, start server:
+
+CMD ["/bin/sh", 
+     "-c", 
+     "'rm -r chaincountdown; git clone https://github.com/altsheets/chaincountdown && python chaincountdown/server.py'"]
