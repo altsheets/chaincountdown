@@ -1,3 +1,6 @@
+
+# docker cheat sheet
+
 # run server
 # exposing port of the guest to the same port on the host 
 # with TTY and interactively (so that CTRL-C works to stop the server)
