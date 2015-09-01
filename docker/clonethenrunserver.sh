@@ -2,7 +2,9 @@
 # and when I try to trick it with 'sh -c ...' the CTRL-C stopped working
 # this file gets executed at each start of the docker container
 
-
+echo 
+echo CMD clonethenrunserver.sh
+echo 
 FOLDER="chaincountdown"
 if [ -d $FOLDER ];
 then
