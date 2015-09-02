@@ -100,97 +100,106 @@
 <h2><small><a name="history" id="history"></a></small>@version <strong><span class="red">v12</span></strong> &quot;<span class="orange">Winner #1: AltSheets</span>&quot; <span class="small">at 2015/08/21 12:50 UTC ~ nxt-block 502679 = hz-block 428044</span></h2>
 <p>Sourcecode available on <a href="https://github.com/altsheets/chaincountdown" target="_blank">GitHub altsheets</a></p>
 <h2><small>@history:</small></h2>
+<p>v13: Docker magic
+</p>
 <ul>
-  <li>v13: Docker magic
+  <li>learnt lots more about Docker, powerful stuff ... and applied it:</li>
+  <li>see github <a href="https://github.com/altsheets/chaincountdown/tree/master/docker">chaincountdown/docker</a> for these files, and more info on:
     <ul>
-      <li>learnt lots about Docker</li>
-      <li>see github <a href="https://github.com/altsheets/chaincountdown/tree/master/docker">chaincountdown/docker</a>: 
+      <li><a href="https://github.com/altsheets/chaincountdown/blob/master/docker/clonethenrunserver.sh">clonethenrunserver.sh</a> is running inside the container
         <ul>
-          <li><a href="https://github.com/altsheets/chaincountdown/blob/master/docker/clonethenrunserver.sh">clonethenrunserver.sh</a> is run inside the container</li>
-          <li><a href="https://github.com/altsheets/chaincountdown/blob/master/docker/dockerbuild.sh">dockerbuild.sh</a> builds a container from the <a href="https://github.com/altsheets/chaincountdown/blob/master/Dockerfile">Dockerfile</a></li>
-          <li><a href="https://github.com/altsheets/chaincountdown/blob/master/docker/dockercheatsheet.txt">dockercheatsheet.txt</a> = important and useful docker commands</li>
-          <li><a href="https://github.com/altsheets/chaincountdown/blob/master/docker/README.md">README.md</a> exlaining it all</li>
+          <li>it cleverly clones the newest source code from github, before it starts the CCD server</li>
+          <li>and alternatively, <a href="https://github.com/altsheets/chaincountdown/blob/master/docker/withssh.sh">withssh.sh</a> additionally allows for ssh access into the docker container</li>
         </ul>
       </li>
-      <li>autostarting using systemd </li>
+      <li><a href="https://github.com/altsheets/chaincountdown/blob/master/docker/dockerbuild.sh">dockerbuild.sh</a> is building an image from the <a href="https://github.com/altsheets/chaincountdown/blob/master/Dockerfile">Dockerfile</a></li>
+      <li><a href="https://github.com/altsheets/chaincountdown/blob/master/docker/dockercheatsheet.txt">dockercheatsheet.txt</a> = useful docker commands</li>
+      <li><a href="https://github.com/altsheets/chaincountdown/blob/master/docker/README.md">README.md</a> exlaining it all</li>
     </ul>
   </li>
-  <li>v12: learning Docker. My very first <a href="https://github.com/altsheets/chaincountdown/blob/master/Dockerfile"></a>
+  <li>autostarting using systemd
     <ul>
-      <li><a href="https://github.com/altsheets/chaincountdown/blob/master/Dockerfile">Dockerfile</a>, and </li>
-      <li>DockerHub repository <a href="https://hub.docker.com/r/altsheets/chaincountdown/">altsheets/chaincountdown</a></li>
-      <li>and a lot of extra learning, because &quot;<a href="https://github.com/docker/docker/issues/15741">Windows is different</a>&quot; again :-)</li>
-      <li>already have an idea for an even better Dockerfile - one which always pulls the newest sourcecode from github. Next time ...</li>
-      <li>oh, and actually: <a href="http://altsheets.ddns.net/nxthacks2015/"><strong>I have won the nxthacks2015</strong></a>, the voting poll of which was the inspiration for this chaincountdown.</li>
+      <li><a href="https://github.com/altsheets/chaincountdown/blob/master/docker/chaincountdown.service">chaincountdown.service</a> for systemd.</li>
+      <li><a href="https://github.com/altsheets/chaincountdown/tree/master/docker#start-with-systemd">instructions</a> how to install it.</li>
     </ul>
   </li>
-  <li>v11: &quot;Conceptual Thunderstorm&quot; - coding in the old programming language &quot;English&quot;:
-    <ul>
-      <li>new <a href="architecture.html">architecture.html</a>
-      </li>
-    </ul>
-  </li>
-  <ul>
-    <li>new <a href="todo.html"> todo.html</a></li>
-    <li>better <a href="errors.html">errors.html</a></li>
-    <li>github <a href="https://github.com/altsheets/chaincountdown/wiki">wikiwiki</a></li>
-    <li>github <a href="https://github.com/altsheets/chaincountdown/issues">issues</a></li>
-    <li><small><small>I started this session (the 3rd after waking up 26 hours ago) in a <a href="https://en.wikipedia.org/wiki/Mind_map">MINDMAP software</a></small></small>.</li>
-    </li>
-    <li>What inspired me much ... to still continue, and happily... was this reaction : <br />
-      &quot; <span class="serif3">It works! This is awesome. Tomorrow, i will make it work for ethereum</span>. &quot;<br />
-      Thanks! Feedback is a booster ...<br />
-  <p>&nbsp;</p>
-    </li>
-  </ul>
-  <li>v10: Fonts &amp; Static pages - detected automatically:
-    <ul>
-      <li>all fontnames &amp; static files are collected at startup</li>
-      <li>new modules: helpers.py,  imaging_tests.py</li>
-      <li>two new image generators:
-        <ul>
-          <li><a href="#allfonts">all available fonts - 'allfonts.png'</a> image is re-rendered when you call: python imaging.py</li>
-          <li>all fonts with increasing size (to test minimum readable fontsize). Call: python imaging_tests.py</li>
-        </ul>
-      </li>
-      <li>new static page: <a href="errors.html">errors.html</a> with all errors that are caught</li>
-    </ul>
-  </li>
-  <li>v09: all automatic now:
-    <ul>
-      <li>at startup, prints folders, username, and current time, good for --&gt; </li>
-      <li>logging</li>
-      <li>README-serverinstall.txt
-        <ul>
-          <li>starts the webserver not as root but as dedicated user</li>
-        </ul>
-      </li>
-    </ul>
-  </li>
-  <li>v08: beta is ending ...
-    <ul>
-      <li>refactoring: cleaned up, lots of comments, massive reorg of the code, more readable</li>
-      <li>now 4 modules: config, imaging, server, chaincountdown</li>
-      <li>new option: font</li>
-      <li>better suggestion when wrong url format</li>
-      <li>server searches always in local folder</li>
-      <li>specific http errors for each failure (5 different error codes)</li>
-      <li>new manuals: README.md, error-handling.html</li>
-    </ul>
-  </li>
-  <li>v07: Oops, <em>that is why</em> my target time kept on moving away so fast (-:
-    <ul>
-      <li>the NXT-blocktime is not 1 minute, but 1.9005 minutes during the past 5000 blocks. </li>
-      <li>        similar
-      for HZ: 1.7861 minutes during the past 5000 blocks.</li>
-      
-      <li>Hardcoding those numbers - for now. </li>
-      <li>Yippieh, that gives us many more days until the voting concludes at height 495997</li>
-    </ul>
-  </li>
-  <li>v06: Ready. Told people about this in the slack.</li>
-  <li>v04: This manual page.</li>
 </ul>
+<p>v12: ... learning Docker. My very first <a href="https://github.com/altsheets/chaincountdown/blob/master/Dockerfile"></a>
+</p>
+<ul>
+  <li><a href="https://github.com/altsheets/chaincountdown/blob/master/Dockerfile">Dockerfile</a>, and </li>
+  <li>DockerHub repository <a href="https://hub.docker.com/r/altsheets/chaincountdown/">altsheets/chaincountdown</a></li>
+  <li>and a lot of extra learning, because &quot;<a href="https://github.com/docker/docker/issues/15741">Windows is different</a>&quot; again :-)</li>
+  <li>already have an idea for an even better Dockerfile - one which always pulls the newest sourcecode from github. Next time ...</li>
+  <li><strong>oh, and actually *lol*<a href="http://altsheets.ddns.net/nxthacks2015/"> ...<br />
+  I have won the nxthacks2015</a> - the voting poll of which was the inspiration for this chaincountdown.</strong></li>
+</ul>
+<p>v11: &quot;Conceptual Thunderstorm&quot; - coding in the old programming language &quot;English&quot;:
+</p>
+<ul>
+  <li>new <a href="architecture.html">architecture.html</a>
+  </li>
+  <li>new <a href="todo.html"> todo.html</a></li>
+  <li>better <a href="errors.html">errors.html</a></li>
+  <li>github <a href="https://github.com/altsheets/chaincountdown/wiki">wikiwiki</a></li>
+  <li>github <a href="https://github.com/altsheets/chaincountdown/issues">issues</a></li>
+  <li><small><small>I started this session (the 3rd after waking up 26 hours ago) in a <a href="https://en.wikipedia.org/wiki/Mind_map">MINDMAP software</a></small></small>.
+    <p>
+      </li>
+    </p>
+  </li>
+  <li>What inspired me much ... to still continue, and happily... was this reaction : <br />
+    &quot; <span class="serif3">It works! This is awesome. Tomorrow, i will make it work for ethereum</span>. &quot;<br />
+    Thanks! Feedback is a booster ...<br />
+    <p>&nbsp;</p>
+  </li>
+</ul>
+<p>v10: Fonts &amp; Static pages - detected automatically:
+</p>
+<ul>
+  <li>all fontnames &amp; static files are collected at startup</li>
+  <li>new modules: helpers.py,  imaging_tests.py</li>
+  <li>two new image generators:
+    <ul>
+      <li><a href="#allfonts">all available fonts - 'allfonts.png'</a> image is re-rendered when you call: python imaging.py</li>
+      <li>all fonts with increasing size (to test minimum readable fontsize). Call: python imaging_tests.py</li>
+    </ul>
+  </li>
+  <li>new static page: <a href="errors.html">errors.html</a> with all errors that are caught</li>
+</ul>
+<p>v09: all automatic now:
+</p>
+<ul>
+  <li>at startup, prints folders, username, and current time, good for --&gt; </li>
+  <li>logging</li>
+  <li>README-serverinstall.txt
+    <ul>
+      <li>starts the webserver not as root but as dedicated user</li>
+    </ul>
+  </li>
+</ul>
+<p>v08: beta is ending ...
+</p>
+<ul>
+  <li>refactoring: cleaned up, lots of comments, massive reorg of the code, more readable</li>
+  <li>now 4 modules: config, imaging, server, chaincountdown</li>
+  <li>new option: font</li>
+  <li>better suggestion when wrong url format</li>
+  <li>server searches always in local folder</li>
+  <li>specific http errors for each failure (5 different error codes)</li>
+  <li>new manuals: README.md, error-handling.html</li>
+</ul>
+<p>v07: Oops, <em>that is why</em> my target time kept on moving away so fast (-:
+</p>
+<ul>
+  <li>the NXT-blocktime is not 1 minute, but 1.9005 minutes during the past 5000 blocks. </li>
+  <li>        similar
+    for HZ: 1.7861 minutes during the past 5000 blocks.</li>
+  <li>Hardcoding those numbers - for now. </li>
+  <li>Yippieh, that gives us many more days until the voting concludes at height 495997</li>
+</ul>
+<p>v06: Ready. Told people about this in the slack.</p>
+<p>v04: This manual page.</p>
 <hr />
 <h3>  @author: AltSheets </h3>
 <h3><a name="giveback" id="giveback"></a>@license (c) 2015</h3>

@@ -1,11 +1,13 @@
-# chaincountdown.py v12
+# chaincountdown.py v13
 
 Time estimation to targetblock of nxt/hz. 
 
-Image rendered at request. Comes with httpserver.  
+Image rendered at request. Comes with httpserver.
 Choose heading, fontsizes, fontface, colors.
 
 Built for for the nxthacks voting, and beyond.
+
+**New:** Complete docker solution, incl. systemd autostart!
 
 ## shortversion
 
@@ -23,13 +25,22 @@ For dependencies, see the apt-get install part of the [Dockerfile](Dockerfile).
 
 ## autostart
 
-    README-serverinstall.txt
+See the [README-serverinstall.txt](README-serverinstall.txt) or use a docker image: ...
     
 ## docker
 
-See https://hub.docker.com/r/altsheets/chaincountdown/ and [Dockerfile](Dockerfile); and this is how to start the server:
+See https://hub.docker.com/r/altsheets/chaincountdown/ and [Dockerfile](Dockerfile) and [docker/README.md](docker/README.md).  
 
-    docker run -p 8888:8888 altsheets/chaincountdown 
+Start the server manually:
+
+    docker run -p 8888:8888 -t -i altsheets/chaincountdown
+    
+Autostart as **systemd** service - for details see [docker#start-with-systemd](docker#start-with-systemd)
+
+	wget https://raw.githubusercontent.com/altsheets/chaincountdown/master/docker/chaincountdown.service
+    sudo cp chaincountdown.service /etc/systemd/system
+    sudo systemctl enable /etc/systemd/system/chaincountdown.service
+    reboot
 
 ## license
 

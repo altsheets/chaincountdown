@@ -8,22 +8,29 @@
 See [tutum/debian](https://github.com/tutumcloud/tutum-debian) for details.
 
 ## start with systemd
-create service
+Do all this as root:  
+
+Create service
 
 	wget https://raw.githubusercontent.com/altsheets/chaincountdown/master/docker/chaincountdown.service
-    sudo cp chaincountdown.service /etc/systemd/system
+    cp chaincountdown.service /etc/systemd/system
+    systemctl enable /etc/systemd/system/chaincountdown.service
     
-    sudo systemctl enable /etc/systemd/system/chaincountdown.service
-    sudo systemctl start chaincountdown.service
-    
-see logging
+Test it manually
 
+    systemctl start chaincountdown.service
     journalctl -f -n 25 -u chaincountdown.service
-    
-remove it
+    systemctl stop chaincountdown.service
+    journalctl -f -n 25 -u chaincountdown.service
 
-    sudo systemctl stop chaincountdown.service
-    sudo systemctl disable /etc/systemd/system/chaincountdown.service
+Test autorun
+
+	reboot
+	journalctl -f -n 25 -u chaincountdown.service
+	 
+Remove it
+
+    systemctl disable /etc/systemd/system/chaincountdown.service
     rm /etc/systemd/system/chaincountdown.service
 
    
