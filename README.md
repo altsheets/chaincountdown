@@ -21,7 +21,7 @@ http://altsheets.ddns.net/assetgraphs/
 
     python server.py
 
-For dependencies, see the apt-get install part of the [Dockerfile](Dockerfile).
+For dependencies, see the apt-get install part of the [Dockerfile](docker/Dockerfile).
 
 ## autostart
 
@@ -29,7 +29,7 @@ See the [daemon/README-serverinstall.txt](daemon/README-serverinstall.txt) or us
     
 ## docker
 
-See https://hub.docker.com/r/altsheets/chaincountdown/ and [Dockerfile](docker/Dockerfile) and [docker/README.md](docker/README.md).  
+See [DockerHub](https://hub.docker.com/r/altsheets/chaincountdown/) and [Dockerfile](docker/Dockerfile) and [docker/README.md](docker/README.md).  
 
 Start the server manually:
 
