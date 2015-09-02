@@ -3,8 +3,15 @@
 
 # run server
 # exposing port of the guest to the same port on the host 
-# with TTY and interactively (so that CTRL-C works to stop the server)
+# with TTY and interactively so that CTRL-C works to stop the server
 docker run -p 8888:8888 -t -i altsheets/chaincountdown
+
+# run server
+# with random root password for ssh login on the underlying tutum/debian:jessie 
+docker run -p 8888:8888 -p 2222:22 -t -i altsheets/chaincountdown sh withssh.sh
+
+# end with:
+# CTRL-C
 
 # how to kill if not run with -t -i
 killall -9 docker 
@@ -26,15 +33,10 @@ docker commit 863c4a77c6d8 altsheets/chaincountdown
 docker push altsheets/chaincountdown
 
 # start interactive shell inside container
-docker run -p 8888:8888 -t -i altsheets/chaincountdown /bin/bash
-
-# set a root password for ssh login on the underlying tutum/debian:jessie 
-docker run -t -i altsheets/chaincountdown /set_root_pw.sh
-docker run -p 8888:8888 -p 2222:22 -t -i altsheets/chaincountdown
-
-
+docker run -p 8888:8888 -p 2222:22 -t -i altsheets/chaincountdown /bin/bash
 
 # remove all containers and images of altsheets/chaincountdown
+# good for removing recent built without loosing all previous steps
 docker rm -f $(docker ps -a | grep altsheets/chaincountdown | awk '{print $1}')
 docker rmi $(docker images -q altsheets/chaincountdown)
 

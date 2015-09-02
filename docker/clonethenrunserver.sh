@@ -5,10 +5,6 @@ echo
 echo CMD clonethenrunserver.sh
 echo 
 
-echo Starting the sshd daemon to allow ssh login into this container
-echo See tutum/debian for more details
-/usr/sbin/sshd -D &
-
 FOLDER="chaincountdown"
 if [ -d $FOLDER ];
 then

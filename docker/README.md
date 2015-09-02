@@ -2,6 +2,10 @@
 
 ## start manually
     docker run -p 8888:8888 -t -i altsheets/chaincountdown
+    
+## start manually with ssh login
+    docker run -p 8888:8888 -p 2222:22 -t -i altsheets/chaincountdown sh withssh.sh
+See [tutum/debian](https://github.com/tutumcloud/tutum-debian) for details.
 
 ## start with systemd
 not ready yet
