@@ -18,9 +18,10 @@ else
 fi
 
 echo
-echo Starting Server:
+echo Starting Server. Hints how to stop it:
 echo If you have started the container with -t -i ... press CTRL-C to stop. 
 echo If not ... then you have to kill it with 'killall -9 docker'.
+echo If started with systemd, then: systemctl stop chaincountdown.service
 echo
  
 /usr/bin/python chaincountdown/server.py
