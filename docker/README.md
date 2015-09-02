@@ -11,14 +11,14 @@ See [tutum/debian](https://github.com/tutumcloud/tutum-debian) for details.
 create service
 
 	wget https://raw.githubusercontent.com/altsheets/chaincountdown/master/docker/chaincountdown.service
-    cp chaincountdown.service /etc/systemd/system
+    sudo cp chaincountdown.service /etc/systemd/system
     
     sudo systemctl enable /etc/systemd/system/chaincountdown.service
     sudo systemctl start chaincountdown.service
     
 see logging
 
-    journalctl -f -u chaincountdown.service
+    journalctl -f -n 25 -u chaincountdown.service
     
 remove it
 
