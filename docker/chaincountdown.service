@@ -1,0 +1,13 @@
+[Unit]
+Description=AltSheets ChainCountDown Server
+Requires=docker.service
+After=docker.service
+
+[Service]
+Restart=always
+ExecStartPre=-/usr/bin/docker kill ASCCD
+ExecStart=/usr/bin/docker run -p 8888:8888 --name ASCCD altsheets/chaincountdown
+ExecStop=/usr/bin/docker stop -t 2 ASCCD ; /usr/bin/docker rm -f ASCCD
+
+[Install]
+WantedBy=local.target
