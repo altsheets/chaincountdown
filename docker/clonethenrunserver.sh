@@ -17,6 +17,11 @@ else
    /usr/bin/git clone https://github.com/altsheets/chaincountdown
 fi
 
+echo 
+echo Generating overview image allfonts.png
+echo 
+/usr/bin/python chaincountdown/imaging.py
+
 echo
 echo Starting Server. Hints how to stop it:
 echo If you have started the container with -t -i ... press CTRL-C to stop. 
