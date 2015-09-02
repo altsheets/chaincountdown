@@ -25,7 +25,7 @@ For dependencies, see the apt-get install part of the [Dockerfile](Dockerfile).
 
 ## autostart
 
-See the [README-serverinstall.txt](README-serverinstall.txt) or use a docker image: ...
+See the [daemon/README-serverinstall.txt](daemon/README-serverinstall.txt) or use a docker image: ...
     
 ## docker
 
