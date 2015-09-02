@@ -29,7 +29,7 @@ See the [daemon/README-serverinstall.txt](daemon/README-serverinstall.txt) or us
     
 ## docker
 
-See https://hub.docker.com/r/altsheets/chaincountdown/ and [Dockerfile](Dockerfile) and [docker/README.md](docker/README.md).  
+See https://hub.docker.com/r/altsheets/chaincountdown/ and [Dockerfile](docker/Dockerfile) and [docker/README.md](docker/README.md).  
 
 Start the server manually:
 

@@ -22,7 +22,7 @@ fi
 cd dockerCCD
 
 rm -f Dockerfile*
-wget https://raw.githubusercontent.com/altsheets/chaincountdown/master/Dockerfile
+wget https://raw.githubusercontent.com/altsheets/chaincountdown/master/docker/Dockerfile
 
 # build from that Dockerfile
 docker build -t altsheets/chaincountdown .

@@ -33,10 +33,9 @@ Remove it
     systemctl disable /etc/systemd/system/chaincountdown.service
     rm /etc/systemd/system/chaincountdown.service
 
-   
 
 ## Dockerfile
-The [Dockerfile](../Dockerfile) contains all instructions for building the 452MB image 'altsheets/chaincountdown'
+The [Dockerfile](Dockerfile) contains all instructions for building the 454MB image '[altsheets/chaincountdown](https://hub.docker.com/r/altsheets/chaincountdown/)' (hosted at DockerHub).
 
 ## dockerbuild.sh for altsheets/chaincountdown
 [dockerbuild.sh](dockerbuild.sh) creates folder dockerCCD (if not exist), cd's into it, wget's the Dockerfile, builds the image, and starts the container.
