@@ -1,0 +1,352 @@
+<?xml version="1.0" encoding="ascii"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+          "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>imaging</title>
+  <link rel="stylesheet" href="epydoc.css" type="text/css" />
+  <script type="text/javascript" src="epydoc.js"></script>
+</head>
+
+<body bgcolor="white" text="black" link="blue" vlink="#204080"
+      alink="#204080">
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+      <th class="navbar" width="100%"></th>
+  </tr>
+</table>
+<table width="100%" cellpadding="0" cellspacing="0">
+  <tr valign="top">
+    <td width="100%">
+      <span class="breadcrumbs">
+        Module&nbsp;imaging
+      </span>
+    </td>
+    <td>
+      <table cellpadding="0" cellspacing="0">
+        <!-- hide/show private -->
+        <tr><td align="right"><span class="options">[<a href="javascript:void(0);" class="privatelink"
+    onclick="toggle_private();">hide&nbsp;private</a>]</span></td></tr>
+        <tr><td align="right"><span class="options"
+            >[<a href="frames.html" target="_top">frames</a
+            >]&nbsp;|&nbsp;<a href="imaging-pysrc.html"
+            target="_top">no&nbsp;frames</a>]</span></td></tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<h1 class="epydoc">Source Code for <a href="imaging-module.html">Module imaging</a></h1>
+<pre class="py-src">
+<a name="L1"></a><tt class="py-lineno">  1</tt>  <tt class="py-line"><tt class="py-comment">#!/usr/bin/python</tt> </tt>
+<a name="L2"></a><tt class="py-lineno">  2</tt>  <tt class="py-line"><tt class="py-docstring">'''</tt> </tt>
+<a name="L3"></a><tt class="py-lineno">  3</tt>  <tt class="py-line"><tt class="py-docstring">@title:   imaging.py </tt> </tt>
+<a name="L4"></a><tt class="py-lineno">  4</tt>  <tt class="py-line"><tt class="py-docstring">@summary: make image from text</tt> </tt>
+<a name="L5"></a><tt class="py-lineno">  5</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L6"></a><tt class="py-lineno">  6</tt>  <tt class="py-line"><tt class="py-docstring">@author:  AltSheets</tt> </tt>
+<a name="L7"></a><tt class="py-lineno">  7</tt>  <tt class="py-line"><tt class="py-docstring">@version: v10</tt> </tt>
+<a name="L8"></a><tt class="py-lineno">  8</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L9"></a><tt class="py-lineno">  9</tt>  <tt class="py-line"><tt class="py-docstring">@license  Giveback license v05 http://altsheets.ddns.net/give/</tt> </tt>
+<a name="L10"></a><tt class="py-lineno"> 10</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L11"></a><tt class="py-lineno"> 11</tt>  <tt class="py-line"><tt class="py-docstring">@requires config.py</tt> </tt>
+<a name="L12"></a><tt class="py-lineno"> 12</tt>  <tt class="py-line"><tt class="py-docstring">@see      chaincountdown.py for explanations &amp; donation addresses</tt> </tt>
+<a name="L13"></a><tt class="py-lineno"> 13</tt>  <tt class="py-line"><tt class="py-docstring"> </tt> </tt>
+<a name="L14"></a><tt class="py-lineno"> 14</tt>  <tt class="py-line"><tt class="py-docstring">'''</tt> </tt>
+<a name="L15"></a><tt class="py-lineno"> 15</tt>  <tt class="py-line"> </tt>
+<a name="L16"></a><tt class="py-lineno"> 16</tt>  <tt class="py-line"><tt class="py-keyword">from</tt> <tt id="link-0" class="py-name" targets="Module config=config-module.html"><a title="config" class="py-name" href="#" onclick="return doclink('link-0', 'config', 'link-0');">config</a></tt> <tt class="py-keyword">import</tt> <tt id="link-1" class="py-name" targets="Variable config.IMAGEDEFAULTS=config-module.html#IMAGEDEFAULTS,Variable imaging.IMAGEDEFAULTS=imaging-module.html#IMAGEDEFAULTS,Variable server.IMAGEDEFAULTS=server-module.html#IMAGEDEFAULTS"><a title="config.IMAGEDEFAULTS
+imaging.IMAGEDEFAULTS
+server.IMAGEDEFAULTS" class="py-name" href="#" onclick="return doclink('link-1', 'IMAGEDEFAULTS', 'link-1');">IMAGEDEFAULTS</a></tt><tt class="py-op">,</tt> <tt id="link-2" class="py-name" targets="Variable config.TEXTSAMPLE=config-module.html#TEXTSAMPLE,Variable imaging.TEXTSAMPLE=imaging-module.html#TEXTSAMPLE,Variable imaging_tests.TEXTSAMPLE=imaging_tests-module.html#TEXTSAMPLE"><a title="config.TEXTSAMPLE
+imaging.TEXTSAMPLE
+imaging_tests.TEXTSAMPLE" class="py-name" href="#" onclick="return doclink('link-2', 'TEXTSAMPLE', 'link-2');">TEXTSAMPLE</a></tt><tt class="py-op">,</tt> <tt id="link-3" class="py-name" targets="Variable config.FONTDIR=config-module.html#FONTDIR,Variable imaging.FONTDIR=imaging-module.html#FONTDIR"><a title="config.FONTDIR
+imaging.FONTDIR" class="py-name" href="#" onclick="return doclink('link-3', 'FONTDIR', 'link-3');">FONTDIR</a></tt><tt class="py-op">,</tt> <tt id="link-4" class="py-name" targets="Variable config.FONTS=config-module.html#FONTS,Variable imaging.FONTS=imaging-module.html#FONTS,Variable imaging_tests.FONTS=imaging_tests-module.html#FONTS,Variable server.FONTS=server-module.html#FONTS"><a title="config.FONTS
+imaging.FONTS
+imaging_tests.FONTS
+server.FONTS" class="py-name" href="#" onclick="return doclink('link-4', 'FONTS', 'link-4');">FONTS</a></tt><tt class="py-op">,</tt> <tt id="link-5" class="py-name" targets="Variable config.FONTMINIMA=config-module.html#FONTMINIMA,Variable imaging.FONTMINIMA=imaging-module.html#FONTMINIMA"><a title="config.FONTMINIMA
+imaging.FONTMINIMA" class="py-name" href="#" onclick="return doclink('link-5', 'FONTMINIMA', 'link-5');">FONTMINIMA</a></tt> </tt>
+<a name="L17"></a><tt class="py-lineno"> 17</tt>  <tt class="py-line"><tt class="py-keyword">from</tt> <tt id="link-6" class="py-name"><a title="config" class="py-name" href="#" onclick="return doclink('link-6', 'config', 'link-0');">config</a></tt> <tt class="py-keyword">import</tt> <tt id="link-7" class="py-name" targets="Variable config.STATICDIR=config-module.html#STATICDIR,Variable imaging.STATICDIR=imaging-module.html#STATICDIR,Variable server.STATICDIR=server-module.html#STATICDIR"><a title="config.STATICDIR
+imaging.STATICDIR
+server.STATICDIR" class="py-name" href="#" onclick="return doclink('link-7', 'STATICDIR', 'link-7');">STATICDIR</a></tt><tt class="py-op">,</tt> <tt id="link-8" class="py-name" targets="Variable config.ALLFONTSIMAGEDEFAULTS=config-module.html#ALLFONTSIMAGEDEFAULTS,Variable imaging.ALLFONTSIMAGEDEFAULTS=imaging-module.html#ALLFONTSIMAGEDEFAULTS"><a title="config.ALLFONTSIMAGEDEFAULTS
+imaging.ALLFONTSIMAGEDEFAULTS" class="py-name" href="#" onclick="return doclink('link-8', 'ALLFONTSIMAGEDEFAULTS', 'link-8');">ALLFONTSIMAGEDEFAULTS</a></tt><tt class="py-op">,</tt> <tt id="link-9" class="py-name" targets="Variable config.TESTTEXT=config-module.html#TESTTEXT,Variable imaging.TESTTEXT=imaging-module.html#TESTTEXT"><a title="config.TESTTEXT
+imaging.TESTTEXT" class="py-name" href="#" onclick="return doclink('link-9', 'TESTTEXT', 'link-9');">TESTTEXT</a></tt> </tt>
+<a name="L18"></a><tt class="py-lineno"> 18</tt>  <tt class="py-line"> </tt>
+<a name="L19"></a><tt class="py-lineno"> 19</tt>  <tt class="py-line"><tt class="py-keyword">from</tt> <tt id="link-10" class="py-name" targets="Module helpers=helpers-module.html"><a title="helpers" class="py-name" href="#" onclick="return doclink('link-10', 'helpers', 'link-10');">helpers</a></tt> <tt class="py-keyword">import</tt> <tt id="link-11" class="py-name" targets="Function helpers.nameWOsuffix()=helpers-module.html#nameWOsuffix"><a title="helpers.nameWOsuffix" class="py-name" href="#" onclick="return doclink('link-11', 'nameWOsuffix', 'link-11');">nameWOsuffix</a></tt><tt class="py-op">,</tt> <tt id="link-12" class="py-name" targets="Function helpers.replacedInDict()=helpers-module.html#replacedInDict"><a title="helpers.replacedInDict" class="py-name" href="#" onclick="return doclink('link-12', 'replacedInDict', 'link-12');">replacedInDict</a></tt><tt class="py-op">,</tt> <tt id="link-13" class="py-name" targets="Function helpers.cutUpText()=helpers-module.html#cutUpText"><a title="helpers.cutUpText" class="py-name" href="#" onclick="return doclink('link-13', 'cutUpText', 'link-13');">cutUpText</a></tt> </tt>
+<a name="L20"></a><tt class="py-lineno"> 20</tt>  <tt class="py-line"><tt class="py-keyword">import</tt> <tt class="py-name">timeit</tt><tt class="py-op">,</tt> <tt class="py-name">os</tt> </tt>
+<a name="L21"></a><tt class="py-lineno"> 21</tt>  <tt class="py-line"> </tt>
+<a name="L22"></a><tt class="py-lineno"> 22</tt>  <tt class="py-line"><tt class="py-keyword">import</tt> <tt class="py-name">PIL</tt>  </tt>
+<a name="L23"></a><tt class="py-lineno"> 23</tt>  <tt class="py-line"><tt class="py-comment">## sudo pip install Pillow</tt> </tt>
+<a name="L24"></a><tt class="py-lineno"> 24</tt>  <tt class="py-line"><tt class="py-comment">## sudo aptitude install libfreetype6-dev</tt> </tt>
+<a name="L25"></a><tt class="py-lineno"> 25</tt>  <tt class="py-line"><tt class="py-keyword">from</tt> <tt class="py-name">PIL</tt> <tt class="py-keyword">import</tt> <tt class="py-name">ImageFont</tt><tt class="py-op">,</tt> <tt class="py-name">Image</tt><tt class="py-op">,</tt> <tt class="py-name">ImageDraw</tt> </tt>
+<a name="L26"></a><tt class="py-lineno"> 26</tt>  <tt class="py-line"> </tt>
+<a name="L27"></a><tt class="py-lineno"> 27</tt>  <tt class="py-line"> </tt>
+<a name="L28"></a><tt class="py-lineno"> 28</tt>  <tt class="py-line"> </tt>
+<a name="manyFontSizes_image"></a><div id="manyFontSizes_image-def"><a name="L29"></a><tt class="py-lineno"> 29</tt> <a class="py-toggle" href="#" id="manyFontSizes_image-toggle" onclick="return toggle('manyFontSizes_image');">-</a><tt class="py-line"><tt class="py-keyword">def</tt> <a class="py-def-name" href="imaging-module.html#manyFontSizes_image">manyFontSizes_image</a><tt class="py-op">(</tt><tt class="py-param">textline</tt><tt class="py-op">=</tt><tt id="link-14" class="py-name"><a title="config.TESTTEXT
+imaging.TESTTEXT" class="py-name" href="#" onclick="return doclink('link-14', 'TESTTEXT', 'link-9');">TESTTEXT</a></tt><tt class="py-op">,</tt> <tt class="py-param">filename</tt><tt class="py-op">=</tt><tt class="py-string">"sizes.png"</tt><tt class="py-op">,</tt>  </tt>
+<a name="L30"></a><tt class="py-lineno"> 30</tt>  <tt class="py-line">                  <tt class="py-param">fontfilename</tt><tt class="py-op">=</tt><tt class="py-string">"Pecita.otf"</tt><tt class="py-op">,</tt> <tt class="py-param">fontsizes</tt><tt class="py-op">=</tt><tt class="py-name">range</tt><tt class="py-op">(</tt><tt class="py-number">10</tt><tt class="py-op">,</tt><tt class="py-number">30</tt><tt class="py-op">,</tt><tt class="py-number">2</tt><tt class="py-op">)</tt><tt class="py-op">,</tt> </tt>
+<a name="L31"></a><tt class="py-lineno"> 31</tt>  <tt class="py-line">                  <tt class="py-param">lineHeight</tt> <tt class="py-op">=</tt> <tt class="py-number">1.5</tt><tt class="py-op">,</tt> <tt class="py-param">border</tt> <tt class="py-op">=</tt> <tt class="py-number">10</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="manyFontSizes_image-collapsed" style="display:none;" pad="+++" indent="++++"></div><div id="manyFontSizes_image-expanded"><a name="L32"></a><tt class="py-lineno"> 32</tt>  <tt class="py-line">    <tt class="py-docstring">"""Says what it does. Generates image with different fontsizes."""</tt> </tt>
+<a name="L33"></a><tt class="py-lineno"> 33</tt>  <tt class="py-line">        </tt>
+<a name="L34"></a><tt class="py-lineno"> 34</tt>  <tt class="py-line">    <tt class="py-name">fontface</tt><tt class="py-op">=</tt><tt class="py-name">os</tt><tt class="py-op">.</tt><tt class="py-name">path</tt><tt class="py-op">.</tt><tt class="py-name">join</tt><tt class="py-op">(</tt><tt id="link-15" class="py-name"><a title="config.FONTDIR
+imaging.FONTDIR" class="py-name" href="#" onclick="return doclink('link-15', 'FONTDIR', 'link-3');">FONTDIR</a></tt><tt class="py-op">,</tt> <tt class="py-name">fontfilename</tt><tt class="py-op">)</tt> </tt>
+<a name="L35"></a><tt class="py-lineno"> 35</tt>  <tt class="py-line"> </tt>
+<a name="L36"></a><tt class="py-lineno"> 36</tt>  <tt class="py-line">    <tt class="py-name">width</tt> <tt class="py-op">=</tt> <tt class="py-name">ImageFont</tt><tt class="py-op">.</tt><tt class="py-name">truetype</tt><tt class="py-op">(</tt><tt class="py-name">fontface</tt><tt class="py-op">,</tt> <tt class="py-name">max</tt><tt class="py-op">(</tt><tt class="py-name">fontsizes</tt><tt class="py-op">)</tt><tt class="py-op">)</tt><tt class="py-op">.</tt><tt class="py-name">getsize</tt><tt class="py-op">(</tt><tt class="py-string">"123"</tt><tt class="py-op">+</tt><tt class="py-name">textline</tt><tt class="py-op">)</tt><tt class="py-op">[</tt><tt class="py-number">0</tt><tt class="py-op">]</tt> <tt class="py-op">+</tt> <tt class="py-number">2</tt><tt class="py-op">*</tt><tt class="py-name">border</tt> </tt>
+<a name="L37"></a><tt class="py-lineno"> 37</tt>  <tt class="py-line">    <tt class="py-name">height</tt> <tt class="py-op">=</tt> <tt class="py-name">int</tt><tt class="py-op">(</tt><tt class="py-name">sum</tt><tt class="py-op">(</tt><tt class="py-name">fontsizes</tt><tt class="py-op">)</tt> <tt class="py-op">*</tt> <tt class="py-name">lineHeight</tt> <tt class="py-op">+</tt> <tt class="py-number">2</tt> <tt class="py-op">*</tt> <tt class="py-name">border</tt><tt class="py-op">)</tt> </tt>
+<a name="L38"></a><tt class="py-lineno"> 38</tt>  <tt class="py-line">    <tt class="py-comment"># print width, height</tt> </tt>
+<a name="L39"></a><tt class="py-lineno"> 39</tt>  <tt class="py-line">     </tt>
+<a name="L40"></a><tt class="py-lineno"> 40</tt>  <tt class="py-line">    <tt class="py-name">img</tt>  <tt class="py-op">=</tt> <tt class="py-name">Image</tt><tt class="py-op">.</tt><tt class="py-name">new</tt><tt class="py-op">(</tt><tt class="py-string">"RGBA"</tt><tt class="py-op">,</tt> <tt class="py-op">(</tt><tt class="py-name">width</tt><tt class="py-op">,</tt> <tt class="py-name">height</tt><tt class="py-op">)</tt><tt class="py-op">,</tt> <tt class="py-string">"#dddddd"</tt><tt class="py-op">)</tt> </tt>
+<a name="L41"></a><tt class="py-lineno"> 41</tt>  <tt class="py-line">    <tt class="py-name">draw</tt> <tt class="py-op">=</tt> <tt class="py-name">ImageDraw</tt><tt class="py-op">.</tt><tt class="py-name">Draw</tt><tt class="py-op">(</tt><tt class="py-name">img</tt><tt class="py-op">)</tt> </tt>
+<a name="L42"></a><tt class="py-lineno"> 42</tt>  <tt class="py-line">     </tt>
+<a name="L43"></a><tt class="py-lineno"> 43</tt>  <tt class="py-line">    <tt class="py-comment"># fontname:</tt> </tt>
+<a name="L44"></a><tt class="py-lineno"> 44</tt>  <tt class="py-line">    <tt class="py-name">font</tt> <tt class="py-op">=</tt> <tt class="py-name">ImageFont</tt><tt class="py-op">.</tt><tt class="py-name">truetype</tt><tt class="py-op">(</tt><tt class="py-name">fontface</tt><tt class="py-op">,</tt> <tt class="py-name">max</tt><tt class="py-op">(</tt><tt class="py-name">fontsizes</tt><tt class="py-op">)</tt> <tt class="py-op">)</tt> </tt>
+<a name="L45"></a><tt class="py-lineno"> 45</tt>  <tt class="py-line">    <tt class="py-name">textwidth</tt><tt class="py-op">=</tt><tt class="py-name">font</tt><tt class="py-op">.</tt><tt class="py-name">getsize</tt><tt class="py-op">(</tt><tt class="py-name">fontfilename</tt><tt class="py-op">)</tt><tt class="py-op">[</tt><tt class="py-number">0</tt><tt class="py-op">]</tt> </tt>
+<a name="L46"></a><tt class="py-lineno"> 46</tt>  <tt class="py-line">    <tt class="py-name">draw</tt><tt class="py-op">.</tt><tt class="py-name">text</tt><tt class="py-op">(</tt><tt class="py-op">(</tt><tt class="py-name">width</tt><tt class="py-op">-</tt><tt class="py-name">textwidth</tt><tt class="py-op">-</tt><tt class="py-number">10</tt><tt class="py-op">,</tt> <tt class="py-number">10</tt><tt class="py-op">)</tt><tt class="py-op">,</tt> <tt class="py-name">fontfilename</tt><tt class="py-op">,</tt> <tt class="py-string">"#333333"</tt><tt class="py-op">,</tt> <tt class="py-name">font</tt><tt class="py-op">=</tt><tt class="py-name">font</tt><tt class="py-op">)</tt> </tt>
+<a name="L47"></a><tt class="py-lineno"> 47</tt>  <tt class="py-line">     </tt>
+<a name="L48"></a><tt class="py-lineno"> 48</tt>  <tt class="py-line">    <tt class="py-name">startPos</tt> <tt class="py-op">=</tt> <tt class="py-name">border</tt>   </tt>
+<a name="L49"></a><tt class="py-lineno"> 49</tt>  <tt class="py-line">    <tt class="py-keyword">for</tt> <tt class="py-name">fontsize</tt> <tt class="py-keyword">in</tt> <tt class="py-name">fontsizes</tt><tt class="py-op">:</tt> </tt>
+<a name="L50"></a><tt class="py-lineno"> 50</tt>  <tt class="py-line">        <tt class="py-name">font</tt> <tt class="py-op">=</tt> <tt class="py-name">ImageFont</tt><tt class="py-op">.</tt><tt class="py-name">truetype</tt><tt class="py-op">(</tt><tt class="py-name">fontface</tt><tt class="py-op">,</tt> <tt class="py-name">fontsize</tt><tt class="py-op">)</tt> </tt>
+<a name="L51"></a><tt class="py-lineno"> 51</tt>  <tt class="py-line">        <tt class="py-name">draw</tt><tt class="py-op">.</tt><tt class="py-name">text</tt><tt class="py-op">(</tt><tt class="py-op">(</tt><tt class="py-name">border</tt><tt class="py-op">,</tt> <tt class="py-name">startPos</tt><tt class="py-op">)</tt><tt class="py-op">,</tt><tt class="py-op">(</tt><tt class="py-string">"%2d "</tt><tt class="py-op">%</tt><tt class="py-name">fontsize</tt><tt class="py-op">)</tt> <tt class="py-op">+</tt> <tt class="py-name">textline</tt><tt class="py-op">,</tt> <tt class="py-string">"#333333"</tt><tt class="py-op">,</tt> <tt class="py-name">font</tt><tt class="py-op">=</tt><tt class="py-name">font</tt><tt class="py-op">)</tt> </tt>
+<a name="L52"></a><tt class="py-lineno"> 52</tt>  <tt class="py-line">        <tt class="py-name">startPos</tt><tt class="py-op">+=</tt> <tt class="py-name">int</tt><tt class="py-op">(</tt><tt class="py-name">lineHeight</tt> <tt class="py-op">*</tt> <tt class="py-name">fontsize</tt><tt class="py-op">)</tt>  </tt>
+<a name="L53"></a><tt class="py-lineno"> 53</tt>  <tt class="py-line">     </tt>
+<a name="L54"></a><tt class="py-lineno"> 54</tt>  <tt class="py-line">    <tt class="py-name">draw</tt> <tt class="py-op">=</tt> <tt class="py-name">ImageDraw</tt><tt class="py-op">.</tt><tt class="py-name">Draw</tt><tt class="py-op">(</tt><tt class="py-name">img</tt><tt class="py-op">)</tt> </tt>
+<a name="L55"></a><tt class="py-lineno"> 55</tt>  <tt class="py-line">    <tt class="py-name">draw</tt> <tt class="py-op">=</tt> <tt class="py-name">ImageDraw</tt><tt class="py-op">.</tt><tt class="py-name">Draw</tt><tt class="py-op">(</tt><tt class="py-name">img</tt><tt class="py-op">)</tt> </tt>
+<a name="L56"></a><tt class="py-lineno"> 56</tt>  <tt class="py-line">     </tt>
+<a name="L57"></a><tt class="py-lineno"> 57</tt>  <tt class="py-line">    <tt class="py-name">img</tt><tt class="py-op">.</tt><tt class="py-name">save</tt><tt class="py-op">(</tt><tt class="py-name">filename</tt><tt class="py-op">)</tt> </tt>
+</div><a name="L58"></a><tt class="py-lineno"> 58</tt>  <tt class="py-line"> </tt>
+<a name="showAllFonts_image"></a><div id="showAllFonts_image-def"><a name="L59"></a><tt class="py-lineno"> 59</tt> <a class="py-toggle" href="#" id="showAllFonts_image-toggle" onclick="return toggle('showAllFonts_image');">-</a><tt class="py-line"><tt class="py-keyword">def</tt> <a class="py-def-name" href="imaging-module.html#showAllFonts_image">showAllFonts_image</a><tt class="py-op">(</tt><tt class="py-param">textline</tt><tt class="py-op">=</tt><tt id="link-16" class="py-name"><a title="config.TESTTEXT
+imaging.TESTTEXT" class="py-name" href="#" onclick="return doclink('link-16', 'TESTTEXT', 'link-9');">TESTTEXT</a></tt><tt class="py-op">,</tt> <tt class="py-param">filename</tt><tt class="py-op">=</tt><tt class="py-string">"allfonts.png"</tt><tt class="py-op">,</tt>  </tt>
+<a name="L60"></a><tt class="py-lineno"> 60</tt>  <tt class="py-line">                  <tt class="py-param">fontfilenames</tt><tt class="py-op">=</tt><tt id="link-17" class="py-name"><a title="config.FONTS
+imaging.FONTS
+imaging_tests.FONTS
+server.FONTS" class="py-name" href="#" onclick="return doclink('link-17', 'FONTS', 'link-4');">FONTS</a></tt><tt class="py-op">[</tt><tt class="py-op">:</tt><tt class="py-op">-</tt><tt class="py-number">1</tt><tt class="py-op">]</tt><tt class="py-op">,</tt> <tt class="py-name">fontsize</tt><tt class="py-op">=</tt><tt class="py-number">20</tt><tt class="py-op">,</tt> </tt>
+<a name="L61"></a><tt class="py-lineno"> 61</tt>  <tt class="py-line">                  <tt class="py-name">lineHeight</tt> <tt class="py-op">=</tt> <tt class="py-number">1.3</tt><tt class="py-op">,</tt> <tt class="py-name">border</tt> <tt class="py-op">=</tt> <tt class="py-number">10</tt><tt class="py-op">,</tt> </tt>
+<a name="L62"></a><tt class="py-lineno"> 62</tt>  <tt class="py-line">                  <tt class="py-name">color</tt><tt class="py-op">=</tt><tt class="py-string">"#333333"</tt><tt class="py-op">,</tt> <tt class="py-name">bgcolor</tt><tt class="py-op">=</tt><tt class="py-string">"#dddddd"</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="showAllFonts_image-collapsed" style="display:none;" pad="+++" indent="++++"></div><div id="showAllFonts_image-expanded"><a name="L63"></a><tt class="py-lineno"> 63</tt>  <tt class="py-line">    <tt class="py-docstring">"""Says what it does. Generates image with all known fonts."""</tt> </tt>
+<a name="L64"></a><tt class="py-lineno"> 64</tt>  <tt class="py-line"> </tt>
+<a name="L65"></a><tt class="py-lineno"> 65</tt>  <tt class="py-line">    <tt class="py-keyword">def</tt> <tt class="py-def-name">text</tt><tt class="py-op">(</tt><tt class="py-param">fname</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="L66"></a><tt class="py-lineno"> 66</tt>  <tt class="py-line">        <tt class="py-docstring">"one line printer"</tt> </tt>
+<a name="L67"></a><tt class="py-lineno"> 67</tt>  <tt class="py-line">        <tt class="py-keyword">return</tt> <tt class="py-string">"%s    "</tt><tt class="py-op">%</tt><tt id="link-18" class="py-name"><a title="helpers.nameWOsuffix" class="py-name" href="#" onclick="return doclink('link-18', 'nameWOsuffix', 'link-11');">nameWOsuffix</a></tt><tt class="py-op">(</tt><tt class="py-name">fname</tt><tt class="py-op">)</tt> <tt class="py-op">+</tt> <tt class="py-name">textline</tt> </tt>
+</div><a name="L68"></a><tt class="py-lineno"> 68</tt>  <tt class="py-line"> </tt>
+<a name="L69"></a><tt class="py-lineno"> 69</tt>  <tt class="py-line">    <tt class="py-comment"># generate fonts &amp; widths &amp; width &amp; height</tt> </tt>
+<a name="L70"></a><tt class="py-lineno"> 70</tt>  <tt class="py-line">    <tt class="py-name">font</tt><tt class="py-op">=</tt><tt class="py-op">{</tt><tt class="py-op">}</tt> </tt>
+<a name="L71"></a><tt class="py-lineno"> 71</tt>  <tt class="py-line">    <tt class="py-name">widths</tt><tt class="py-op">=</tt><tt class="py-op">{</tt><tt class="py-op">}</tt> </tt>
+<a name="L72"></a><tt class="py-lineno"> 72</tt>  <tt class="py-line">    <tt class="py-keyword">for</tt> <tt class="py-name">fname</tt> <tt class="py-keyword">in</tt> <tt class="py-name">fontfilenames</tt><tt class="py-op">:</tt> </tt>
+<a name="L73"></a><tt class="py-lineno"> 73</tt>  <tt class="py-line">        <tt class="py-name">fname</tt> <tt class="py-op">=</tt> <tt id="link-19" class="py-name" targets="Function imaging.findMatchingFont()=imaging-module.html#findMatchingFont"><a title="imaging.findMatchingFont" class="py-name" href="#" onclick="return doclink('link-19', 'findMatchingFont', 'link-19');">findMatchingFont</a></tt><tt class="py-op">(</tt> <tt class="py-name">fname</tt><tt class="py-op">,</tt> <tt id="link-20" class="py-name"><a title="config.FONTS
+imaging.FONTS
+imaging_tests.FONTS
+server.FONTS" class="py-name" href="#" onclick="return doclink('link-20', 'FONTS', 'link-4');">FONTS</a></tt><tt class="py-op">)</tt> </tt>
+<a name="L74"></a><tt class="py-lineno"> 74</tt>  <tt class="py-line">        <tt class="py-name">font</tt><tt class="py-op">[</tt><tt class="py-name">fname</tt><tt class="py-op">]</tt>  <tt class="py-op">=</tt> <tt class="py-name">ImageFont</tt><tt class="py-op">.</tt><tt class="py-name">truetype</tt><tt class="py-op">(</tt> <tt class="py-name">os</tt><tt class="py-op">.</tt><tt class="py-name">path</tt><tt class="py-op">.</tt><tt class="py-name">join</tt><tt class="py-op">(</tt><tt id="link-21" class="py-name"><a title="config.FONTDIR
+imaging.FONTDIR" class="py-name" href="#" onclick="return doclink('link-21', 'FONTDIR', 'link-3');">FONTDIR</a></tt><tt class="py-op">,</tt> <tt class="py-name">fname</tt><tt class="py-op">)</tt><tt class="py-op">,</tt> <tt class="py-name">fontsize</tt><tt class="py-op">)</tt>  </tt>
+<a name="L75"></a><tt class="py-lineno"> 75</tt>  <tt class="py-line">        <tt class="py-name">widths</tt><tt class="py-op">[</tt><tt class="py-name">fname</tt><tt class="py-op">]</tt> <tt class="py-op">=</tt> <tt class="py-name">font</tt><tt class="py-op">[</tt><tt class="py-name">fname</tt><tt class="py-op">]</tt><tt class="py-op">.</tt><tt class="py-name">getsize</tt><tt class="py-op">(</tt><tt class="py-name">text</tt><tt class="py-op">(</tt><tt class="py-name">fname</tt><tt class="py-op">)</tt><tt class="py-op">)</tt><tt class="py-op">[</tt><tt class="py-number">0</tt><tt class="py-op">]</tt> <tt class="py-op">+</tt> <tt class="py-number">2</tt><tt class="py-op">*</tt><tt class="py-name">border</tt> </tt>
+<a name="L76"></a><tt class="py-lineno"> 76</tt>  <tt class="py-line">    <tt class="py-name">width</tt><tt class="py-op">=</tt><tt class="py-name">max</tt><tt class="py-op">(</tt><tt class="py-name">widths</tt><tt class="py-op">.</tt><tt class="py-name">values</tt><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">)</tt> </tt>
+<a name="L77"></a><tt class="py-lineno"> 77</tt>  <tt class="py-line">    <tt class="py-name">height</tt> <tt class="py-op">=</tt> <tt class="py-name">int</tt><tt class="py-op">(</tt><tt class="py-name">len</tt><tt class="py-op">(</tt><tt class="py-name">fontfilenames</tt><tt class="py-op">)</tt> <tt class="py-op">*</tt> <tt class="py-name">fontsize</tt><tt class="py-op">*</tt> <tt class="py-name">lineHeight</tt> <tt class="py-op">+</tt> <tt class="py-number">2</tt> <tt class="py-op">*</tt> <tt class="py-name">border</tt><tt class="py-op">)</tt> </tt>
+<a name="L78"></a><tt class="py-lineno"> 78</tt>  <tt class="py-line">    <tt class="py-comment"># print width, height</tt> </tt>
+<a name="L79"></a><tt class="py-lineno"> 79</tt>  <tt class="py-line">     </tt>
+<a name="L80"></a><tt class="py-lineno"> 80</tt>  <tt class="py-line">    <tt class="py-comment"># new canvas:</tt> </tt>
+<a name="L81"></a><tt class="py-lineno"> 81</tt>  <tt class="py-line">    <tt class="py-name">img</tt>  <tt class="py-op">=</tt> <tt class="py-name">Image</tt><tt class="py-op">.</tt><tt class="py-name">new</tt><tt class="py-op">(</tt><tt class="py-string">"RGBA"</tt><tt class="py-op">,</tt> <tt class="py-op">(</tt><tt class="py-name">width</tt><tt class="py-op">,</tt> <tt class="py-name">height</tt><tt class="py-op">)</tt><tt class="py-op">,</tt> <tt class="py-name">bgcolor</tt><tt class="py-op">)</tt> </tt>
+<a name="L82"></a><tt class="py-lineno"> 82</tt>  <tt class="py-line">    <tt class="py-name">draw</tt> <tt class="py-op">=</tt> <tt class="py-name">ImageDraw</tt><tt class="py-op">.</tt><tt class="py-name">Draw</tt><tt class="py-op">(</tt><tt class="py-name">img</tt><tt class="py-op">)</tt> </tt>
+<a name="L83"></a><tt class="py-lineno"> 83</tt>  <tt class="py-line">     </tt>
+<a name="L84"></a><tt class="py-lineno"> 84</tt>  <tt class="py-line">    <tt class="py-comment"># sort by width:</tt> </tt>
+<a name="L85"></a><tt class="py-lineno"> 85</tt>  <tt class="py-line">    <tt class="py-name">sortedByWidth</tt><tt class="py-op">=</tt><tt class="py-name">widths</tt><tt class="py-op">.</tt><tt class="py-name">items</tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L86"></a><tt class="py-lineno"> 86</tt>  <tt class="py-line">    <tt class="py-name">sortedByWidth</tt><tt class="py-op">.</tt><tt class="py-name">sort</tt><tt class="py-op">(</tt><tt class="py-name">key</tt><tt class="py-op">=</tt><tt class="py-keyword">lambda</tt> <tt class="py-name">x</tt><tt class="py-op">:</tt> <tt class="py-name">x</tt><tt class="py-op">[</tt><tt class="py-number">1</tt><tt class="py-op">]</tt><tt class="py-op">)</tt> </tt>
+<a name="L87"></a><tt class="py-lineno"> 87</tt>  <tt class="py-line">    <tt class="py-name">sortedByWidth</tt><tt class="py-op">=</tt><tt class="py-name">zip</tt><tt class="py-op">(</tt><tt class="py-op">*</tt><tt class="py-name">sortedByWidth</tt><tt class="py-op">)</tt><tt class="py-op">[</tt><tt class="py-number">0</tt><tt class="py-op">]</tt> </tt>
+<a name="L88"></a><tt class="py-lineno"> 88</tt>  <tt class="py-line">     </tt>
+<a name="L89"></a><tt class="py-lineno"> 89</tt>  <tt class="py-line">    <tt class="py-comment"># draw the text lines:</tt> </tt>
+<a name="L90"></a><tt class="py-lineno"> 90</tt>  <tt class="py-line">    <tt class="py-name">startPos</tt> <tt class="py-op">=</tt> <tt class="py-name">border</tt> </tt>
+<a name="L91"></a><tt class="py-lineno"> 91</tt>  <tt class="py-line">    <tt class="py-keyword">for</tt> <tt class="py-name">fname</tt> <tt class="py-keyword">in</tt> <tt class="py-name">sortedByWidth</tt><tt class="py-op">:</tt> </tt>
+<a name="L92"></a><tt class="py-lineno"> 92</tt>  <tt class="py-line">        <tt class="py-name">draw</tt><tt class="py-op">.</tt><tt class="py-name">text</tt><tt class="py-op">(</tt><tt class="py-op">(</tt><tt class="py-name">border</tt><tt class="py-op">,</tt> <tt class="py-name">startPos</tt><tt class="py-op">)</tt><tt class="py-op">,</tt> <tt class="py-name">text</tt><tt class="py-op">(</tt><tt class="py-name">fname</tt><tt class="py-op">)</tt><tt class="py-op">,</tt>  </tt>
+<a name="L93"></a><tt class="py-lineno"> 93</tt>  <tt class="py-line">                  <tt class="py-name">color</tt><tt class="py-op">,</tt> <tt class="py-name">font</tt><tt class="py-op">=</tt><tt class="py-name">font</tt><tt class="py-op">[</tt><tt class="py-name">fname</tt><tt class="py-op">]</tt><tt class="py-op">)</tt> </tt>
+<a name="L94"></a><tt class="py-lineno"> 94</tt>  <tt class="py-line">        <tt class="py-name">startPos</tt><tt class="py-op">+=</tt> <tt class="py-name">int</tt><tt class="py-op">(</tt><tt class="py-name">lineHeight</tt> <tt class="py-op">*</tt> <tt class="py-name">fontsize</tt><tt class="py-op">)</tt>  </tt>
+<a name="L95"></a><tt class="py-lineno"> 95</tt>  <tt class="py-line">     </tt>
+<a name="L96"></a><tt class="py-lineno"> 96</tt>  <tt class="py-line">    <tt class="py-comment"># finish the image</tt> </tt>
+<a name="L97"></a><tt class="py-lineno"> 97</tt>  <tt class="py-line">    <tt class="py-name">draw</tt> <tt class="py-op">=</tt> <tt class="py-name">ImageDraw</tt><tt class="py-op">.</tt><tt class="py-name">Draw</tt><tt class="py-op">(</tt><tt class="py-name">img</tt><tt class="py-op">)</tt> </tt>
+<a name="L98"></a><tt class="py-lineno"> 98</tt>  <tt class="py-line">    <tt class="py-name">draw</tt> <tt class="py-op">=</tt> <tt class="py-name">ImageDraw</tt><tt class="py-op">.</tt><tt class="py-name">Draw</tt><tt class="py-op">(</tt><tt class="py-name">img</tt><tt class="py-op">)</tt> </tt>
+<a name="L99"></a><tt class="py-lineno"> 99</tt>  <tt class="py-line">    <tt class="py-name">img</tt><tt class="py-op">.</tt><tt class="py-name">save</tt><tt class="py-op">(</tt><tt class="py-name">filename</tt><tt class="py-op">)</tt> </tt>
+</div><a name="L100"></a><tt class="py-lineno">100</tt>  <tt class="py-line"> </tt>
+<a name="putAllFontsImageIntoFolder"></a><div id="putAllFontsImageIntoFolder-def"><a name="L101"></a><tt class="py-lineno">101</tt> <a class="py-toggle" href="#" id="putAllFontsImageIntoFolder-toggle" onclick="return toggle('putAllFontsImageIntoFolder');">-</a><tt class="py-line"><tt class="py-keyword">def</tt> <a class="py-def-name" href="imaging-module.html#putAllFontsImageIntoFolder">putAllFontsImageIntoFolder</a><tt class="py-op">(</tt><tt class="py-param">dirname</tt><tt class="py-op">,</tt> <tt class="py-op">**</tt><tt class="py-param">o</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="putAllFontsImageIntoFolder-collapsed" style="display:none;" pad="+++" indent="++++"></div><div id="putAllFontsImageIntoFolder-expanded"><a name="L102"></a><tt class="py-lineno">102</tt>  <tt class="py-line">    <tt class="py-name">filepath</tt><tt class="py-op">=</tt><tt class="py-name">os</tt><tt class="py-op">.</tt><tt class="py-name">path</tt><tt class="py-op">.</tt><tt class="py-name">join</tt><tt class="py-op">(</tt><tt class="py-name">dirname</tt><tt class="py-op">,</tt> <tt class="py-name">o</tt><tt class="py-op">[</tt><tt class="py-string">"file"</tt><tt class="py-op">]</tt><tt class="py-op">)</tt> </tt>
+<a name="L103"></a><tt class="py-lineno">103</tt>  <tt class="py-line">     </tt>
+<a name="L104"></a><tt class="py-lineno">104</tt>  <tt class="py-line">    <tt id="link-22" class="py-name" targets="Function imaging.showAllFonts_image()=imaging-module.html#showAllFonts_image"><a title="imaging.showAllFonts_image" class="py-name" href="#" onclick="return doclink('link-22', 'showAllFonts_image', 'link-22');">showAllFonts_image</a></tt><tt class="py-op">(</tt><tt class="py-name">textline</tt><tt class="py-op">=</tt><tt id="link-23" class="py-name"><a title="config.TESTTEXT
+imaging.TESTTEXT" class="py-name" href="#" onclick="return doclink('link-23', 'TESTTEXT', 'link-9');">TESTTEXT</a></tt><tt class="py-op">,</tt> <tt class="py-name">filename</tt><tt class="py-op">=</tt><tt class="py-name">filepath</tt><tt class="py-op">,</tt>  </tt>
+<a name="L105"></a><tt class="py-lineno">105</tt>  <tt class="py-line">                 <tt class="py-name">fontsize</tt><tt class="py-op">=</tt><tt class="py-name">o</tt><tt class="py-op">[</tt><tt class="py-string">"fontsize"</tt><tt class="py-op">]</tt><tt class="py-op">,</tt> <tt class="py-name">lineHeight</tt><tt class="py-op">=</tt><tt class="py-name">o</tt><tt class="py-op">[</tt><tt class="py-string">"lineHeight"</tt><tt class="py-op">]</tt><tt class="py-op">,</tt>  </tt>
+<a name="L106"></a><tt class="py-lineno">106</tt>  <tt class="py-line">                 <tt class="py-name">border</tt> <tt class="py-op">=</tt> <tt class="py-name">o</tt><tt class="py-op">[</tt><tt class="py-string">"border"</tt><tt class="py-op">]</tt><tt class="py-op">,</tt> </tt>
+<a name="L107"></a><tt class="py-lineno">107</tt>  <tt class="py-line">                 <tt class="py-name">color</tt><tt class="py-op">=</tt><tt class="py-name">o</tt><tt class="py-op">[</tt><tt class="py-string">"color"</tt><tt class="py-op">]</tt><tt class="py-op">,</tt> <tt class="py-name">bgcolor</tt><tt class="py-op">=</tt><tt class="py-name">o</tt><tt class="py-op">[</tt><tt class="py-string">"bgcolor"</tt><tt class="py-op">]</tt><tt class="py-op">)</tt> </tt>
+<a name="L108"></a><tt class="py-lineno">108</tt>  <tt class="py-line">     </tt>
+<a name="L109"></a><tt class="py-lineno">109</tt>  <tt class="py-line">    <tt class="py-keyword">print</tt> <tt class="py-string">"Ready. New font file with all %d available fonts shown exists now: \n%s"</tt> <tt class="py-op">%</tt> <tt class="py-op">(</tt><tt class="py-name">len</tt><tt class="py-op">(</tt><tt id="link-24" class="py-name"><a title="config.FONTS
+imaging.FONTS
+imaging_tests.FONTS
+server.FONTS" class="py-name" href="#" onclick="return doclink('link-24', 'FONTS', 'link-4');">FONTS</a></tt><tt class="py-op">[</tt><tt class="py-op">:</tt><tt class="py-op">-</tt><tt class="py-number">1</tt><tt class="py-op">]</tt><tt class="py-op">)</tt><tt class="py-op">,</tt> <tt class="py-name">filepath</tt><tt class="py-op">)</tt> </tt>
+</div><a name="L110"></a><tt class="py-lineno">110</tt>  <tt class="py-line"> </tt>
+<a name="L111"></a><tt class="py-lineno">111</tt>  <tt class="py-line"><tt class="py-comment">#### here comes the main 'textToImage' routine</tt> </tt>
+<a name="L112"></a><tt class="py-lineno">112</tt>  <tt class="py-line"> </tt>
+<a name="correctTheTypes"></a><div id="correctTheTypes-def"><a name="L113"></a><tt class="py-lineno">113</tt> <a class="py-toggle" href="#" id="correctTheTypes-toggle" onclick="return toggle('correctTheTypes');">-</a><tt class="py-line"><tt class="py-keyword">def</tt> <a class="py-def-name" href="imaging-module.html#correctTheTypes">correctTheTypes</a><tt class="py-op">(</tt><tt class="py-param">options</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="correctTheTypes-collapsed" style="display:none;" pad="+++" indent="++++"></div><div id="correctTheTypes-expanded"><a name="L114"></a><tt class="py-lineno">114</tt>  <tt class="py-line">    <tt class="py-docstring">"the options arrive in type string, so correct them here"</tt> </tt>
+<a name="L115"></a><tt class="py-lineno">115</tt>  <tt class="py-line">    <tt class="py-keyword">for</tt> <tt class="py-name">k</tt> <tt class="py-keyword">in</tt> <tt class="py-op">(</tt><tt class="py-string">"color"</tt><tt class="py-op">,</tt> <tt class="py-string">"bgcolor"</tt><tt class="py-op">)</tt><tt class="py-op">:</tt>  </tt>
+<a name="L116"></a><tt class="py-lineno">116</tt>  <tt class="py-line">        <tt class="py-name">options</tt><tt class="py-op">[</tt><tt class="py-name">k</tt><tt class="py-op">]</tt> <tt class="py-op">=</tt> <tt class="py-name">options</tt><tt class="py-op">[</tt><tt class="py-name">k</tt><tt class="py-op">]</tt> <tt class="py-keyword">if</tt> <tt class="py-name">options</tt><tt class="py-op">[</tt><tt class="py-name">k</tt><tt class="py-op">]</tt><tt class="py-op">[</tt><tt class="py-number">0</tt><tt class="py-op">]</tt> <tt class="py-op">==</tt><tt class="py-string">"#"</tt> <tt class="py-keyword">else</tt> <tt class="py-string">"#"</tt> <tt class="py-op">+</tt> <tt class="py-name">options</tt><tt class="py-op">[</tt><tt class="py-name">k</tt><tt class="py-op">]</tt> </tt>
+<a name="L117"></a><tt class="py-lineno">117</tt>  <tt class="py-line">        <tt class="py-comment"># print options[k]</tt> </tt>
+<a name="L118"></a><tt class="py-lineno">118</tt>  <tt class="py-line">    <tt class="py-keyword">for</tt> <tt class="py-name">k</tt> <tt class="py-keyword">in</tt> <tt class="py-op">(</tt><tt class="py-string">"fontsize"</tt><tt class="py-op">,</tt> <tt class="py-string">"headingfontsize"</tt><tt class="py-op">,</tt> <tt class="py-string">"footerfontsize"</tt><tt class="py-op">,</tt> <tt class="py-string">"maxcharsperline"</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="L119"></a><tt class="py-lineno">119</tt>  <tt class="py-line">        <tt class="py-name">options</tt><tt class="py-op">[</tt><tt class="py-name">k</tt><tt class="py-op">]</tt> <tt class="py-op">=</tt> <tt class="py-name">int</tt> <tt class="py-op">(</tt><tt class="py-name">options</tt><tt class="py-op">[</tt><tt class="py-name">k</tt><tt class="py-op">]</tt> <tt class="py-op">)</tt> </tt>
+</div><a name="L120"></a><tt class="py-lineno">120</tt>  <tt class="py-line">     </tt>
+<a name="L121"></a><tt class="py-lineno">121</tt>  <tt class="py-line"> </tt>
+<a name="findMatchingFont"></a><div id="findMatchingFont-def"><a name="L122"></a><tt class="py-lineno">122</tt> <a class="py-toggle" href="#" id="findMatchingFont-toggle" onclick="return toggle('findMatchingFont');">-</a><tt class="py-line"><tt class="py-keyword">def</tt> <a class="py-def-name" href="imaging-module.html#findMatchingFont">findMatchingFont</a><tt class="py-op">(</tt><tt class="py-param">wanted</tt><tt class="py-op">,</tt> <tt class="py-param">searchlist</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="findMatchingFont-collapsed" style="display:none;" pad="+++" indent="++++"></div><div id="findMatchingFont-expanded"><a name="L123"></a><tt class="py-lineno">123</tt>  <tt class="py-line">    <tt class="py-name">hits</tt><tt class="py-op">=</tt><tt class="py-op">[</tt><tt class="py-name">f</tt> <tt class="py-keyword">for</tt> <tt class="py-name">f</tt> <tt class="py-keyword">in</tt> <tt class="py-name">searchlist</tt> <tt class="py-keyword">if</tt> <tt class="py-name">f</tt><tt class="py-op">.</tt><tt class="py-name">startswith</tt><tt class="py-op">(</tt><tt class="py-name">wanted</tt><tt class="py-op">)</tt><tt class="py-op">]</tt> </tt>
+<a name="L124"></a><tt class="py-lineno">124</tt>  <tt class="py-line">    <tt class="py-keyword">if</tt> <tt class="py-name">hits</tt><tt class="py-op">==</tt><tt class="py-op">[</tt><tt class="py-op">]</tt><tt class="py-op">:</tt> <tt class="py-keyword">return</tt> <tt class="py-name">None</tt> </tt>
+<a name="L125"></a><tt class="py-lineno">125</tt>  <tt class="py-line">    <tt class="py-keyword">return</tt> <tt class="py-name">hits</tt><tt class="py-op">[</tt><tt class="py-number">0</tt><tt class="py-op">]</tt> </tt>
+</div><a name="L126"></a><tt class="py-lineno">126</tt>  <tt class="py-line"> </tt>
+<a name="minFooter"></a><div id="minFooter-def"><a name="L127"></a><tt class="py-lineno">127</tt> <a class="py-toggle" href="#" id="minFooter-toggle" onclick="return toggle('minFooter');">-</a><tt class="py-line"><tt class="py-keyword">def</tt> <a class="py-def-name" href="imaging-module.html#minFooter">minFooter</a><tt class="py-op">(</tt><tt class="py-param">wish</tt><tt class="py-op">,</tt> <tt class="py-param">filename</tt><tt class="py-op">,</tt> <tt class="py-param">minima</tt><tt class="py-op">=</tt><tt id="link-25" class="py-name"><a title="config.FONTMINIMA
+imaging.FONTMINIMA" class="py-name" href="#" onclick="return doclink('link-25', 'FONTMINIMA', 'link-5');">FONTMINIMA</a></tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="minFooter-collapsed" style="display:none;" pad="+++" indent="++++"></div><div id="minFooter-expanded"><a name="L128"></a><tt class="py-lineno">128</tt>  <tt class="py-line">    <tt class="py-keyword">return</tt> <tt class="py-name">max</tt><tt class="py-op">(</tt><tt class="py-name">wish</tt><tt class="py-op">,</tt> <tt class="py-name">minima</tt><tt class="py-op">.</tt><tt class="py-name">get</tt><tt class="py-op">(</tt><tt class="py-name">filename</tt><tt class="py-op">,</tt> <tt class="py-number">0</tt><tt class="py-op">)</tt><tt class="py-op">)</tt> </tt>
+</div><a name="L129"></a><tt class="py-lineno">129</tt>  <tt class="py-line"> </tt>
+<a name="textToImage"></a><div id="textToImage-def"><a name="L130"></a><tt class="py-lineno">130</tt> <a class="py-toggle" href="#" id="textToImage-toggle" onclick="return toggle('textToImage');">-</a><tt class="py-line"><tt class="py-keyword">def</tt> <a class="py-def-name" href="imaging-module.html#textToImage">textToImage</a><tt class="py-op">(</tt><tt class="py-param">filename</tt><tt class="py-op">,</tt> <tt class="py-param">text</tt><tt class="py-op">,</tt> <tt class="py-op">**</tt><tt class="py-param">options</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="textToImage-collapsed" style="display:none;" pad="+++" indent="++++"></div><div id="textToImage-expanded"><a name="L131"></a><tt class="py-lineno">131</tt>  <tt class="py-line">    <tt class="py-docstring">"""Says what it does. </tt> </tt>
+<a name="L132"></a><tt class="py-lineno">132</tt>  <tt class="py-line"><tt class="py-docstring">       One long subroutine only because it is a simply a serial process.</tt> </tt>
+<a name="L133"></a><tt class="py-lineno">133</tt>  <tt class="py-line"><tt class="py-docstring">       N.B. filetype polymorphism depending on suffix of filename"""</tt> </tt>
+<a name="L134"></a><tt class="py-lineno">134</tt>  <tt class="py-line">        </tt>
+<a name="L135"></a><tt class="py-lineno">135</tt>  <tt class="py-line">    <tt class="py-comment"># defaults are overwritten by user choices</tt> </tt>
+<a name="L136"></a><tt class="py-lineno">136</tt>  <tt class="py-line">    <tt class="py-name">o</tt> <tt class="py-op">=</tt> <tt id="link-26" class="py-name"><a title="helpers.replacedInDict" class="py-name" href="#" onclick="return doclink('link-26', 'replacedInDict', 'link-12');">replacedInDict</a></tt><tt class="py-op">(</tt><tt id="link-27" class="py-name"><a title="config.IMAGEDEFAULTS
+imaging.IMAGEDEFAULTS
+server.IMAGEDEFAULTS" class="py-name" href="#" onclick="return doclink('link-27', 'IMAGEDEFAULTS', 'link-1');">IMAGEDEFAULTS</a></tt><tt class="py-op">,</tt> <tt class="py-name">options</tt><tt class="py-op">)</tt> </tt>
+<a name="L137"></a><tt class="py-lineno">137</tt>  <tt class="py-line">    <tt id="link-28" class="py-name" targets="Function imaging.correctTheTypes()=imaging-module.html#correctTheTypes"><a title="imaging.correctTheTypes" class="py-name" href="#" onclick="return doclink('link-28', 'correctTheTypes', 'link-28');">correctTheTypes</a></tt><tt class="py-op">(</tt><tt class="py-name">o</tt><tt class="py-op">)</tt> <tt class="py-comment"># type string to whatever needed here.</tt> </tt>
+<a name="L138"></a><tt class="py-lineno">138</tt>  <tt class="py-line">     </tt>
+<a name="L139"></a><tt class="py-lineno">139</tt>  <tt class="py-line">    <tt class="py-comment"># get the fontface:</tt> </tt>
+<a name="L140"></a><tt class="py-lineno">140</tt>  <tt class="py-line">    <tt class="py-name">fontfilename</tt> <tt class="py-op">=</tt> <tt id="link-29" class="py-name"><a title="imaging.findMatchingFont" class="py-name" href="#" onclick="return doclink('link-29', 'findMatchingFont', 'link-19');">findMatchingFont</a></tt><tt class="py-op">(</tt> <tt class="py-name">o</tt><tt class="py-op">[</tt><tt class="py-string">"font"</tt><tt class="py-op">]</tt><tt class="py-op">,</tt> <tt id="link-30" class="py-name"><a title="config.FONTS
+imaging.FONTS
+imaging_tests.FONTS
+server.FONTS" class="py-name" href="#" onclick="return doclink('link-30', 'FONTS', 'link-4');">FONTS</a></tt><tt class="py-op">)</tt> </tt>
+<a name="L141"></a><tt class="py-lineno">141</tt>  <tt class="py-line">    <tt class="py-name">fontface</tt><tt class="py-op">=</tt><tt class="py-name">os</tt><tt class="py-op">.</tt><tt class="py-name">path</tt><tt class="py-op">.</tt><tt class="py-name">join</tt><tt class="py-op">(</tt><tt id="link-31" class="py-name"><a title="config.FONTDIR
+imaging.FONTDIR" class="py-name" href="#" onclick="return doclink('link-31', 'FONTDIR', 'link-3');">FONTDIR</a></tt><tt class="py-op">,</tt> <tt class="py-name">fontfilename</tt><tt class="py-op">)</tt> </tt>
+<a name="L142"></a><tt class="py-lineno">142</tt>  <tt class="py-line">     </tt>
+<a name="L143"></a><tt class="py-lineno">143</tt>  <tt class="py-line">    <tt class="py-comment"># allow empty heading</tt> </tt>
+<a name="L144"></a><tt class="py-lineno">144</tt>  <tt class="py-line">    <tt class="py-keyword">if</tt> <tt class="py-name">o</tt><tt class="py-op">[</tt><tt class="py-string">"heading"</tt><tt class="py-op">]</tt><tt class="py-op">!=</tt><tt class="py-string">""</tt><tt class="py-op">:</tt> </tt>
+<a name="L145"></a><tt class="py-lineno">145</tt>  <tt class="py-line">        <tt class="py-name">fontHeading</tt> <tt class="py-op">=</tt> <tt class="py-name">ImageFont</tt><tt class="py-op">.</tt><tt class="py-name">truetype</tt><tt class="py-op">(</tt><tt class="py-name">fontface</tt><tt class="py-op">,</tt> <tt class="py-name">o</tt><tt class="py-op">[</tt><tt class="py-string">"headingfontsize"</tt><tt class="py-op">]</tt><tt class="py-op">)</tt> </tt>
+<a name="L146"></a><tt class="py-lineno">146</tt>  <tt class="py-line">        <tt class="py-name">headingLength</tt><tt class="py-op">=</tt><tt class="py-name">fontHeading</tt><tt class="py-op">.</tt><tt class="py-name">getsize</tt><tt class="py-op">(</tt><tt class="py-name">o</tt><tt class="py-op">[</tt><tt class="py-string">"heading"</tt><tt class="py-op">]</tt><tt class="py-op">)</tt><tt class="py-op">[</tt><tt class="py-number">0</tt><tt class="py-op">]</tt> </tt>
+<a name="L147"></a><tt class="py-lineno">147</tt>  <tt class="py-line">    <tt class="py-keyword">else</tt><tt class="py-op">:</tt> </tt>
+<a name="L148"></a><tt class="py-lineno">148</tt>  <tt class="py-line">        <tt class="py-name">headingLength</tt><tt class="py-op">=</tt><tt class="py-number">0</tt> </tt>
+<a name="L149"></a><tt class="py-lineno">149</tt>  <tt class="py-line">        <tt class="py-name">o</tt><tt class="py-op">[</tt><tt class="py-string">"headingfontsize"</tt><tt class="py-op">]</tt><tt class="py-op">=</tt><tt class="py-number">0</tt> </tt>
+<a name="L150"></a><tt class="py-lineno">150</tt>  <tt class="py-line"> </tt>
+<a name="L151"></a><tt class="py-lineno">151</tt>  <tt class="py-line">    <tt class="py-comment"># footer font &amp; length:</tt> </tt>
+<a name="L152"></a><tt class="py-lineno">152</tt>  <tt class="py-line">    <tt class="py-comment">#print o["footerfontsize"]</tt> </tt>
+<a name="L153"></a><tt class="py-lineno">153</tt>  <tt class="py-line">    <tt class="py-name">o</tt><tt class="py-op">[</tt><tt class="py-string">"footerfontsize"</tt><tt class="py-op">]</tt> <tt class="py-op">=</tt> <tt id="link-32" class="py-name" targets="Function imaging.minFooter()=imaging-module.html#minFooter"><a title="imaging.minFooter" class="py-name" href="#" onclick="return doclink('link-32', 'minFooter', 'link-32');">minFooter</a></tt><tt class="py-op">(</tt><tt class="py-name">o</tt><tt class="py-op">[</tt><tt class="py-string">"footerfontsize"</tt><tt class="py-op">]</tt><tt class="py-op">,</tt> <tt class="py-name">fontfilename</tt><tt class="py-op">)</tt>  </tt>
+<a name="L154"></a><tt class="py-lineno">154</tt>  <tt class="py-line">    <tt class="py-comment">#print o["footerfontsize"]</tt> </tt>
+<a name="L155"></a><tt class="py-lineno">155</tt>  <tt class="py-line">    <tt class="py-name">fontFooter</tt> <tt class="py-op">=</tt> <tt class="py-name">ImageFont</tt><tt class="py-op">.</tt><tt class="py-name">truetype</tt><tt class="py-op">(</tt><tt class="py-name">fontface</tt><tt class="py-op">,</tt><tt class="py-name">o</tt><tt class="py-op">[</tt><tt class="py-string">"footerfontsize"</tt><tt class="py-op">]</tt><tt class="py-op">)</tt> </tt>
+<a name="L156"></a><tt class="py-lineno">156</tt>  <tt class="py-line">    <tt class="py-name">footerLength</tt> <tt class="py-op">=</tt> <tt class="py-name">fontFooter</tt><tt class="py-op">.</tt><tt class="py-name">getsize</tt><tt class="py-op">(</tt><tt class="py-name">o</tt><tt class="py-op">[</tt><tt class="py-string">"footer"</tt><tt class="py-op">]</tt><tt class="py-op">)</tt><tt class="py-op">[</tt><tt class="py-number">0</tt><tt class="py-op">]</tt> </tt>
+<a name="L157"></a><tt class="py-lineno">157</tt>  <tt class="py-line">     </tt>
+<a name="L158"></a><tt class="py-lineno">158</tt>  <tt class="py-line">    <tt class="py-comment"># prepare text</tt> </tt>
+<a name="L159"></a><tt class="py-lineno">159</tt>  <tt class="py-line">    <tt class="py-name">text</tt>  <tt class="py-op">=</tt> <tt id="link-33" class="py-name"><a title="helpers.cutUpText" class="py-name" href="#" onclick="return doclink('link-33', 'cutUpText', 'link-13');">cutUpText</a></tt><tt class="py-op">(</tt><tt class="py-name">text</tt><tt class="py-op">,</tt> <tt class="py-name">o</tt><tt class="py-op">[</tt><tt class="py-string">"maxcharsperline"</tt><tt class="py-op">]</tt><tt class="py-op">)</tt> </tt>
+<a name="L160"></a><tt class="py-lineno">160</tt>  <tt class="py-line">    <tt class="py-name">lines</tt> <tt class="py-op">=</tt> <tt class="py-name">text</tt><tt class="py-op">.</tt><tt class="py-name">rstrip</tt><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">.</tt><tt class="py-name">split</tt><tt class="py-op">(</tt><tt class="py-string">"\n"</tt><tt class="py-op">)</tt> </tt>
+<a name="L161"></a><tt class="py-lineno">161</tt>  <tt class="py-line">     </tt>
+<a name="L162"></a><tt class="py-lineno">162</tt>  <tt class="py-line">    <tt class="py-comment"># font -&gt; line lengths -&gt; pixel width &amp; height</tt> </tt>
+<a name="L163"></a><tt class="py-lineno">163</tt>  <tt class="py-line">    <tt class="py-name">font</tt> <tt class="py-op">=</tt> <tt class="py-name">ImageFont</tt><tt class="py-op">.</tt><tt class="py-name">truetype</tt><tt class="py-op">(</tt><tt class="py-name">fontface</tt><tt class="py-op">,</tt> <tt class="py-name">o</tt><tt class="py-op">[</tt><tt class="py-string">"fontsize"</tt><tt class="py-op">]</tt><tt class="py-op">)</tt> </tt>
+<a name="L164"></a><tt class="py-lineno">164</tt>  <tt class="py-line">    <tt class="py-name">lineDistance</tt>        <tt class="py-op">=</tt> <tt class="py-name">int</tt> <tt class="py-op">(</tt> <tt class="py-name">o</tt><tt class="py-op">[</tt><tt class="py-string">"fontsize"</tt><tt class="py-op">]</tt>         <tt class="py-op">*</tt> <tt class="py-name">o</tt><tt class="py-op">[</tt><tt class="py-string">"linedistanceratio"</tt><tt class="py-op">]</tt> <tt class="py-op">)</tt> </tt>
+<a name="L165"></a><tt class="py-lineno">165</tt>  <tt class="py-line">    <tt class="py-name">lineDistanceHeading</tt> <tt class="py-op">=</tt> <tt class="py-name">int</tt> <tt class="py-op">(</tt> <tt class="py-name">o</tt><tt class="py-op">[</tt><tt class="py-string">"headingfontsize"</tt><tt class="py-op">]</tt>  <tt class="py-op">*</tt> <tt class="py-name">o</tt><tt class="py-op">[</tt><tt class="py-string">"linedistanceratio"</tt><tt class="py-op">]</tt> <tt class="py-op">)</tt> </tt>
+<a name="L166"></a><tt class="py-lineno">166</tt>  <tt class="py-line">    <tt class="py-name">border</tt>       <tt class="py-op">=</tt> <tt class="py-name">lineDistance</tt> </tt>
+<a name="L167"></a><tt class="py-lineno">167</tt>  <tt class="py-line">    <tt class="py-name">lineWidths</tt> <tt class="py-op">=</tt> <tt class="py-op">[</tt><tt class="py-name">font</tt><tt class="py-op">.</tt><tt class="py-name">getsize</tt><tt class="py-op">(</tt><tt class="py-name">line</tt><tt class="py-op">)</tt><tt class="py-op">[</tt><tt class="py-number">0</tt><tt class="py-op">]</tt> <tt class="py-keyword">for</tt> <tt class="py-name">line</tt> <tt class="py-keyword">in</tt> <tt class="py-name">lines</tt><tt class="py-op">]</tt> </tt>
+<a name="L168"></a><tt class="py-lineno">168</tt>  <tt class="py-line"> </tt>
+<a name="L169"></a><tt class="py-lineno">169</tt>  <tt class="py-line">    <tt class="py-name">width</tt><tt class="py-op">=</tt><tt class="py-name">max</tt><tt class="py-op">(</tt><tt class="py-name">max</tt><tt class="py-op">(</tt><tt class="py-name">lineWidths</tt><tt class="py-op">)</tt><tt class="py-op">,</tt> <tt class="py-name">headingLength</tt><tt class="py-op">,</tt> <tt class="py-name">footerLength</tt><tt class="py-op">)</tt> <tt class="py-op">+</tt> <tt class="py-number">2</tt> <tt class="py-op">*</tt> <tt class="py-name">border</tt> </tt>
+<a name="L170"></a><tt class="py-lineno">170</tt>  <tt class="py-line">     </tt>
+<a name="L171"></a><tt class="py-lineno">171</tt>  <tt class="py-line">    <tt class="py-comment"># this reflects the line structure of the image:  </tt> </tt>
+<a name="L172"></a><tt class="py-lineno">172</tt>  <tt class="py-line">    <tt class="py-name">height</tt> <tt class="py-op">=</tt>  <tt class="py-name">border</tt> </tt>
+<a name="L173"></a><tt class="py-lineno">173</tt>  <tt class="py-line">    <tt class="py-name">height</tt> <tt class="py-op">+=</tt> <tt class="py-op">(</tt><tt class="py-name">o</tt><tt class="py-op">[</tt><tt class="py-string">"headingfontsize"</tt><tt class="py-op">]</tt> <tt class="py-op">+</tt> <tt class="py-name">lineDistanceHeading</tt><tt class="py-op">)</tt> <tt class="py-keyword">if</tt> <tt class="py-name">o</tt><tt class="py-op">[</tt><tt class="py-string">"heading"</tt><tt class="py-op">]</tt><tt class="py-op">!=</tt><tt class="py-string">""</tt> <tt class="py-keyword">else</tt> <tt class="py-number">0</tt> </tt>
+<a name="L174"></a><tt class="py-lineno">174</tt>  <tt class="py-line">    <tt class="py-name">height</tt> <tt class="py-op">+=</tt> <tt class="py-op">(</tt><tt class="py-name">o</tt><tt class="py-op">[</tt><tt class="py-string">"fontsize"</tt><tt class="py-op">]</tt>  <tt class="py-op">+</tt> <tt class="py-name">lineDistance</tt><tt class="py-op">)</tt> <tt class="py-op">*</tt> <tt class="py-name">len</tt><tt class="py-op">(</tt><tt class="py-name">lines</tt><tt class="py-op">)</tt>  </tt>
+<a name="L175"></a><tt class="py-lineno">175</tt>  <tt class="py-line">    <tt class="py-name">height</tt> <tt class="py-op">+=</tt> <tt class="py-name">int</tt><tt class="py-op">(</tt><tt class="py-number">0.5</tt> <tt class="py-op">*</tt> <tt class="py-name">o</tt><tt class="py-op">[</tt><tt class="py-string">"footerfontsize"</tt><tt class="py-op">]</tt><tt class="py-op">)</tt> <tt class="py-op">+</tt> <tt class="py-name">o</tt><tt class="py-op">[</tt><tt class="py-string">"footerfontsize"</tt><tt class="py-op">]</tt> <tt class="py-op">+</tt> <tt class="py-name">border</tt>  </tt>
+<a name="L176"></a><tt class="py-lineno">176</tt>  <tt class="py-line">     </tt>
+<a name="L177"></a><tt class="py-lineno">177</tt>  <tt class="py-line">    <tt class="py-comment"># PIL stuff</tt> </tt>
+<a name="L178"></a><tt class="py-lineno">178</tt>  <tt class="py-line">    <tt class="py-name">img</tt>  <tt class="py-op">=</tt> <tt class="py-name">Image</tt><tt class="py-op">.</tt><tt class="py-name">new</tt><tt class="py-op">(</tt><tt class="py-string">"RGBA"</tt><tt class="py-op">,</tt> <tt class="py-op">(</tt><tt class="py-name">width</tt><tt class="py-op">,</tt> <tt class="py-name">height</tt><tt class="py-op">)</tt><tt class="py-op">,</tt> <tt class="py-name">o</tt><tt class="py-op">[</tt><tt class="py-string">"bgcolor"</tt><tt class="py-op">]</tt><tt class="py-op">)</tt> </tt>
+<a name="L179"></a><tt class="py-lineno">179</tt>  <tt class="py-line">    <tt class="py-name">draw</tt> <tt class="py-op">=</tt> <tt class="py-name">ImageDraw</tt><tt class="py-op">.</tt><tt class="py-name">Draw</tt><tt class="py-op">(</tt><tt class="py-name">img</tt><tt class="py-op">)</tt> </tt>
+<a name="L180"></a><tt class="py-lineno">180</tt>  <tt class="py-line">     </tt>
+<a name="L181"></a><tt class="py-lineno">181</tt>  <tt class="py-line">    <tt class="py-name">startPos</tt><tt class="py-op">=</tt><tt class="py-name">lineDistance</tt> </tt>
+<a name="L182"></a><tt class="py-lineno">182</tt>  <tt class="py-line">     </tt>
+<a name="L183"></a><tt class="py-lineno">183</tt>  <tt class="py-line">    <tt class="py-comment"># heading:</tt> </tt>
+<a name="L184"></a><tt class="py-lineno">184</tt>  <tt class="py-line">    <tt class="py-keyword">if</tt> <tt class="py-name">o</tt><tt class="py-op">[</tt><tt class="py-string">"heading"</tt><tt class="py-op">]</tt><tt class="py-op">!=</tt><tt class="py-string">""</tt><tt class="py-op">:</tt> </tt>
+<a name="L185"></a><tt class="py-lineno">185</tt>  <tt class="py-line">        <tt class="py-name">draw</tt><tt class="py-op">.</tt><tt class="py-name">text</tt><tt class="py-op">(</tt><tt class="py-op">(</tt><tt class="py-op">(</tt><tt class="py-name">width</tt><tt class="py-op">-</tt><tt class="py-name">headingLength</tt><tt class="py-op">)</tt><tt class="py-op">/</tt><tt class="py-number">2</tt><tt class="py-op">,</tt> <tt class="py-name">startPos</tt><tt class="py-op">)</tt><tt class="py-op">,</tt><tt class="py-name">o</tt><tt class="py-op">[</tt><tt class="py-string">"heading"</tt><tt class="py-op">]</tt><tt class="py-op">,</tt><tt class="py-name">o</tt><tt class="py-op">[</tt><tt class="py-string">"color"</tt><tt class="py-op">]</tt><tt class="py-op">,</tt><tt class="py-name">font</tt><tt class="py-op">=</tt><tt class="py-name">fontHeading</tt><tt class="py-op">)</tt> </tt>
+<a name="L186"></a><tt class="py-lineno">186</tt>  <tt class="py-line">        <tt class="py-name">startPos</tt> <tt class="py-op">+=</tt> <tt class="py-name">o</tt><tt class="py-op">[</tt><tt class="py-string">"headingfontsize"</tt><tt class="py-op">]</tt> <tt class="py-op">+</tt> <tt class="py-name">lineDistanceHeading</tt>  </tt>
+<a name="L187"></a><tt class="py-lineno">187</tt>  <tt class="py-line">         </tt>
+<a name="L188"></a><tt class="py-lineno">188</tt>  <tt class="py-line">    <tt class="py-comment"># main text:</tt> </tt>
+<a name="L189"></a><tt class="py-lineno">189</tt>  <tt class="py-line">    <tt class="py-keyword">for</tt> <tt class="py-name">i</tt><tt class="py-op">,</tt> <tt class="py-name">line</tt> <tt class="py-keyword">in</tt> <tt class="py-name">enumerate</tt><tt class="py-op">(</tt><tt class="py-name">lines</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="L190"></a><tt class="py-lineno">190</tt>  <tt class="py-line">        <tt class="py-name">draw</tt><tt class="py-op">.</tt><tt class="py-name">text</tt><tt class="py-op">(</tt><tt class="py-op">(</tt><tt class="py-op">(</tt><tt class="py-name">width</tt><tt class="py-op">-</tt><tt class="py-name">lineWidths</tt><tt class="py-op">[</tt><tt class="py-name">i</tt><tt class="py-op">]</tt><tt class="py-op">)</tt><tt class="py-op">/</tt><tt class="py-number">2</tt><tt class="py-op">,</tt> <tt class="py-name">startPos</tt><tt class="py-op">)</tt><tt class="py-op">,</tt><tt class="py-name">line</tt><tt class="py-op">,</tt><tt class="py-name">o</tt><tt class="py-op">[</tt><tt class="py-string">"color"</tt><tt class="py-op">]</tt><tt class="py-op">,</tt><tt class="py-name">font</tt><tt class="py-op">=</tt><tt class="py-name">font</tt><tt class="py-op">)</tt> </tt>
+<a name="L191"></a><tt class="py-lineno">191</tt>  <tt class="py-line">        <tt class="py-name">startPos</tt> <tt class="py-op">+=</tt> <tt class="py-name">o</tt><tt class="py-op">[</tt><tt class="py-string">"fontsize"</tt><tt class="py-op">]</tt> <tt class="py-op">+</tt> <tt class="py-name">lineDistance</tt> </tt>
+<a name="L192"></a><tt class="py-lineno">192</tt>  <tt class="py-line">     </tt>
+<a name="L193"></a><tt class="py-lineno">193</tt>  <tt class="py-line">    <tt class="py-comment"># footer:</tt> </tt>
+<a name="L194"></a><tt class="py-lineno">194</tt>  <tt class="py-line">    <tt class="py-name">startPos</tt> <tt class="py-op">+=</tt> <tt class="py-name">int</tt><tt class="py-op">(</tt><tt class="py-number">0.5</tt> <tt class="py-op">*</tt> <tt class="py-name">o</tt><tt class="py-op">[</tt><tt class="py-string">"footerfontsize"</tt><tt class="py-op">]</tt><tt class="py-op">)</tt> </tt>
+<a name="L195"></a><tt class="py-lineno">195</tt>  <tt class="py-line">    <tt class="py-name">draw</tt><tt class="py-op">.</tt><tt class="py-name">text</tt><tt class="py-op">(</tt><tt class="py-op">(</tt><tt class="py-name">width</tt><tt class="py-op">-</tt><tt class="py-name">footerLength</tt><tt class="py-op">-</tt><tt class="py-name">border</tt><tt class="py-op">,</tt> <tt class="py-name">startPos</tt><tt class="py-op">)</tt><tt class="py-op">,</tt><tt class="py-name">o</tt><tt class="py-op">[</tt><tt class="py-string">"footer"</tt><tt class="py-op">]</tt><tt class="py-op">,</tt><tt class="py-name">o</tt><tt class="py-op">[</tt><tt class="py-string">"color"</tt><tt class="py-op">]</tt><tt class="py-op">,</tt><tt class="py-name">font</tt><tt class="py-op">=</tt><tt class="py-name">fontFooter</tt><tt class="py-op">)</tt> </tt>
+<a name="L196"></a><tt class="py-lineno">196</tt>  <tt class="py-line">     </tt>
+<a name="L197"></a><tt class="py-lineno">197</tt>  <tt class="py-line">    <tt class="py-comment"># PIL stuff</tt> </tt>
+<a name="L198"></a><tt class="py-lineno">198</tt>  <tt class="py-line">    <tt class="py-name">draw</tt> <tt class="py-op">=</tt> <tt class="py-name">ImageDraw</tt><tt class="py-op">.</tt><tt class="py-name">Draw</tt><tt class="py-op">(</tt><tt class="py-name">img</tt><tt class="py-op">)</tt> </tt>
+<a name="L199"></a><tt class="py-lineno">199</tt>  <tt class="py-line">    <tt class="py-name">draw</tt> <tt class="py-op">=</tt> <tt class="py-name">ImageDraw</tt><tt class="py-op">.</tt><tt class="py-name">Draw</tt><tt class="py-op">(</tt><tt class="py-name">img</tt><tt class="py-op">)</tt> </tt>
+<a name="L200"></a><tt class="py-lineno">200</tt>  <tt class="py-line">     </tt>
+<a name="L201"></a><tt class="py-lineno">201</tt>  <tt class="py-line">    <tt class="py-comment"># save to file</tt> </tt>
+<a name="L202"></a><tt class="py-lineno">202</tt>  <tt class="py-line">    <tt class="py-keyword">if</tt> <tt class="py-name">filename</tt><tt class="py-op">.</tt><tt class="py-name">endswith</tt><tt class="py-op">(</tt><tt class="py-string">"jpg"</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="L203"></a><tt class="py-lineno">203</tt>  <tt class="py-line">        <tt class="py-name">img</tt><tt class="py-op">.</tt><tt class="py-name">save</tt><tt class="py-op">(</tt><tt class="py-name">filename</tt><tt class="py-op">,</tt> <tt class="py-name">quality</tt><tt class="py-op">=</tt><tt class="py-name">o</tt><tt class="py-op">[</tt><tt class="py-string">"jpgquality"</tt><tt class="py-op">]</tt><tt class="py-op">)</tt> </tt>
+<a name="L204"></a><tt class="py-lineno">204</tt>  <tt class="py-line">    <tt class="py-keyword">else</tt><tt class="py-op">:</tt> </tt>
+<a name="L205"></a><tt class="py-lineno">205</tt>  <tt class="py-line">        <tt class="py-name">img</tt><tt class="py-op">.</tt><tt class="py-name">save</tt><tt class="py-op">(</tt><tt class="py-name">filename</tt><tt class="py-op">)</tt> </tt>
+</div><a name="L206"></a><tt class="py-lineno">206</tt>  <tt class="py-line"> </tt>
+<a name="L207"></a><tt class="py-lineno">207</tt>  <tt class="py-line">  </tt>
+<a name="L208"></a><tt class="py-lineno">208</tt>  <tt class="py-line"><tt class="py-keyword">if</tt> <tt class="py-name">__name__</tt> <tt class="py-op">==</tt> <tt class="py-string">"__main__"</tt><tt class="py-op">:</tt> </tt>
+<a name="L209"></a><tt class="py-lineno">209</tt>  <tt class="py-line">     </tt>
+<a name="L210"></a><tt class="py-lineno">210</tt>  <tt class="py-line">    <tt id="link-34" class="py-name" targets="Function imaging.putAllFontsImageIntoFolder()=imaging-module.html#putAllFontsImageIntoFolder"><a title="imaging.putAllFontsImageIntoFolder" class="py-name" href="#" onclick="return doclink('link-34', 'putAllFontsImageIntoFolder', 'link-34');">putAllFontsImageIntoFolder</a></tt><tt class="py-op">(</tt><tt class="py-name">dirname</tt><tt class="py-op">=</tt><tt id="link-35" class="py-name"><a title="config.STATICDIR
+imaging.STATICDIR
+server.STATICDIR" class="py-name" href="#" onclick="return doclink('link-35', 'STATICDIR', 'link-7');">STATICDIR</a></tt><tt class="py-op">,</tt> <tt class="py-op">**</tt><tt id="link-36" class="py-name"><a title="config.ALLFONTSIMAGEDEFAULTS
+imaging.ALLFONTSIMAGEDEFAULTS" class="py-name" href="#" onclick="return doclink('link-36', 'ALLFONTSIMAGEDEFAULTS', 'link-8');">ALLFONTSIMAGEDEFAULTS</a></tt><tt class="py-op">)</tt> </tt>
+<a name="L211"></a><tt class="py-lineno">211</tt>  <tt class="py-line">    <tt class="py-name">exit</tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L212"></a><tt class="py-lineno">212</tt>  <tt class="py-line"> </tt><script type="text/javascript">
+<!--
+expandto(location.href);
+// -->
+</script>
+</pre>
+<br />
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+      <th class="navbar" width="100%"></th>
+  </tr>
+</table>
+<table border="0" cellpadding="0" cellspacing="0" width="100%%">
+  <tr>
+    <td align="left" class="footer">
+    Generated by Epydoc 3.0.1 on Tue Oct 27 16:25:59 2015
+    </td>
+    <td align="right" class="footer">
+      <a target="mainFrame" href="http://epydoc.sourceforge.net"
+        >http://epydoc.sourceforge.net</a>
+    </td>
+  </tr>
+</table>
+
+<script type="text/javascript">
+  <!--
+  // Private objects are initially displayed (because if
+  // javascript is turned off then we want them to be
+  // visible); but by default, we want to hide them.  So hide
+  // them unless we have a cookie that says to show them.
+  checkCookie();
+  // -->
+</script>
+</body>
+</html>

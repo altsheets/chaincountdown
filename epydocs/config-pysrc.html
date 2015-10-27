@@ -1,0 +1,285 @@
+<?xml version="1.0" encoding="ascii"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+          "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>config</title>
+  <link rel="stylesheet" href="epydoc.css" type="text/css" />
+  <script type="text/javascript" src="epydoc.js"></script>
+</head>
+
+<body bgcolor="white" text="black" link="blue" vlink="#204080"
+      alink="#204080">
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+      <th class="navbar" width="100%"></th>
+  </tr>
+</table>
+<table width="100%" cellpadding="0" cellspacing="0">
+  <tr valign="top">
+    <td width="100%">
+      <span class="breadcrumbs">
+        Module&nbsp;config
+      </span>
+    </td>
+    <td>
+      <table cellpadding="0" cellspacing="0">
+        <!-- hide/show private -->
+        <tr><td align="right"><span class="options">[<a href="javascript:void(0);" class="privatelink"
+    onclick="toggle_private();">hide&nbsp;private</a>]</span></td></tr>
+        <tr><td align="right"><span class="options"
+            >[<a href="frames.html" target="_top">frames</a
+            >]&nbsp;|&nbsp;<a href="config-pysrc.html"
+            target="_top">no&nbsp;frames</a>]</span></td></tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<h1 class="epydoc">Source Code for <a href="config-module.html">Module config</a></h1>
+<pre class="py-src">
+<a name="L1"></a><tt class="py-lineno">  1</tt>  <tt class="py-line"><tt class="py-comment">#!/usr/bin/python</tt> </tt>
+<a name="L2"></a><tt class="py-lineno">  2</tt>  <tt class="py-line"><tt class="py-docstring">'''</tt> </tt>
+<a name="L3"></a><tt class="py-lineno">  3</tt>  <tt class="py-line"><tt class="py-docstring">@title:   config.py</tt> </tt>
+<a name="L4"></a><tt class="py-lineno">  4</tt>  <tt class="py-line"><tt class="py-docstring">@summary: Change these defaults - if you know what you are doing</tt> </tt>
+<a name="L5"></a><tt class="py-lineno">  5</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L6"></a><tt class="py-lineno">  6</tt>  <tt class="py-line"><tt class="py-docstring">@author:  AltSheets</tt> </tt>
+<a name="L7"></a><tt class="py-lineno">  7</tt>  <tt class="py-line"><tt class="py-docstring">@version: v10</tt> </tt>
+<a name="L8"></a><tt class="py-lineno">  8</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L9"></a><tt class="py-lineno">  9</tt>  <tt class="py-line"><tt class="py-docstring">@TODO:    needs re-ordering to be more logical</tt> </tt>
+<a name="L10"></a><tt class="py-lineno"> 10</tt>  <tt class="py-line"><tt class="py-docstring">'''</tt> </tt>
+<a name="L11"></a><tt class="py-lineno"> 11</tt>  <tt class="py-line"> </tt>
+<a name="L12"></a><tt class="py-lineno"> 12</tt>  <tt class="py-line"><tt id="link-0" class="py-name" targets="Variable config.PORT_NUMBER=config-module.html#PORT_NUMBER,Variable server.PORT_NUMBER=server-module.html#PORT_NUMBER"><a title="config.PORT_NUMBER
+server.PORT_NUMBER" class="py-name" href="#" onclick="return doclink('link-0', 'PORT_NUMBER', 'link-0');">PORT_NUMBER</a></tt> <tt class="py-op">=</tt> <tt class="py-number">8888</tt> </tt>
+<a name="L13"></a><tt class="py-lineno"> 13</tt>  <tt class="py-line"><tt id="link-1" class="py-name" targets="Variable chaincountdown.TIMEOUT=chaincountdown-module.html#TIMEOUT,Variable config.TIMEOUT=config-module.html#TIMEOUT"><a title="chaincountdown.TIMEOUT
+config.TIMEOUT" class="py-name" href="#" onclick="return doclink('link-1', 'TIMEOUT', 'link-1');">TIMEOUT</a></tt>     <tt class="py-op">=</tt> <tt class="py-number">3</tt> </tt>
+<a name="L14"></a><tt class="py-lineno"> 14</tt>  <tt class="py-line"> </tt>
+<a name="L15"></a><tt class="py-lineno"> 15</tt>  <tt class="py-line"><tt class="py-comment"># coins specifics:</tt> </tt>
+<a name="L16"></a><tt class="py-lineno"> 16</tt>  <tt class="py-line"> </tt>
+<a name="L17"></a><tt class="py-lineno"> 17</tt>  <tt class="py-line"><tt id="link-2" class="py-name" targets="Variable chaincountdown.SERVER=chaincountdown-module.html#SERVER,Variable config.SERVER=config-module.html#SERVER,Variable server.SERVER=server-module.html#SERVER"><a title="chaincountdown.SERVER
+config.SERVER
+server.SERVER" class="py-name" href="#" onclick="return doclink('link-2', 'SERVER', 'link-2');">SERVER</a></tt> <tt class="py-op">=</tt><tt class="py-op">{</tt> </tt>
+<a name="L18"></a><tt class="py-lineno"> 18</tt>  <tt class="py-line">         <tt class="py-string">"nxt"</tt> <tt class="py-op">:</tt> <tt class="py-string">"http://jnxt.org:7876/nxt"</tt><tt class="py-op">,</tt> </tt>
+<a name="L19"></a><tt class="py-lineno"> 19</tt>  <tt class="py-line">         <tt class="py-comment"># "nxt" : "http://localhost:7876/nxt",</tt> </tt>
+<a name="L20"></a><tt class="py-lineno"> 20</tt>  <tt class="py-line">          </tt>
+<a name="L21"></a><tt class="py-lineno"> 21</tt>  <tt class="py-line">         <tt class="py-string">"nhz"</tt> <tt class="py-op">:</tt> <tt class="py-string">"http://api.nhzcrypto.org:7776/nhz"</tt><tt class="py-op">,</tt> </tt>
+<a name="L22"></a><tt class="py-lineno"> 22</tt>  <tt class="py-line">         <tt class="py-comment"># "nhz":  "http://localhost:7776/nhz",</tt> </tt>
+<a name="L23"></a><tt class="py-lineno"> 23</tt>  <tt class="py-line">         <tt class="py-op">}</tt> </tt>
+<a name="L24"></a><tt class="py-lineno"> 24</tt>  <tt class="py-line"> </tt>
+<a name="L25"></a><tt class="py-lineno"> 25</tt>  <tt class="py-line"><tt id="link-3" class="py-name" targets="Variable chaincountdown.BLOCKSPERMINUTE=chaincountdown-module.html#BLOCKSPERMINUTE,Variable config.BLOCKSPERMINUTE=config-module.html#BLOCKSPERMINUTE"><a title="chaincountdown.BLOCKSPERMINUTE
+config.BLOCKSPERMINUTE" class="py-name" href="#" onclick="return doclink('link-3', 'BLOCKSPERMINUTE', 'link-3');">BLOCKSPERMINUTE</a></tt> <tt class="py-op">=</tt> <tt class="py-op">{</tt><tt class="py-string">"nxt"</tt><tt class="py-op">:</tt> <tt class="py-number">1</tt> <tt class="py-op">/</tt> <tt class="py-number">1.9005</tt><tt class="py-op">,</tt> </tt>
+<a name="L26"></a><tt class="py-lineno"> 26</tt>  <tt class="py-line">                   <tt class="py-string">"nhz"</tt><tt class="py-op">:</tt> <tt class="py-number">1</tt> <tt class="py-op">/</tt> <tt class="py-number">1.7861</tt><tt class="py-op">}</tt> </tt>
+<a name="L27"></a><tt class="py-lineno"> 27</tt>  <tt class="py-line"><tt id="link-4" class="py-name" targets="Variable chaincountdown.GENESIS=chaincountdown-module.html#GENESIS,Variable config.GENESIS=config-module.html#GENESIS"><a title="chaincountdown.GENESIS
+config.GENESIS" class="py-name" href="#" onclick="return doclink('link-4', 'GENESIS', 'link-4');">GENESIS</a></tt> <tt class="py-op">=</tt> <tt class="py-op">{</tt><tt class="py-string">"nhz"</tt><tt class="py-op">:</tt> <tt class="py-number">1395526942.22</tt><tt class="py-op">,</tt>  </tt>
+<a name="L28"></a><tt class="py-lineno"> 28</tt>  <tt class="py-line">           <tt class="py-string">"nxt"</tt><tt class="py-op">:</tt> <tt class="py-number">1385294400</tt><tt class="py-op">}</tt> </tt>
+<a name="L29"></a><tt class="py-lineno"> 29</tt>  <tt class="py-line"> </tt>
+<a name="L30"></a><tt class="py-lineno"> 30</tt>  <tt class="py-line"> </tt>
+<a name="L31"></a><tt class="py-lineno"> 31</tt>  <tt class="py-line"><tt class="py-comment"># subfolders:</tt> </tt>
+<a name="L32"></a><tt class="py-lineno"> 32</tt>  <tt class="py-line"><tt id="link-5" class="py-name" targets="Variable config.FONTFOLDER=config-module.html#FONTFOLDER"><a title="config.FONTFOLDER" class="py-name" href="#" onclick="return doclink('link-5', 'FONTFOLDER', 'link-5');">FONTFOLDER</a></tt> <tt class="py-op">=</tt> <tt class="py-string">"fonts"</tt> </tt>
+<a name="L33"></a><tt class="py-lineno"> 33</tt>  <tt class="py-line"><tt id="link-6" class="py-name" targets="Variable config.FONTSUFFIX=config-module.html#FONTSUFFIX"><a title="config.FONTSUFFIX" class="py-name" href="#" onclick="return doclink('link-6', 'FONTSUFFIX', 'link-6');">FONTSUFFIX</a></tt> <tt class="py-op">=</tt> <tt class="py-op">(</tt><tt class="py-string">".ttf"</tt><tt class="py-op">,</tt> <tt class="py-string">".otf"</tt><tt class="py-op">,</tt><tt class="py-op">)</tt> </tt>
+<a name="L34"></a><tt class="py-lineno"> 34</tt>  <tt class="py-line"> </tt>
+<a name="L35"></a><tt class="py-lineno"> 35</tt>  <tt class="py-line"><tt id="link-7" class="py-name" targets="Variable config.STATICFOLDER=config-module.html#STATICFOLDER"><a title="config.STATICFOLDER" class="py-name" href="#" onclick="return doclink('link-7', 'STATICFOLDER', 'link-7');">STATICFOLDER</a></tt> <tt class="py-op">=</tt> <tt class="py-string">"static"</tt> </tt>
+<a name="L36"></a><tt class="py-lineno"> 36</tt>  <tt class="py-line"><tt id="link-8" class="py-name" targets="Variable config.STATICSUFFICES=config-module.html#STATICSUFFICES"><a title="config.STATICSUFFICES" class="py-name" href="#" onclick="return doclink('link-8', 'STATICSUFFICES', 'link-8');">STATICSUFFICES</a></tt> <tt class="py-op">=</tt> <tt class="py-op">(</tt><tt class="py-string">".html"</tt><tt class="py-op">,</tt> <tt class="py-string">".htm"</tt><tt class="py-op">,</tt> <tt class="py-string">".css"</tt><tt class="py-op">,</tt> <tt class="py-string">".png"</tt><tt class="py-op">,</tt> <tt class="py-string">".ico"</tt><tt class="py-op">)</tt> </tt>
+<a name="L37"></a><tt class="py-lineno"> 37</tt>  <tt class="py-line"> </tt>
+<a name="L38"></a><tt class="py-lineno"> 38</tt>  <tt class="py-line"> </tt>
+<a name="L39"></a><tt class="py-lineno"> 39</tt>  <tt class="py-line"><tt class="py-comment"># text webserver:</tt> </tt>
+<a name="L40"></a><tt class="py-lineno"> 40</tt>  <tt class="py-line"> </tt>
+<a name="L41"></a><tt class="py-lineno"> 41</tt>  <tt class="py-line"><tt id="link-9" class="py-name" targets="Variable config.EXAMPLE=config-module.html#EXAMPLE"><a title="config.EXAMPLE" class="py-name" href="#" onclick="return doclink('link-9', 'EXAMPLE', 'link-9');">EXAMPLE</a></tt>     <tt class="py-op">=</tt> <tt class="py-string">"http://%s/nxt/600000.png?heading=nxthacks&amp;color=00affe&amp;fontsize=20"</tt> </tt>
+<a name="L42"></a><tt class="py-lineno"> 42</tt>  <tt class="py-line"><tt id="link-10" class="py-name" targets="Variable config.SUGGESTION=config-module.html#SUGGESTION,Variable server.SUGGESTION=server-module.html#SUGGESTION"><a title="config.SUGGESTION
+server.SUGGESTION" class="py-name" href="#" onclick="return doclink('link-10', 'SUGGESTION', 'link-10');">SUGGESTION</a></tt>  <tt class="py-op">=</tt> <tt class="py-string">"Your URL should look like: | %s |"</tt> <tt class="py-op">%</tt> <tt id="link-11" class="py-name"><a title="config.EXAMPLE" class="py-name" href="#" onclick="return doclink('link-11', 'EXAMPLE', 'link-9');">EXAMPLE</a></tt> </tt>
+<a name="L43"></a><tt class="py-lineno"> 43</tt>  <tt class="py-line"> </tt>
+<a name="L44"></a><tt class="py-lineno"> 44</tt>  <tt class="py-line"><tt id="link-12" class="py-name" targets="Variable config.INFOPAGE=config-module.html#INFOPAGE,Variable server.INFOPAGE=server-module.html#INFOPAGE"><a title="config.INFOPAGE
+server.INFOPAGE" class="py-name" href="#" onclick="return doclink('link-12', 'INFOPAGE', 'link-12');">INFOPAGE</a></tt>    <tt class="py-op">=</tt><tt class="py-string">"index.html"</tt> </tt>
+<a name="L45"></a><tt class="py-lineno"> 45</tt>  <tt class="py-line"><tt id="link-13" class="py-name" targets="Variable config.STYLESHEET=config-module.html#STYLESHEET,Variable server.STYLESHEET=server-module.html#STYLESHEET"><a title="config.STYLESHEET
+server.STYLESHEET" class="py-name" href="#" onclick="return doclink('link-13', 'STYLESHEET', 'link-13');">STYLESHEET</a></tt>  <tt class="py-op">=</tt><tt class="py-string">"yo.css"</tt> </tt>
+<a name="L46"></a><tt class="py-lineno"> 46</tt>  <tt class="py-line"> </tt>
+<a name="L47"></a><tt class="py-lineno"> 47</tt>  <tt class="py-line"><tt id="link-14" class="py-name" targets="Variable config.TEXTSAMPLE=config-module.html#TEXTSAMPLE,Variable imaging.TEXTSAMPLE=imaging-module.html#TEXTSAMPLE,Variable imaging_tests.TEXTSAMPLE=imaging_tests-module.html#TEXTSAMPLE"><a title="config.TEXTSAMPLE
+imaging.TEXTSAMPLE
+imaging_tests.TEXTSAMPLE" class="py-name" href="#" onclick="return doclink('link-14', 'TEXTSAMPLE', 'link-14');">TEXTSAMPLE</a></tt><tt class="py-op">=</tt><tt class="py-string">"""4465 blocks left to target.</tt> </tt>
+<a name="L48"></a><tt class="py-lineno"> 48</tt>  <tt class="py-line"><tt class="py-string">From current block 491532</tt> </tt>
+<a name="L49"></a><tt class="py-lineno"> 49</tt>  <tt class="py-line"><tt class="py-string">~5.9 days. My best guess:</tt> </tt>
+<a name="L50"></a><tt class="py-lineno"> 50</tt>  <tt class="py-line"><tt class="py-string">13 Aug 2015 03:09:37 UTC"""</tt> </tt>
+<a name="L51"></a><tt class="py-lineno"> 51</tt>  <tt class="py-line"> </tt>
+<a name="L52"></a><tt class="py-lineno"> 52</tt>  <tt class="py-line"> </tt>
+<a name="L53"></a><tt class="py-lineno"> 53</tt>  <tt class="py-line"><tt class="py-comment"># date, path and OS operations:</tt> </tt>
+<a name="L54"></a><tt class="py-lineno"> 54</tt>  <tt class="py-line"><tt class="py-keyword">import</tt> <tt id="link-15" class="py-name" targets="Module helpers=helpers-module.html"><a title="helpers" class="py-name" href="#" onclick="return doclink('link-15', 'helpers', 'link-15');">helpers</a></tt> </tt>
+<a name="L55"></a><tt class="py-lineno"> 55</tt>  <tt class="py-line"><tt class="py-keyword">import</tt> <tt class="py-name">os</tt><tt class="py-op">,</tt> <tt class="py-name">sys</tt> </tt>
+<a name="L56"></a><tt class="py-lineno"> 56</tt>  <tt class="py-line"> </tt>
+<a name="L57"></a><tt class="py-lineno"> 57</tt>  <tt class="py-line"><tt id="link-16" class="py-name" targets="Variable config.STARTED_AT=config-module.html#STARTED_AT"><a title="config.STARTED_AT" class="py-name" href="#" onclick="return doclink('link-16', 'STARTED_AT', 'link-16');">STARTED_AT</a></tt>  <tt class="py-op">=</tt> <tt id="link-17" class="py-name"><a title="helpers" class="py-name" href="#" onclick="return doclink('link-17', 'helpers', 'link-15');">helpers</a></tt><tt class="py-op">.</tt><tt id="link-18" class="py-name" targets="Function helpers.theNowInReadable()=helpers-module.html#theNowInReadable"><a title="helpers.theNowInReadable" class="py-name" href="#" onclick="return doclink('link-18', 'theNowInReadable', 'link-18');">theNowInReadable</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L58"></a><tt class="py-lineno"> 58</tt>  <tt class="py-line"><tt id="link-19" class="py-name" targets="Variable config.USERNAME=config-module.html#USERNAME"><a title="config.USERNAME" class="py-name" href="#" onclick="return doclink('link-19', 'USERNAME', 'link-19');">USERNAME</a></tt>    <tt class="py-op">=</tt> <tt id="link-20" class="py-name"><a title="helpers" class="py-name" href="#" onclick="return doclink('link-20', 'helpers', 'link-15');">helpers</a></tt><tt class="py-op">.</tt><tt id="link-21" class="py-name" targets="Function helpers.username()=helpers-module.html#username"><a title="helpers.username" class="py-name" href="#" onclick="return doclink('link-21', 'username', 'link-21');">username</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L59"></a><tt class="py-lineno"> 59</tt>  <tt class="py-line"><tt id="link-22" class="py-name" targets="Variable config.BASEDIR=config-module.html#BASEDIR,Variable server.BASEDIR=server-module.html#BASEDIR"><a title="config.BASEDIR
+server.BASEDIR" class="py-name" href="#" onclick="return doclink('link-22', 'BASEDIR', 'link-22');">BASEDIR</a></tt><tt class="py-op">,</tt> <tt id="link-23" class="py-name" targets="Variable config.TEMPDIRNAME=config-module.html#TEMPDIRNAME,Variable server.TEMPDIRNAME=server-module.html#TEMPDIRNAME"><a title="config.TEMPDIRNAME
+server.TEMPDIRNAME" class="py-name" href="#" onclick="return doclink('link-23', 'TEMPDIRNAME', 'link-23');">TEMPDIRNAME</a></tt> <tt class="py-op">=</tt> <tt id="link-24" class="py-name"><a title="helpers" class="py-name" href="#" onclick="return doclink('link-24', 'helpers', 'link-15');">helpers</a></tt><tt class="py-op">.</tt><tt id="link-25" class="py-name" targets="Function helpers.dirnames()=helpers-module.html#dirnames"><a title="helpers.dirnames" class="py-name" href="#" onclick="return doclink('link-25', 'dirnames', 'link-25');">dirnames</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L60"></a><tt class="py-lineno"> 60</tt>  <tt class="py-line"> </tt>
+<a name="L61"></a><tt class="py-lineno"> 61</tt>  <tt class="py-line"><tt id="link-26" class="py-name" targets="Variable config.FONTDIR=config-module.html#FONTDIR,Variable imaging.FONTDIR=imaging-module.html#FONTDIR"><a title="config.FONTDIR
+imaging.FONTDIR" class="py-name" href="#" onclick="return doclink('link-26', 'FONTDIR', 'link-26');">FONTDIR</a></tt> <tt class="py-op">=</tt> <tt class="py-name">os</tt><tt class="py-op">.</tt><tt class="py-name">path</tt><tt class="py-op">.</tt><tt class="py-name">join</tt><tt class="py-op">(</tt><tt id="link-27" class="py-name"><a title="config.BASEDIR
+server.BASEDIR" class="py-name" href="#" onclick="return doclink('link-27', 'BASEDIR', 'link-22');">BASEDIR</a></tt><tt class="py-op">,</tt> <tt id="link-28" class="py-name"><a title="config.FONTFOLDER" class="py-name" href="#" onclick="return doclink('link-28', 'FONTFOLDER', 'link-5');">FONTFOLDER</a></tt> <tt class="py-op">)</tt> </tt>
+<a name="L62"></a><tt class="py-lineno"> 62</tt>  <tt class="py-line"><tt id="link-29" class="py-name" targets="Variable config.FONTS=config-module.html#FONTS,Variable imaging.FONTS=imaging-module.html#FONTS,Variable imaging_tests.FONTS=imaging_tests-module.html#FONTS,Variable server.FONTS=server-module.html#FONTS"><a title="config.FONTS
+imaging.FONTS
+imaging_tests.FONTS
+server.FONTS" class="py-name" href="#" onclick="return doclink('link-29', 'FONTS', 'link-29');">FONTS</a></tt>   <tt class="py-op">=</tt> <tt id="link-30" class="py-name"><a title="helpers" class="py-name" href="#" onclick="return doclink('link-30', 'helpers', 'link-15');">helpers</a></tt><tt class="py-op">.</tt><tt id="link-31" class="py-name" targets="Function helpers.filesInFolder()=helpers-module.html#filesInFolder"><a title="helpers.filesInFolder" class="py-name" href="#" onclick="return doclink('link-31', 'filesInFolder', 'link-31');">filesInFolder</a></tt><tt class="py-op">(</tt><tt id="link-32" class="py-name"><a title="config.FONTDIR
+imaging.FONTDIR" class="py-name" href="#" onclick="return doclink('link-32', 'FONTDIR', 'link-26');">FONTDIR</a></tt><tt class="py-op">,</tt> <tt id="link-33" class="py-name"><a title="config.FONTSUFFIX" class="py-name" href="#" onclick="return doclink('link-33', 'FONTSUFFIX', 'link-6');">FONTSUFFIX</a></tt> <tt class="py-op">)</tt> <tt class="py-op">+</tt> <tt class="py-op">[</tt><tt class="py-string">""</tt><tt class="py-op">,</tt><tt class="py-op">]</tt> <tt class="py-comment"># for default font</tt> </tt>
+<a name="L63"></a><tt class="py-lineno"> 63</tt>  <tt class="py-line"><tt class="py-comment"># FONTS = map(helpers.nameWOsuffix, FONTS) # strip the suffix</tt> </tt>
+<a name="L64"></a><tt class="py-lineno"> 64</tt>  <tt class="py-line"> </tt>
+<a name="L65"></a><tt class="py-lineno"> 65</tt>  <tt class="py-line"><tt id="link-34" class="py-name" targets="Variable config.STATICDIR=config-module.html#STATICDIR,Variable imaging.STATICDIR=imaging-module.html#STATICDIR,Variable server.STATICDIR=server-module.html#STATICDIR"><a title="config.STATICDIR
+imaging.STATICDIR
+server.STATICDIR" class="py-name" href="#" onclick="return doclink('link-34', 'STATICDIR', 'link-34');">STATICDIR</a></tt> <tt class="py-op">=</tt> <tt class="py-name">os</tt><tt class="py-op">.</tt><tt class="py-name">path</tt><tt class="py-op">.</tt><tt class="py-name">join</tt><tt class="py-op">(</tt><tt id="link-35" class="py-name"><a title="config.BASEDIR
+server.BASEDIR" class="py-name" href="#" onclick="return doclink('link-35', 'BASEDIR', 'link-22');">BASEDIR</a></tt><tt class="py-op">,</tt> <tt id="link-36" class="py-name"><a title="config.STATICFOLDER" class="py-name" href="#" onclick="return doclink('link-36', 'STATICFOLDER', 'link-7');">STATICFOLDER</a></tt><tt class="py-op">)</tt> </tt>
+<a name="L66"></a><tt class="py-lineno"> 66</tt>  <tt class="py-line"><tt id="link-37" class="py-name" targets="Variable config.PAGES=config-module.html#PAGES,Variable server.PAGES=server-module.html#PAGES"><a title="config.PAGES
+server.PAGES" class="py-name" href="#" onclick="return doclink('link-37', 'PAGES', 'link-37');">PAGES</a></tt>   <tt class="py-op">=</tt> <tt id="link-38" class="py-name"><a title="helpers" class="py-name" href="#" onclick="return doclink('link-38', 'helpers', 'link-15');">helpers</a></tt><tt class="py-op">.</tt><tt id="link-39" class="py-name"><a title="helpers.filesInFolder" class="py-name" href="#" onclick="return doclink('link-39', 'filesInFolder', 'link-31');">filesInFolder</a></tt><tt class="py-op">(</tt><tt id="link-40" class="py-name"><a title="config.STATICDIR
+imaging.STATICDIR
+server.STATICDIR" class="py-name" href="#" onclick="return doclink('link-40', 'STATICDIR', 'link-34');">STATICDIR</a></tt><tt class="py-op">,</tt> <tt id="link-41" class="py-name"><a title="config.STATICSUFFICES" class="py-name" href="#" onclick="return doclink('link-41', 'STATICSUFFICES', 'link-8');">STATICSUFFICES</a></tt> <tt class="py-op">)</tt> </tt>
+<a name="L67"></a><tt class="py-lineno"> 67</tt>  <tt class="py-line"> </tt>
+<a name="L68"></a><tt class="py-lineno"> 68</tt>  <tt class="py-line"><tt id="link-42" class="py-name" targets="Variable config.MIMETYPE=config-module.html#MIMETYPE,Variable server.MIMETYPE=server-module.html#MIMETYPE"><a title="config.MIMETYPE
+server.MIMETYPE" class="py-name" href="#" onclick="return doclink('link-42', 'MIMETYPE', 'link-42');">MIMETYPE</a></tt> <tt class="py-op">=</tt> <tt class="py-op">{</tt><tt class="py-string">".html"</tt> <tt class="py-op">:</tt> <tt class="py-string">"text/html"</tt><tt class="py-op">,</tt> </tt>
+<a name="L69"></a><tt class="py-lineno"> 69</tt>  <tt class="py-line">            <tt class="py-string">".css"</tt>  <tt class="py-op">:</tt> <tt class="py-string">"text/css"</tt><tt class="py-op">,</tt> </tt>
+<a name="L70"></a><tt class="py-lineno"> 70</tt>  <tt class="py-line">            <tt class="py-string">".png"</tt>  <tt class="py-op">:</tt> <tt class="py-string">"image/png"</tt><tt class="py-op">,</tt> </tt>
+<a name="L71"></a><tt class="py-lineno"> 71</tt>  <tt class="py-line">            <tt class="py-string">".ico"</tt>  <tt class="py-op">:</tt> <tt class="py-string">"image/x-icon"</tt><tt class="py-op">}</tt> </tt>
+<a name="L72"></a><tt class="py-lineno"> 72</tt>  <tt class="py-line"> </tt>
+<a name="L73"></a><tt class="py-lineno"> 73</tt>  <tt class="py-line"><tt class="py-comment"># picture defaults:</tt> </tt>
+<a name="L74"></a><tt class="py-lineno"> 74</tt>  <tt class="py-line"> </tt>
+<a name="L75"></a><tt class="py-lineno"> 75</tt>  <tt class="py-line"><tt id="link-43" class="py-name" targets="Variable config.FOOTER=config-module.html#FOOTER"><a title="config.FOOTER" class="py-name" href="#" onclick="return doclink('link-43', 'FOOTER', 'link-43');">FOOTER</a></tt> <tt class="py-op">=</tt> <tt class="py-string">"#chaincountdown.py by @AltSheets "</tt> </tt>
+<a name="L76"></a><tt class="py-lineno"> 76</tt>  <tt class="py-line"><tt id="link-44" class="py-name" targets="Variable config.FONTSIZEFOOTER_MIN=config-module.html#FONTSIZEFOOTER_MIN,Variable server.FONTSIZEFOOTER_MIN=server-module.html#FONTSIZEFOOTER_MIN"><a title="config.FONTSIZEFOOTER_MIN
+server.FONTSIZEFOOTER_MIN" class="py-name" href="#" onclick="return doclink('link-44', 'FONTSIZEFOOTER_MIN', 'link-44');">FONTSIZEFOOTER_MIN</a></tt><tt class="py-op">=</tt><tt class="py-number">9</tt> <tt class="py-comment"># or fontsize/2 or:</tt> </tt>
+<a name="L77"></a><tt class="py-lineno"> 77</tt>  <tt class="py-line"> </tt>
+<a name="L78"></a><tt class="py-lineno"> 78</tt>  <tt class="py-line"><tt class="py-comment"># fonts become unreadable below certain sizes,</tt> </tt>
+<a name="L79"></a><tt class="py-lineno"> 79</tt>  <tt class="py-line"><tt class="py-comment"># this is used for the footer line</tt> </tt>
+<a name="L80"></a><tt class="py-lineno"> 80</tt>  <tt class="py-line"><tt class="py-comment"># can be easily decided with the help of </tt> </tt>
+<a name="L81"></a><tt class="py-lineno"> 81</tt>  <tt class="py-line"><tt class="py-comment"># imaging_tests.test_FontSizes()</tt> </tt>
+<a name="L82"></a><tt class="py-lineno"> 82</tt>  <tt class="py-line"> </tt>
+<a name="L83"></a><tt class="py-lineno"> 83</tt>  <tt class="py-line"><tt id="link-45" class="py-name" targets="Variable config.FONTMINIMA=config-module.html#FONTMINIMA,Variable imaging.FONTMINIMA=imaging-module.html#FONTMINIMA"><a title="config.FONTMINIMA
+imaging.FONTMINIMA" class="py-name" href="#" onclick="return doclink('link-45', 'FONTMINIMA', 'link-45');">FONTMINIMA</a></tt> <tt class="py-op">=</tt> <tt class="py-op">{</tt><tt class="py-string">"Pecita.otf"</tt>      <tt class="py-op">:</tt> <tt class="py-number">13</tt><tt class="py-op">,</tt>  </tt>
+<a name="L84"></a><tt class="py-lineno"> 84</tt>  <tt class="py-line">              <tt class="py-string">"AndBasR.ttf"</tt>     <tt class="py-op">:</tt> <tt class="py-number">10</tt><tt class="py-op">,</tt> </tt>
+<a name="L85"></a><tt class="py-lineno"> 85</tt>  <tt class="py-line">              <tt class="py-string">"arial.ttf"</tt>       <tt class="py-op">:</tt> <tt class="py-number">9</tt><tt class="py-op">,</tt> </tt>
+<a name="L86"></a><tt class="py-lineno"> 86</tt>  <tt class="py-line">              <tt class="py-string">"comic.ttf"</tt>       <tt class="py-op">:</tt> <tt class="py-number">9</tt><tt class="py-op">,</tt> </tt>
+<a name="L87"></a><tt class="py-lineno"> 87</tt>  <tt class="py-line">              <tt class="py-string">"cour.ttf"</tt>        <tt class="py-op">:</tt> <tt class="py-number">11</tt><tt class="py-op">,</tt> </tt>
+<a name="L88"></a><tt class="py-lineno"> 88</tt>  <tt class="py-line">              <tt class="py-string">"DejaVuSans.ttf"</tt>  <tt class="py-op">:</tt> <tt class="py-number">9</tt><tt class="py-op">,</tt> </tt>
+<a name="L89"></a><tt class="py-lineno"> 89</tt>  <tt class="py-line">              <tt class="py-string">"Furore.otf"</tt>      <tt class="py-op">:</tt> <tt class="py-number">13</tt><tt class="py-op">,</tt> </tt>
+<a name="L90"></a><tt class="py-lineno"> 90</tt>  <tt class="py-line">              <tt class="py-string">"Gidole-Regular.otf"</tt> <tt class="py-op">:</tt> <tt class="py-number">13</tt><tt class="py-op">}</tt> </tt>
+<a name="L91"></a><tt class="py-lineno"> 91</tt>  <tt class="py-line"> </tt>
+<a name="L92"></a><tt class="py-lineno"> 92</tt>  <tt class="py-line"><tt id="link-46" class="py-name" targets="Variable config.IMAGETYPES=config-module.html#IMAGETYPES,Variable server.IMAGETYPES=server-module.html#IMAGETYPES"><a title="config.IMAGETYPES
+server.IMAGETYPES" class="py-name" href="#" onclick="return doclink('link-46', 'IMAGETYPES', 'link-46');">IMAGETYPES</a></tt> <tt class="py-op">=</tt> <tt class="py-op">(</tt><tt class="py-string">"jpg"</tt><tt class="py-op">,</tt> <tt class="py-string">"gif"</tt><tt class="py-op">,</tt> <tt class="py-string">"png"</tt><tt class="py-op">)</tt> </tt>
+<a name="L93"></a><tt class="py-lineno"> 93</tt>  <tt class="py-line"><tt id="link-47" class="py-name" targets="Variable config.FILENAMEPIC=config-module.html#FILENAMEPIC,Variable server.FILENAMEPIC=server-module.html#FILENAMEPIC"><a title="config.FILENAMEPIC
+server.FILENAMEPIC" class="py-name" href="#" onclick="return doclink('link-47', 'FILENAMEPIC', 'link-47');">FILENAMEPIC</a></tt> <tt class="py-op">=</tt> <tt class="py-string">"temp"</tt> </tt>
+<a name="L94"></a><tt class="py-lineno"> 94</tt>  <tt class="py-line"> </tt>
+<a name="L95"></a><tt class="py-lineno"> 95</tt>  <tt class="py-line"><tt id="link-48" class="py-name" targets="Variable config.FONTDEFAULT=config-module.html#FONTDEFAULT"><a title="config.FONTDEFAULT" class="py-name" href="#" onclick="return doclink('link-48', 'FONTDEFAULT', 'link-48');">FONTDEFAULT</a></tt> <tt class="py-op">=</tt> <tt class="py-string">"DejaVuSans.ttf"</tt> <tt class="py-comment"># or take the first one found:</tt> </tt>
+<a name="L96"></a><tt class="py-lineno"> 96</tt>  <tt class="py-line"><tt id="link-49" class="py-name"><a title="config.FONTDEFAULT" class="py-name" href="#" onclick="return doclink('link-49', 'FONTDEFAULT', 'link-48');">FONTDEFAULT</a></tt> <tt class="py-op">=</tt> <tt id="link-50" class="py-name"><a title="config.FONTDEFAULT" class="py-name" href="#" onclick="return doclink('link-50', 'FONTDEFAULT', 'link-48');">FONTDEFAULT</a></tt> <tt class="py-keyword">if</tt> <tt id="link-51" class="py-name"><a title="config.FONTDEFAULT" class="py-name" href="#" onclick="return doclink('link-51', 'FONTDEFAULT', 'link-48');">FONTDEFAULT</a></tt> <tt class="py-keyword">in</tt> <tt id="link-52" class="py-name"><a title="config.FONTS
+imaging.FONTS
+imaging_tests.FONTS
+server.FONTS" class="py-name" href="#" onclick="return doclink('link-52', 'FONTS', 'link-29');">FONTS</a></tt> <tt class="py-keyword">else</tt> <tt id="link-53" class="py-name"><a title="config.FONTS
+imaging.FONTS
+imaging_tests.FONTS
+server.FONTS" class="py-name" href="#" onclick="return doclink('link-53', 'FONTS', 'link-29');">FONTS</a></tt><tt class="py-op">[</tt><tt class="py-number">0</tt><tt class="py-op">]</tt>   </tt>
+<a name="L97"></a><tt class="py-lineno"> 97</tt>  <tt class="py-line"> </tt>
+<a name="L98"></a><tt class="py-lineno"> 98</tt>  <tt class="py-line"><tt id="link-54" class="py-name" targets="Variable config.IMAGEDEFAULTS=config-module.html#IMAGEDEFAULTS,Variable imaging.IMAGEDEFAULTS=imaging-module.html#IMAGEDEFAULTS,Variable server.IMAGEDEFAULTS=server-module.html#IMAGEDEFAULTS"><a title="config.IMAGEDEFAULTS
+imaging.IMAGEDEFAULTS
+server.IMAGEDEFAULTS" class="py-name" href="#" onclick="return doclink('link-54', 'IMAGEDEFAULTS', 'link-54');">IMAGEDEFAULTS</a></tt> <tt class="py-op">=</tt> <tt class="py-op">{</tt><tt class="py-string">"color"</tt>            <tt class="py-op">:</tt> <tt class="py-string">"#111111"</tt><tt class="py-op">,</tt> </tt>
+<a name="L99"></a><tt class="py-lineno"> 99</tt>  <tt class="py-line">                 <tt class="py-string">"bgcolor"</tt>          <tt class="py-op">:</tt> <tt class="py-string">"#eeeeee"</tt><tt class="py-op">,</tt> </tt>
+<a name="L100"></a><tt class="py-lineno">100</tt>  <tt class="py-line">                 <tt class="py-string">"font"</tt>             <tt class="py-op">:</tt> <tt id="link-55" class="py-name"><a title="config.FONTDEFAULT" class="py-name" href="#" onclick="return doclink('link-55', 'FONTDEFAULT', 'link-48');">FONTDEFAULT</a></tt><tt class="py-op">,</tt> </tt>
+<a name="L101"></a><tt class="py-lineno">101</tt>  <tt class="py-line">                 <tt class="py-string">"fontsize"</tt>         <tt class="py-op">:</tt> <tt class="py-number">24</tt><tt class="py-op">,</tt> </tt>
+<a name="L102"></a><tt class="py-lineno">102</tt>  <tt class="py-line">                 <tt class="py-string">"linedistanceratio"</tt><tt class="py-op">:</tt> <tt class="py-number">0.2</tt><tt class="py-op">,</tt> </tt>
+<a name="L103"></a><tt class="py-lineno">103</tt>  <tt class="py-line">                 <tt class="py-string">"headingfontsize"</tt>  <tt class="py-op">:</tt> <tt class="py-number">36</tt><tt class="py-op">,</tt> </tt>
+<a name="L104"></a><tt class="py-lineno">104</tt>  <tt class="py-line">                 <tt class="py-string">"heading"</tt>          <tt class="py-op">:</tt> <tt class="py-string">""</tt><tt class="py-op">,</tt> </tt>
+<a name="L105"></a><tt class="py-lineno">105</tt>  <tt class="py-line">                 <tt class="py-string">"footerfontsize"</tt>   <tt class="py-op">:</tt> <tt class="py-number">9</tt><tt class="py-op">,</tt> </tt>
+<a name="L106"></a><tt class="py-lineno">106</tt>  <tt class="py-line">                 <tt class="py-string">"footer"</tt>           <tt class="py-op">:</tt> <tt id="link-56" class="py-name"><a title="config.FOOTER" class="py-name" href="#" onclick="return doclink('link-56', 'FOOTER', 'link-43');">FOOTER</a></tt><tt class="py-op">,</tt> </tt>
+<a name="L107"></a><tt class="py-lineno">107</tt>  <tt class="py-line">                 <tt class="py-string">"maxcharsperline"</tt>  <tt class="py-op">:</tt> <tt class="py-number">58</tt><tt class="py-op">,</tt> </tt>
+<a name="L108"></a><tt class="py-lineno">108</tt>  <tt class="py-line">                 <tt class="py-string">"jpgquality"</tt>       <tt class="py-op">:</tt> <tt class="py-number">99</tt><tt class="py-op">}</tt> </tt>
+<a name="L109"></a><tt class="py-lineno">109</tt>  <tt class="py-line"> </tt>
+<a name="L110"></a><tt class="py-lineno">110</tt>  <tt class="py-line"><tt id="link-57" class="py-name" targets="Variable config.ALLFONTSIMAGEDEFAULTS=config-module.html#ALLFONTSIMAGEDEFAULTS,Variable imaging.ALLFONTSIMAGEDEFAULTS=imaging-module.html#ALLFONTSIMAGEDEFAULTS"><a title="config.ALLFONTSIMAGEDEFAULTS
+imaging.ALLFONTSIMAGEDEFAULTS" class="py-name" href="#" onclick="return doclink('link-57', 'ALLFONTSIMAGEDEFAULTS', 'link-57');">ALLFONTSIMAGEDEFAULTS</a></tt> <tt class="py-op">=</tt> <tt class="py-op">{</tt><tt class="py-string">"file"</tt>       <tt class="py-op">:</tt><tt class="py-string">"allfonts.png"</tt><tt class="py-op">,</tt> </tt>
+<a name="L111"></a><tt class="py-lineno">111</tt>  <tt class="py-line">                         <tt class="py-string">"fontsize"</tt>   <tt class="py-op">:</tt> <tt class="py-number">20</tt><tt class="py-op">,</tt> </tt>
+<a name="L112"></a><tt class="py-lineno">112</tt>  <tt class="py-line">                         <tt class="py-string">"lineHeight"</tt> <tt class="py-op">:</tt> <tt class="py-number">1.3</tt><tt class="py-op">,</tt>  </tt>
+<a name="L113"></a><tt class="py-lineno">113</tt>  <tt class="py-line">                         <tt class="py-string">"border"</tt>     <tt class="py-op">:</tt> <tt class="py-number">10</tt><tt class="py-op">,</tt> </tt>
+<a name="L114"></a><tt class="py-lineno">114</tt>  <tt class="py-line">                         <tt class="py-string">"color"</tt>      <tt class="py-op">:</tt> <tt class="py-string">"#336699"</tt><tt class="py-op">,</tt> </tt>
+<a name="L115"></a><tt class="py-lineno">115</tt>  <tt class="py-line">                         <tt class="py-string">"bgcolor"</tt>    <tt class="py-op">:</tt> <tt class="py-string">"#DCDCDC"</tt><tt class="py-op">}</tt> </tt>
+<a name="L116"></a><tt class="py-lineno">116</tt>  <tt class="py-line"> </tt>
+<a name="L117"></a><tt class="py-lineno">117</tt>  <tt class="py-line"><tt id="link-58" class="py-name" targets="Variable config.TESTTEXT=config-module.html#TESTTEXT,Variable imaging.TESTTEXT=imaging-module.html#TESTTEXT"><a title="config.TESTTEXT
+imaging.TESTTEXT" class="py-name" href="#" onclick="return doclink('link-58', 'TESTTEXT', 'link-58');">TESTTEXT</a></tt> <tt class="py-op">=</tt> <tt class="py-string">"The quick brown fox jumps over the lazy dog! 1234567890 :?!.@#"</tt> </tt>
+<a name="L118"></a><tt class="py-lineno">118</tt>  <tt class="py-line"> </tt>
+<a name="L119"></a><tt class="py-lineno">119</tt>  <tt class="py-line"> </tt>
+<a name="L120"></a><tt class="py-lineno">120</tt>  <tt class="py-line"> </tt>
+<a name="L121"></a><tt class="py-lineno">121</tt>  <tt class="py-line"><tt class="py-comment"># print a status to stderr (because that gets daemon logged perfectly)</tt> </tt>
+<a name="L122"></a><tt class="py-lineno">122</tt>  <tt class="py-line">  </tt>
+<a name="L123"></a><tt class="py-lineno">123</tt>  <tt class="py-line"><tt class="py-keyword">print</tt> <tt class="py-op">&gt;&gt;</tt> <tt class="py-name">sys</tt><tt class="py-op">.</tt><tt class="py-name">stderr</tt><tt class="py-op">,</tt>  <tt class="py-string">"Static pages from '%s'\nTemp files into '%s'"</tt> <tt class="py-op">%</tt> <tt class="py-op">(</tt><tt id="link-59" class="py-name"><a title="config.STATICDIR
+imaging.STATICDIR
+server.STATICDIR" class="py-name" href="#" onclick="return doclink('link-59', 'STATICDIR', 'link-34');">STATICDIR</a></tt><tt class="py-op">,</tt> <tt id="link-60" class="py-name"><a title="config.TEMPDIRNAME
+server.TEMPDIRNAME" class="py-name" href="#" onclick="return doclink('link-60', 'TEMPDIRNAME', 'link-23');">TEMPDIRNAME</a></tt><tt class="py-op">)</tt> </tt>
+<a name="L124"></a><tt class="py-lineno">124</tt>  <tt class="py-line"><tt class="py-keyword">print</tt> <tt class="py-op">&gt;&gt;</tt> <tt class="py-name">sys</tt><tt class="py-op">.</tt><tt class="py-name">stderr</tt><tt class="py-op">,</tt>  <tt class="py-string">"Static files available: %s"</tt> <tt class="py-op">%</tt> <tt class="py-string">", "</tt><tt class="py-op">.</tt><tt class="py-name">join</tt><tt class="py-op">(</tt><tt id="link-61" class="py-name"><a title="config.PAGES
+server.PAGES" class="py-name" href="#" onclick="return doclink('link-61', 'PAGES', 'link-37');">PAGES</a></tt><tt class="py-op">)</tt> </tt>
+<a name="L125"></a><tt class="py-lineno">125</tt>  <tt class="py-line"><tt class="py-keyword">if</tt> <tt class="py-name">len</tt><tt class="py-op">(</tt><tt id="link-62" class="py-name"><a title="config.FONTS
+imaging.FONTS
+imaging_tests.FONTS
+server.FONTS" class="py-name" href="#" onclick="return doclink('link-62', 'FONTS', 'link-29');">FONTS</a></tt><tt class="py-op">)</tt><tt class="py-op">==</tt><tt class="py-number">1</tt><tt class="py-op">:</tt>  </tt>
+<a name="L126"></a><tt class="py-lineno">126</tt>  <tt class="py-line">    <tt class="py-keyword">print</tt> <tt class="py-op">&gt;&gt;</tt> <tt class="py-name">sys</tt><tt class="py-op">.</tt><tt class="py-name">stderr</tt><tt class="py-op">,</tt>  <tt class="py-string">"no fonts found, sorry exiting."</tt> </tt>
+<a name="L127"></a><tt class="py-lineno">127</tt>  <tt class="py-line">    <tt class="py-name">exit</tt><tt class="py-op">(</tt><tt class="py-number">1</tt><tt class="py-op">)</tt> </tt>
+<a name="L128"></a><tt class="py-lineno">128</tt>  <tt class="py-line"><tt class="py-comment"># print &gt;&gt; sys.stderr,  "fonts available: %s" % ", ".join([helpers.nameWOsuffix(f) for f in FONTS[:-1]])</tt> </tt>
+<a name="L129"></a><tt class="py-lineno">129</tt>  <tt class="py-line"><tt class="py-keyword">print</tt> <tt class="py-op">&gt;&gt;</tt> <tt class="py-name">sys</tt><tt class="py-op">.</tt><tt class="py-name">stderr</tt><tt class="py-op">,</tt>  <tt class="py-string">"Fonts available: %s"</tt> <tt class="py-op">%</tt> <tt class="py-string">", "</tt><tt class="py-op">.</tt><tt class="py-name">join</tt><tt class="py-op">(</tt><tt id="link-63" class="py-name"><a title="config.FONTS
+imaging.FONTS
+imaging_tests.FONTS
+server.FONTS" class="py-name" href="#" onclick="return doclink('link-63', 'FONTS', 'link-29');">FONTS</a></tt><tt class="py-op">[</tt><tt class="py-op">:</tt><tt class="py-op">-</tt><tt class="py-number">1</tt><tt class="py-op">]</tt><tt class="py-op">)</tt> </tt>
+<a name="L130"></a><tt class="py-lineno">130</tt>  <tt class="py-line"><tt class="py-keyword">print</tt> <tt class="py-op">&gt;&gt;</tt> <tt class="py-name">sys</tt><tt class="py-op">.</tt><tt class="py-name">stderr</tt><tt class="py-op">,</tt>  <tt class="py-string">"Default font: %s"</tt> <tt class="py-op">%</tt> <tt id="link-64" class="py-name"><a title="config.FONTDEFAULT" class="py-name" href="#" onclick="return doclink('link-64', 'FONTDEFAULT', 'link-48');">FONTDEFAULT</a></tt> </tt>
+<a name="L131"></a><tt class="py-lineno">131</tt>  <tt class="py-line"><tt class="py-keyword">print</tt> <tt class="py-op">&gt;&gt;</tt> <tt class="py-name">sys</tt><tt class="py-op">.</tt><tt class="py-name">stderr</tt><tt class="py-op">,</tt>  <tt class="py-string">"Time now: %s\nRunning this as: '%s'"</tt> <tt class="py-op">%</tt> <tt class="py-op">(</tt><tt id="link-65" class="py-name"><a title="config.STARTED_AT" class="py-name" href="#" onclick="return doclink('link-65', 'STARTED_AT', 'link-16');">STARTED_AT</a></tt><tt class="py-op">,</tt> <tt id="link-66" class="py-name"><a title="config.USERNAME" class="py-name" href="#" onclick="return doclink('link-66', 'USERNAME', 'link-19');">USERNAME</a></tt><tt class="py-op">)</tt> </tt>
+<a name="L132"></a><tt class="py-lineno">132</tt>  <tt class="py-line"> </tt><script type="text/javascript">
+<!--
+expandto(location.href);
+// -->
+</script>
+</pre>
+<br />
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+      <th class="navbar" width="100%"></th>
+  </tr>
+</table>
+<table border="0" cellpadding="0" cellspacing="0" width="100%%">
+  <tr>
+    <td align="left" class="footer">
+    Generated by Epydoc 3.0.1 on Tue Oct 27 16:25:59 2015
+    </td>
+    <td align="right" class="footer">
+      <a target="mainFrame" href="http://epydoc.sourceforge.net"
+        >http://epydoc.sourceforge.net</a>
+    </td>
+  </tr>
+</table>
+
+<script type="text/javascript">
+  <!--
+  // Private objects are initially displayed (because if
+  // javascript is turned off then we want them to be
+  // visible); but by default, we want to hide them.  So hide
+  // them unless we have a cookie that says to show them.
+  checkCookie();
+  // -->
+</script>
+</body>
+</html>

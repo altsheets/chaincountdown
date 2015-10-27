@@ -1,0 +1,505 @@
+<?xml version="1.0" encoding="ascii"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+          "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>chaincountdown</title>
+  <link rel="stylesheet" href="epydoc.css" type="text/css" />
+  <script type="text/javascript" src="epydoc.js"></script>
+</head>
+
+<body bgcolor="white" text="black" link="blue" vlink="#204080"
+      alink="#204080">
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+      <th class="navbar" width="100%"></th>
+  </tr>
+</table>
+<table width="100%" cellpadding="0" cellspacing="0">
+  <tr valign="top">
+    <td width="100%">
+      <span class="breadcrumbs">
+        Module&nbsp;chaincountdown
+      </span>
+    </td>
+    <td>
+      <table cellpadding="0" cellspacing="0">
+        <!-- hide/show private -->
+        <tr><td align="right"><span class="options">[<a href="javascript:void(0);" class="privatelink"
+    onclick="toggle_private();">hide&nbsp;private</a>]</span></td></tr>
+        <tr><td align="right"><span class="options"
+            >[<a href="frames.html" target="_top">frames</a
+            >]&nbsp;|&nbsp;<a href="chaincountdown-module.html"
+            target="_top">no&nbsp;frames</a>]</span></td></tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<!-- ==================== MODULE DESCRIPTION ==================== -->
+<h1 class="epydoc">Module chaincountdown</h1><p class="nomargin-top"><span class="codelink"><a href="chaincountdown-pysrc.html">source&nbsp;code</a></span></p>
+<pre class="literalblock">
+
+@title:    chaincountdown.py 
+
+@summary:  HttpServer which returns time estimation to targetblock of nxt/hz. 
+           Image rendered at request. Choosable heading, fontsizes &amp; colors.
+
+@version:  v11 &quot;Conceptual Thunderstorm&quot; 
+                at after 2015/08/10 16:50 UTC ~ nxt-block 494158 = hz-block 419023
+@since:                  2015/08/05 03:00 UTC ~ 44 hours of hard &amp; enjoyable work
+
+@manual:   see index.html page at http://....:8888/    
+@requires: NXT / HZ / BURST / ... server for: getBlockchainStatus &amp; getBlock
+
+@author:   AltSheets
+@license:  Giveback license v05  - http://altsheets.ddns.net/give/
+
+@reward:       Bitcoin address exclusive to this epic.. 
+               [BTC] 13whfNFT2dse7eiuNXVkuJivjxqSXHrW4j
+                        Thanks a lot! Much appreciated!
+                        
+@donate:    or other currencies:
+               NXT-CMKU-ZQYK-V6CD-9UHF4 or 
+               NHZ-Q675-SGBG-LQ43-D38L6 or
+               BURST-ESVR-L2WJ-NT3Y-BWM6V   Thx
+@invest:    or invest into my dividends paying assets
+               AAssetNXT (NXT 13634799205909171438)
+               AAssetHZ  (HZ 8101260088962758269)
+@freetrial: or try and buy this auto-updated portfolio overview
+               Altfolio http://altfolio.ddns.net - free trial!
+
+@related:   chaincountdown.py was created for the nxthacks2015
+                 where I submitted my amazing &quot;AssetGraphs.py&quot;
+                         http://altsheets.ddns.net/assetgraphs
+
+</pre>
+
+<!-- ==================== FUNCTIONS ==================== -->
+<a name="section-Functions"></a>
+<table class="summary" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Functions</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-Functions"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="chaincountdown-module.html#abortTextIfNecessary" class="summary-sig-name">abortTextIfNecessary</a>(<span class="summary-sig-arg">success</span>,
+        <span class="summary-sig-arg">apiResult</span>,
+        <span class="summary-sig-arg">pfn</span>)</span><br />
+      Check the results.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="chaincountdown-pysrc.html#abortTextIfNecessary">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="calculateCountdown"></a><span class="summary-sig-name">calculateCountdown</span>(<span class="summary-sig-arg">apiResult</span>,
+        <span class="summary-sig-arg">blockHeightTarget</span>,
+        <span class="summary-sig-arg">pfn</span>)</span><br />
+      generate the answers, returns success &amp; lots of numbers</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="chaincountdown-pysrc.html#calculateCountdown">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="coinTimeToHumanTime"></a><span class="summary-sig-name">coinTimeToHumanTime</span>(<span class="summary-sig-arg">coinTime</span>,
+        <span class="summary-sig-arg">pfn</span>)</span><br />
+      returns date and time when given coin timestamp and platformname</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="chaincountdown-pysrc.html#coinTimeToHumanTime">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="doTheChaChaCha"></a><span class="summary-sig-name">doTheChaChaCha</span>(<span class="summary-sig-arg">blockHeightTarget</span>,
+        <span class="summary-sig-arg">pfn</span>)</span><br />
+      this is where the magic happens: get chain data, check results, 
+      calculate, and make a nice string from it.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="chaincountdown-pysrc.html#doTheChaChaCha">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="getBlock"></a><span class="summary-sig-name">getBlock</span>(<span class="summary-sig-arg">block</span>,
+        <span class="summary-sig-arg">pfn</span>)</span><br />
+      api getBlock(block)</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="chaincountdown-pysrc.html#getBlock">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="getBlockchainStatus"></a><span class="summary-sig-name">getBlockchainStatus</span>(<span class="summary-sig-arg">pfn</span>)</span><br />
+      api getBlockchainStatus</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="chaincountdown-pysrc.html#getBlockchainStatus">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="ifDictThenFormatting"></a><span class="summary-sig-name">ifDictThenFormatting</span>(<span class="summary-sig-arg">err</span>)</span><br />
+      if the error is in dict format, show one item per line.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="chaincountdown-pysrc.html#ifDictThenFormatting">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="pprintCountdown"></a><span class="summary-sig-name">pprintCountdown</span>(<span class="summary-sig-arg">inTheFuture</span>,
+        <span class="summary-sig-arg">BN</span>,
+        <span class="summary-sig-arg">BL</span>,
+        <span class="summary-sig-arg">Minutes</span>,
+        <span class="summary-sig-arg">DT</span>)</span><br />
+      Generates nice text from the above numbers</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="chaincountdown-pysrc.html#pprintCountdown">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="queryApi"></a><span class="summary-sig-name">queryApi</span>(<span class="summary-sig-arg">data</span>,
+        <span class="summary-sig-arg">pfn</span>)</span><br />
+      urlencode data parameters, urlopen, result to json returns (True, 
+      json) or (False, error message)</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="chaincountdown-pysrc.html#queryApi">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="test_doTheChaChaCha"></a><span class="summary-sig-name">test_doTheChaChaCha</span>()</span><br />
+      tests to check everything, incl the minutes conversion.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="chaincountdown-pysrc.html#test_doTheChaChaCha">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="chaincountdown-module.html#understandableDuration" class="summary-sig-name">understandableDuration</a>(<span class="summary-sig-arg">Minutes</span>)</span><br />
+      from minutes, generate hours, or weeks, or ...</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="chaincountdown-pysrc.html#understandableDuration">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+</table>
+<!-- ==================== VARIABLES ==================== -->
+<a name="section-Variables"></a>
+<table class="summary" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Variables</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-Variables"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="BLOCKSPERMINUTE"></a><span class="summary-name">BLOCKSPERMINUTE</span> = <code title="{'nhz': 0.559879066122, 'nxt': 0.526177321757}"><code class="variable-group">{</code><code class="variable-quote">'</code><code class="variable-string">nhz</code><code class="variable-quote">'</code><code class="variable-op">: </code>0.559879066122<code class="variable-op">, </code><code class="variable-quote">'</code><code class="variable-string">nxt</code><code class="variable-quote">'</code><code class="variable-op">: </code>0.526177321757<code class="variable-group">}</code></code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="GENESIS"></a><span class="summary-name">GENESIS</span> = <code title="{'nhz': 1395526942.22, 'nxt': 1385294400}"><code class="variable-group">{</code><code class="variable-quote">'</code><code class="variable-string">nhz</code><code class="variable-quote">'</code><code class="variable-op">: </code>1395526942.22<code class="variable-op">, </code><code class="variable-quote">'</code><code class="variable-string">nxt</code><code class="variable-quote">'</code><code class="variable-op">: </code>1385294400<code class="variable-group">}</code></code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a href="chaincountdown-module.html#SERVER" class="summary-name">SERVER</a> = <code title="{'nhz': 'http://api.nhzcrypto.org:7776/nhz',
+ 'nxt': 'http://jnxt.org:7876/nxt'}"><code class="variable-group">{</code><code class="variable-quote">'</code><code class="variable-string">nhz</code><code class="variable-quote">'</code><code class="variable-op">: </code><code class="variable-quote">'</code><code class="variable-string">http://api.nhzcrypto.org:7776/nhz</code><code class="variable-quote">'</code><code class="variable-op">, </code><code class="variable-quote">'</code><code class="variable-string">nxt</code><code class="variable-quote">'</code><code class="variable-op">: </code><code class="variable-quote">'</code><code class="variable-ellipsis">...</code></code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="TIMEOUT"></a><span class="summary-name">TIMEOUT</span> = <code title="3">3</code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="__package__"></a><span class="summary-name">__package__</span> = <code title="None">None</code>
+    </td>
+  </tr>
+</table>
+<!-- ==================== FUNCTION DETAILS ==================== -->
+<a name="section-FunctionDetails"></a>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Function Details</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-FunctionDetails"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+</table>
+<a name="abortTextIfNecessary"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">abortTextIfNecessary</span>(<span class="sig-arg">success</span>,
+        <span class="sig-arg">apiResult</span>,
+        <span class="sig-arg">pfn</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="chaincountdown-pysrc.html#abortTextIfNecessary">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Check the results. If not good, return reasons as text.</p>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="understandableDuration"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">understandableDuration</span>(<span class="sig-arg">Minutes</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="chaincountdown-pysrc.html#understandableDuration">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>from minutes, generate hours, or weeks, or ... - depending on what 
+  makes sense</p>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<br />
+<!-- ==================== VARIABLES DETAILS ==================== -->
+<a name="section-VariablesDetails"></a>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Variables Details</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-VariablesDetails"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+</table>
+<a name="SERVER"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <h3 class="epydoc">SERVER</h3>
+  
+  <dl class="fields">
+  </dl>
+  <dl class="fields">
+    <dt>Value:</dt>
+      <dd><table><tr><td><pre class="variable">
+<code class="variable-group">{</code><code class="variable-quote">'</code><code class="variable-string">nhz</code><code class="variable-quote">'</code><code class="variable-op">: </code><code class="variable-quote">'</code><code class="variable-string">http://api.nhzcrypto.org:7776/nhz</code><code class="variable-quote">'</code><code class="variable-op">,</code>
+ <code class="variable-quote">'</code><code class="variable-string">nxt</code><code class="variable-quote">'</code><code class="variable-op">: </code><code class="variable-quote">'</code><code class="variable-string">http://jnxt.org:7876/nxt</code><code class="variable-quote">'</code><code class="variable-group">}</code>
+</pre></td></tr></table>
+</dd>
+  </dl>
+</td></tr></table>
+</div>
+<br />
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+      <th class="navbar" width="100%"></th>
+  </tr>
+</table>
+<table border="0" cellpadding="0" cellspacing="0" width="100%%">
+  <tr>
+    <td align="left" class="footer">
+    Generated by Epydoc 3.0.1 on Tue Oct 27 16:25:59 2015
+    </td>
+    <td align="right" class="footer">
+      <a target="mainFrame" href="http://epydoc.sourceforge.net"
+        >http://epydoc.sourceforge.net</a>
+    </td>
+  </tr>
+</table>
+
+<script type="text/javascript">
+  <!--
+  // Private objects are initially displayed (because if
+  // javascript is turned off then we want them to be
+  // visible); but by default, we want to hide them.  So hide
+  // them unless we have a cookie that says to show them.
+  checkCookie();
+  // -->
+</script>
+</body>
+</html>

@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="ascii"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+          "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>helpers</title>
+  <link rel="stylesheet" href="epydoc.css" type="text/css" />
+  <script type="text/javascript" src="epydoc.js"></script>
+</head>
+
+<body bgcolor="white" text="black" link="blue" vlink="#204080"
+      alink="#204080">
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+      <th class="navbar" width="100%"></th>
+  </tr>
+</table>
+<table width="100%" cellpadding="0" cellspacing="0">
+  <tr valign="top">
+    <td width="100%">
+      <span class="breadcrumbs">
+        Module&nbsp;helpers
+      </span>
+    </td>
+    <td>
+      <table cellpadding="0" cellspacing="0">
+        <!-- hide/show private -->
+        <tr><td align="right"><span class="options">[<a href="javascript:void(0);" class="privatelink"
+    onclick="toggle_private();">hide&nbsp;private</a>]</span></td></tr>
+        <tr><td align="right"><span class="options"
+            >[<a href="frames.html" target="_top">frames</a
+            >]&nbsp;|&nbsp;<a href="helpers-pysrc.html"
+            target="_top">no&nbsp;frames</a>]</span></td></tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<h1 class="epydoc">Source Code for <a href="helpers-module.html">Module helpers</a></h1>
+<pre class="py-src">
+<a name="L1"></a><tt class="py-lineno"> 1</tt>  <tt class="py-line"><tt class="py-comment">#!/usr/bin/python</tt> </tt>
+<a name="L2"></a><tt class="py-lineno"> 2</tt>  <tt class="py-line"><tt class="py-docstring">"""</tt> </tt>
+<a name="L3"></a><tt class="py-lineno"> 3</tt>  <tt class="py-line"><tt class="py-docstring">@title:   helpers.py </tt> </tt>
+<a name="L4"></a><tt class="py-lineno"> 4</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L5"></a><tt class="py-lineno"> 5</tt>  <tt class="py-line"><tt class="py-docstring">@summary: all those little tools that have no other home</tt> </tt>
+<a name="L6"></a><tt class="py-lineno"> 6</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L7"></a><tt class="py-lineno"> 7</tt>  <tt class="py-line"><tt class="py-docstring">@author:  AltSheets</tt> </tt>
+<a name="L8"></a><tt class="py-lineno"> 8</tt>  <tt class="py-line"><tt class="py-docstring">@version: v10</tt> </tt>
+<a name="L9"></a><tt class="py-lineno"> 9</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L10"></a><tt class="py-lineno">10</tt>  <tt class="py-line"><tt class="py-docstring">@license  Giveback license v05 http://altsheets.ddns.net/give/</tt> </tt>
+<a name="L11"></a><tt class="py-lineno">11</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L12"></a><tt class="py-lineno">12</tt>  <tt class="py-line"><tt class="py-docstring">@requires only stuff from python itself</tt> </tt>
+<a name="L13"></a><tt class="py-lineno">13</tt>  <tt class="py-line"><tt class="py-docstring">@see      chaincountdown.py for explanations &amp; donation addresses</tt> </tt>
+<a name="L14"></a><tt class="py-lineno">14</tt>  <tt class="py-line"><tt class="py-docstring">"""</tt> </tt>
+<a name="L15"></a><tt class="py-lineno">15</tt>  <tt class="py-line"> </tt>
+<a name="L16"></a><tt class="py-lineno">16</tt>  <tt class="py-line"><tt class="py-keyword">from</tt> <tt class="py-name">time</tt> <tt class="py-keyword">import</tt> <tt class="py-name">gmtime</tt><tt class="py-op">,</tt> <tt class="py-name">strftime</tt> </tt>
+<a name="L17"></a><tt class="py-lineno">17</tt>  <tt class="py-line"><tt class="py-keyword">import</tt> <tt class="py-name">os</tt><tt class="py-op">,</tt> <tt class="py-name">tempfile</tt><tt class="py-op">,</tt> <tt class="py-name">getpass</tt><tt class="py-op">,</tt> <tt class="py-name">sys</tt><tt class="py-op">,</tt> <tt class="py-name">datetime</tt> </tt>
+<a name="L18"></a><tt class="py-lineno">18</tt>  <tt class="py-line"> </tt>
+<a name="theNowInReadable"></a><div id="theNowInReadable-def"><a name="L19"></a><tt class="py-lineno">19</tt> <a class="py-toggle" href="#" id="theNowInReadable-toggle" onclick="return toggle('theNowInReadable');">-</a><tt class="py-line"><tt class="py-keyword">def</tt> <a class="py-def-name" href="helpers-module.html#theNowInReadable">theNowInReadable</a><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="theNowInReadable-collapsed" style="display:none;" pad="++" indent="++++"></div><div id="theNowInReadable-expanded"><a name="L20"></a><tt class="py-lineno">20</tt>  <tt class="py-line">    <tt class="py-keyword">return</tt> <tt class="py-name">strftime</tt><tt class="py-op">(</tt><tt class="py-string">"%a, %d %b %Y %H:%M:%S +0000"</tt><tt class="py-op">,</tt> <tt class="py-name">gmtime</tt><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">)</tt> </tt>
+</div><a name="L21"></a><tt class="py-lineno">21</tt>  <tt class="py-line"> </tt>
+<a name="L22"></a><tt class="py-lineno">22</tt>  <tt class="py-line"> </tt>
+<a name="dirnames"></a><div id="dirnames-def"><a name="L23"></a><tt class="py-lineno">23</tt> <a class="py-toggle" href="#" id="dirnames-toggle" onclick="return toggle('dirnames');">-</a><tt class="py-line"><tt class="py-keyword">def</tt> <a class="py-def-name" href="helpers-module.html#dirnames">dirnames</a><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="dirnames-collapsed" style="display:none;" pad="++" indent="++++"></div><div id="dirnames-expanded"><a name="L24"></a><tt class="py-lineno">24</tt>  <tt class="py-line">    <tt class="py-name">currentDir</tt> <tt class="py-op">=</tt> <tt class="py-name">os</tt><tt class="py-op">.</tt><tt class="py-name">path</tt><tt class="py-op">.</tt><tt class="py-name">join</tt><tt class="py-op">(</tt><tt class="py-name">os</tt><tt class="py-op">.</tt><tt class="py-name">path</tt><tt class="py-op">.</tt><tt class="py-name">dirname</tt><tt class="py-op">(</tt><tt class="py-name">__file__</tt><tt class="py-op">)</tt><tt class="py-op">,</tt><tt class="py-string">""</tt><tt class="py-op">)</tt> </tt>
+<a name="L25"></a><tt class="py-lineno">25</tt>  <tt class="py-line">    <tt class="py-name">tempDir</tt>    <tt class="py-op">=</tt> <tt class="py-name">os</tt><tt class="py-op">.</tt><tt class="py-name">path</tt><tt class="py-op">.</tt><tt class="py-name">join</tt><tt class="py-op">(</tt><tt class="py-name">tempfile</tt><tt class="py-op">.</tt><tt class="py-name">mkdtemp</tt><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">,</tt>       <tt class="py-string">""</tt><tt class="py-op">)</tt> </tt>
+<a name="L26"></a><tt class="py-lineno">26</tt>  <tt class="py-line">    <tt class="py-keyword">return</tt> <tt class="py-name">currentDir</tt><tt class="py-op">,</tt> <tt class="py-name">tempDir</tt>   </tt>
+</div><a name="L27"></a><tt class="py-lineno">27</tt>  <tt class="py-line"> </tt>
+<a name="username"></a><div id="username-def"><a name="L28"></a><tt class="py-lineno">28</tt> <a class="py-toggle" href="#" id="username-toggle" onclick="return toggle('username');">-</a><tt class="py-line"><tt class="py-keyword">def</tt> <a class="py-def-name" href="helpers-module.html#username">username</a><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="username-collapsed" style="display:none;" pad="++" indent="++++"></div><div id="username-expanded"><a name="L29"></a><tt class="py-lineno">29</tt>  <tt class="py-line">    <tt class="py-docstring">"""Try to get the real username (not the environment variable).</tt> </tt>
+<a name="L30"></a><tt class="py-lineno">30</tt>  <tt class="py-line"><tt class="py-docstring">       Only in Linux - for that 'import pwd'. </tt> </tt>
+<a name="L31"></a><tt class="py-lineno">31</tt>  <tt class="py-line"><tt class="py-docstring">       If that fails (i.e. Windows), use getpass.</tt> </tt>
+<a name="L32"></a><tt class="py-lineno">32</tt>  <tt class="py-line"><tt class="py-docstring">    """</tt> </tt>
+<a name="L33"></a><tt class="py-lineno">33</tt>  <tt class="py-line">    <tt class="py-keyword">try</tt><tt class="py-op">:</tt> </tt>
+<a name="L34"></a><tt class="py-lineno">34</tt>  <tt class="py-line">        <tt class="py-keyword">import</tt> <tt class="py-name">pwd</tt>  </tt>
+<a name="L35"></a><tt class="py-lineno">35</tt>  <tt class="py-line">        <tt id="link-0" class="py-name" targets="Function helpers.username()=helpers-module.html#username"><a title="helpers.username" class="py-name" href="#" onclick="return doclink('link-0', 'username', 'link-0');">username</a></tt> <tt class="py-op">=</tt> <tt class="py-name">pwd</tt><tt class="py-op">.</tt><tt class="py-name">getpwuid</tt><tt class="py-op">(</tt> <tt class="py-name">os</tt><tt class="py-op">.</tt><tt class="py-name">getuid</tt><tt class="py-op">(</tt><tt class="py-op">)</tt> <tt class="py-op">)</tt><tt class="py-op">[</tt> <tt class="py-number">0</tt> <tt class="py-op">]</tt> </tt>
+<a name="L36"></a><tt class="py-lineno">36</tt>  <tt class="py-line">    <tt class="py-keyword">except</tt> <tt class="py-op">(</tt><tt class="py-name">ImportError</tt><tt class="py-op">,</tt> <tt class="py-name">AttributeError</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="L37"></a><tt class="py-lineno">37</tt>  <tt class="py-line">        <tt class="py-comment"># for Windows:</tt> </tt>
+<a name="L38"></a><tt class="py-lineno">38</tt>  <tt class="py-line">        <tt id="link-1" class="py-name"><a title="helpers.username" class="py-name" href="#" onclick="return doclink('link-1', 'username', 'link-0');">username</a></tt> <tt class="py-op">=</tt> <tt class="py-name">getpass</tt><tt class="py-op">.</tt><tt class="py-name">getuser</tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L39"></a><tt class="py-lineno">39</tt>  <tt class="py-line">    <tt class="py-keyword">return</tt> <tt id="link-2" class="py-name"><a title="helpers.username" class="py-name" href="#" onclick="return doclink('link-2', 'username', 'link-0');">username</a></tt> </tt>
+</div><a name="L40"></a><tt class="py-lineno">40</tt>  <tt class="py-line"> </tt>
+<a name="suffix"></a><div id="suffix-def"><a name="L41"></a><tt class="py-lineno">41</tt> <a class="py-toggle" href="#" id="suffix-toggle" onclick="return toggle('suffix');">-</a><tt class="py-line"><tt class="py-keyword">def</tt> <a class="py-def-name" href="helpers-module.html#suffix">suffix</a><tt class="py-op">(</tt><tt class="py-param">f</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="suffix-collapsed" style="display:none;" pad="++" indent="++++"></div><div id="suffix-expanded"><a name="L42"></a><tt class="py-lineno">42</tt>  <tt class="py-line">    <tt class="py-keyword">return</tt> <tt class="py-name">os</tt><tt class="py-op">.</tt><tt class="py-name">path</tt><tt class="py-op">.</tt><tt class="py-name">splitext</tt><tt class="py-op">(</tt><tt class="py-name">f</tt><tt class="py-op">)</tt><tt class="py-op">[</tt><tt class="py-number">1</tt><tt class="py-op">]</tt> </tt>
+</div><a name="L43"></a><tt class="py-lineno">43</tt>  <tt class="py-line"> </tt>
+<a name="nameWOsuffix"></a><div id="nameWOsuffix-def"><a name="L44"></a><tt class="py-lineno">44</tt> <a class="py-toggle" href="#" id="nameWOsuffix-toggle" onclick="return toggle('nameWOsuffix');">-</a><tt class="py-line"><tt class="py-keyword">def</tt> <a class="py-def-name" href="helpers-module.html#nameWOsuffix">nameWOsuffix</a><tt class="py-op">(</tt><tt class="py-param">f</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="nameWOsuffix-collapsed" style="display:none;" pad="++" indent="++++"></div><div id="nameWOsuffix-expanded"><a name="L45"></a><tt class="py-lineno">45</tt>  <tt class="py-line">    <tt class="py-keyword">return</tt> <tt class="py-name">os</tt><tt class="py-op">.</tt><tt class="py-name">path</tt><tt class="py-op">.</tt><tt class="py-name">splitext</tt><tt class="py-op">(</tt><tt class="py-name">f</tt><tt class="py-op">)</tt><tt class="py-op">[</tt><tt class="py-number">0</tt><tt class="py-op">]</tt>  </tt>
+</div><a name="L46"></a><tt class="py-lineno">46</tt>  <tt class="py-line"> </tt>
+<a name="filesInFolder"></a><div id="filesInFolder-def"><a name="L47"></a><tt class="py-lineno">47</tt> <a class="py-toggle" href="#" id="filesInFolder-toggle" onclick="return toggle('filesInFolder');">-</a><tt class="py-line"><tt class="py-keyword">def</tt> <a class="py-def-name" href="helpers-module.html#filesInFolder">filesInFolder</a><tt class="py-op">(</tt><tt class="py-param">path</tt><tt class="py-op">,</tt> <tt class="py-param">suffixlist</tt><tt class="py-op">=</tt><tt class="py-name">None</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="filesInFolder-collapsed" style="display:none;" pad="++" indent="++++"></div><div id="filesInFolder-expanded"><a name="L48"></a><tt class="py-lineno">48</tt>  <tt class="py-line">    <tt class="py-name">files</tt><tt class="py-op">=</tt><tt class="py-name">os</tt><tt class="py-op">.</tt><tt class="py-name">listdir</tt><tt class="py-op">(</tt><tt class="py-name">path</tt><tt class="py-op">)</tt> </tt>
+<a name="L49"></a><tt class="py-lineno">49</tt>  <tt class="py-line">    <tt class="py-keyword">if</tt> <tt class="py-name">suffixlist</tt><tt class="py-op">!=</tt><tt class="py-name">None</tt><tt class="py-op">:</tt> </tt>
+<a name="L50"></a><tt class="py-lineno">50</tt>  <tt class="py-line">        <tt class="py-name">files</tt><tt class="py-op">=</tt><tt class="py-op">[</tt><tt class="py-name">f</tt> <tt class="py-keyword">for</tt> <tt class="py-name">f</tt> <tt class="py-keyword">in</tt> <tt class="py-name">files</tt> <tt class="py-keyword">if</tt> <tt id="link-3" class="py-name" targets="Function helpers.suffix()=helpers-module.html#suffix"><a title="helpers.suffix" class="py-name" href="#" onclick="return doclink('link-3', 'suffix', 'link-3');">suffix</a></tt><tt class="py-op">(</tt><tt class="py-name">f</tt><tt class="py-op">)</tt> <tt class="py-keyword">in</tt> <tt class="py-name">suffixlist</tt><tt class="py-op">]</tt> </tt>
+<a name="L51"></a><tt class="py-lineno">51</tt>  <tt class="py-line">    <tt class="py-keyword">return</tt> <tt class="py-name">files</tt> </tt>
+</div><a name="L52"></a><tt class="py-lineno">52</tt>  <tt class="py-line"> </tt>
+<a name="test_filesInFolder"></a><div id="test_filesInFolder-def"><a name="L53"></a><tt class="py-lineno">53</tt> <a class="py-toggle" href="#" id="test_filesInFolder-toggle" onclick="return toggle('test_filesInFolder');">-</a><tt class="py-line"><tt class="py-keyword">def</tt> <a class="py-def-name" href="helpers-module.html#test_filesInFolder">test_filesInFolder</a><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="test_filesInFolder-collapsed" style="display:none;" pad="++" indent="++++"></div><div id="test_filesInFolder-expanded"><a name="L54"></a><tt class="py-lineno">54</tt>  <tt class="py-line">    <tt class="py-keyword">print</tt> <tt id="link-4" class="py-name" targets="Function helpers.filesInFolder()=helpers-module.html#filesInFolder"><a title="helpers.filesInFolder" class="py-name" href="#" onclick="return doclink('link-4', 'filesInFolder', 'link-4');">filesInFolder</a></tt><tt class="py-op">(</tt><tt class="py-string">"html"</tt><tt class="py-op">)</tt> </tt>
+<a name="L55"></a><tt class="py-lineno">55</tt>  <tt class="py-line">    <tt class="py-name">fonts</tt> <tt class="py-op">=</tt> <tt class="py-name">os</tt><tt class="py-op">.</tt><tt class="py-name">path</tt><tt class="py-op">.</tt><tt class="py-name">join</tt><tt class="py-op">(</tt><tt id="link-5" class="py-name" targets="Function helpers.dirnames()=helpers-module.html#dirnames"><a title="helpers.dirnames" class="py-name" href="#" onclick="return doclink('link-5', 'dirnames', 'link-5');">dirnames</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">[</tt><tt class="py-number">0</tt><tt class="py-op">]</tt><tt class="py-op">,</tt> <tt class="py-string">"fonts"</tt><tt class="py-op">)</tt> </tt>
+<a name="L56"></a><tt class="py-lineno">56</tt>  <tt class="py-line">    <tt class="py-keyword">print</tt> <tt id="link-6" class="py-name"><a title="helpers.filesInFolder" class="py-name" href="#" onclick="return doclink('link-6', 'filesInFolder', 'link-4');">filesInFolder</a></tt><tt class="py-op">(</tt><tt class="py-name">fonts</tt><tt class="py-op">,</tt> <tt class="py-op">(</tt><tt class="py-string">".ttf"</tt><tt class="py-op">,</tt><tt class="py-op">)</tt><tt class="py-op">)</tt><tt class="py-comment"># ".css") )</tt> </tt>
+</div><a name="L57"></a><tt class="py-lineno">57</tt>  <tt class="py-line"> </tt>
+<a name="replacedInDict"></a><div id="replacedInDict-def"><a name="L58"></a><tt class="py-lineno">58</tt> <a class="py-toggle" href="#" id="replacedInDict-toggle" onclick="return toggle('replacedInDict');">-</a><tt class="py-line"><tt class="py-keyword">def</tt> <a class="py-def-name" href="helpers-module.html#replacedInDict">replacedInDict</a><tt class="py-op">(</tt><tt class="py-param">defaults</tt><tt class="py-op">,</tt> <tt class="py-param">overwrite</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="replacedInDict-collapsed" style="display:none;" pad="++" indent="++++"></div><div id="replacedInDict-expanded"><a name="L59"></a><tt class="py-lineno">59</tt>  <tt class="py-line">    <tt class="py-docstring">"to take default values unless options are specified"</tt> </tt>
+<a name="L60"></a><tt class="py-lineno">60</tt>  <tt class="py-line">    <tt class="py-name">result</tt><tt class="py-op">=</tt><tt class="py-name">defaults</tt><tt class="py-op">.</tt><tt class="py-name">copy</tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L61"></a><tt class="py-lineno">61</tt>  <tt class="py-line">    <tt class="py-keyword">for</tt> <tt class="py-name">k</tt><tt class="py-op">,</tt><tt class="py-name">v</tt> <tt class="py-keyword">in</tt> <tt class="py-name">overwrite</tt><tt class="py-op">.</tt><tt class="py-name">items</tt><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="L62"></a><tt class="py-lineno">62</tt>  <tt class="py-line">        <tt class="py-name">result</tt><tt class="py-op">[</tt><tt class="py-name">k</tt><tt class="py-op">]</tt><tt class="py-op">=</tt><tt class="py-name">v</tt> </tt>
+<a name="L63"></a><tt class="py-lineno">63</tt>  <tt class="py-line">    <tt class="py-keyword">return</tt> <tt class="py-name">result</tt> </tt>
+</div><a name="L64"></a><tt class="py-lineno">64</tt>  <tt class="py-line"> </tt>
+<a name="cutUpText"></a><div id="cutUpText-def"><a name="L65"></a><tt class="py-lineno">65</tt> <a class="py-toggle" href="#" id="cutUpText-toggle" onclick="return toggle('cutUpText');">-</a><tt class="py-line"><tt class="py-keyword">def</tt> <a class="py-def-name" href="helpers-module.html#cutUpText">cutUpText</a><tt class="py-op">(</tt><tt class="py-param">text</tt><tt class="py-op">,</tt> <tt class="py-param">maxLen</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="cutUpText-collapsed" style="display:none;" pad="++" indent="++++"></div><div id="cutUpText-expanded"><a name="L66"></a><tt class="py-lineno">66</tt>  <tt class="py-line">    <tt class="py-docstring">"cuts each line at max length"</tt> </tt>
+<a name="L67"></a><tt class="py-lineno">67</tt>  <tt class="py-line">    <tt class="py-name">resultText</tt><tt class="py-op">=</tt><tt class="py-string">""</tt> </tt>
+<a name="L68"></a><tt class="py-lineno">68</tt>  <tt class="py-line">    <tt class="py-keyword">for</tt> <tt class="py-name">line</tt> <tt class="py-keyword">in</tt> <tt class="py-name">text</tt><tt class="py-op">.</tt><tt class="py-name">split</tt><tt class="py-op">(</tt><tt class="py-string">"\n"</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="L69"></a><tt class="py-lineno">69</tt>  <tt class="py-line">        <tt class="py-keyword">while</tt> <tt class="py-name">True</tt><tt class="py-op">:</tt> </tt>
+<a name="L70"></a><tt class="py-lineno">70</tt>  <tt class="py-line">            <tt class="py-name">resultText</tt> <tt class="py-op">+=</tt> <tt class="py-name">line</tt><tt class="py-op">[</tt><tt class="py-op">:</tt><tt class="py-name">maxLen</tt><tt class="py-op">]</tt> <tt class="py-op">+</tt> <tt class="py-string">"\n"</tt> </tt>
+<a name="L71"></a><tt class="py-lineno">71</tt>  <tt class="py-line">            <tt class="py-name">line</tt> <tt class="py-op">=</tt> <tt class="py-name">line</tt><tt class="py-op">[</tt><tt class="py-name">maxLen</tt><tt class="py-op">:</tt><tt class="py-op">]</tt> </tt>
+<a name="L72"></a><tt class="py-lineno">72</tt>  <tt class="py-line">            <tt class="py-keyword">if</tt> <tt class="py-name">len</tt><tt class="py-op">(</tt><tt class="py-name">line</tt><tt class="py-op">)</tt> <tt class="py-op">&lt;=</tt><tt class="py-name">maxLen</tt><tt class="py-op">:</tt> </tt>
+<a name="L73"></a><tt class="py-lineno">73</tt>  <tt class="py-line">                <tt class="py-keyword">break</tt> </tt>
+<a name="L74"></a><tt class="py-lineno">74</tt>  <tt class="py-line">        <tt class="py-keyword">if</tt> <tt class="py-name">line</tt><tt class="py-op">!=</tt><tt class="py-string">""</tt><tt class="py-op">:</tt> <tt class="py-name">resultText</tt> <tt class="py-op">+=</tt> <tt class="py-name">line</tt> <tt class="py-op">+</tt> <tt class="py-string">"\n"</tt> </tt>
+<a name="L75"></a><tt class="py-lineno">75</tt>  <tt class="py-line">    <tt class="py-keyword">return</tt> <tt class="py-name">resultText</tt> </tt>
+</div><a name="L76"></a><tt class="py-lineno">76</tt>  <tt class="py-line"> </tt>
+<a name="mkdirIfNotExist"></a><div id="mkdirIfNotExist-def"><a name="L77"></a><tt class="py-lineno">77</tt> <a class="py-toggle" href="#" id="mkdirIfNotExist-toggle" onclick="return toggle('mkdirIfNotExist');">-</a><tt class="py-line"><tt class="py-keyword">def</tt> <a class="py-def-name" href="helpers-module.html#mkdirIfNotExist">mkdirIfNotExist</a><tt class="py-op">(</tt><tt class="py-param">dirname</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="mkdirIfNotExist-collapsed" style="display:none;" pad="++" indent="++++"></div><div id="mkdirIfNotExist-expanded"><a name="L78"></a><tt class="py-lineno">78</tt>  <tt class="py-line">    <tt class="py-keyword">try</tt><tt class="py-op">:</tt> </tt>
+<a name="L79"></a><tt class="py-lineno">79</tt>  <tt class="py-line">        <tt class="py-name">os</tt><tt class="py-op">.</tt><tt class="py-name">mkdir</tt><tt class="py-op">(</tt><tt class="py-name">dirname</tt><tt class="py-op">)</tt> </tt>
+<a name="L80"></a><tt class="py-lineno">80</tt>  <tt class="py-line">    <tt class="py-keyword">except</tt><tt class="py-op">:</tt> </tt>
+<a name="L81"></a><tt class="py-lineno">81</tt>  <tt class="py-line">        <tt class="py-keyword">return</tt> <tt class="py-name">False</tt> </tt>
+<a name="L82"></a><tt class="py-lineno">82</tt>  <tt class="py-line">    <tt class="py-keyword">return</tt> <tt class="py-name">True</tt> </tt>
+</div><a name="L83"></a><tt class="py-lineno">83</tt>  <tt class="py-line"> </tt>
+<a name="L84"></a><tt class="py-lineno">84</tt>  <tt class="py-line"> </tt>
+<a name="L85"></a><tt class="py-lineno">85</tt>  <tt class="py-line"><tt class="py-keyword">if</tt> <tt class="py-name">__name__</tt> <tt class="py-op">==</tt> <tt class="py-string">"__main__"</tt><tt class="py-op">:</tt> </tt>
+<a name="L86"></a><tt class="py-lineno">86</tt>  <tt class="py-line">    <tt class="py-keyword">print</tt> <tt id="link-7" class="py-name" targets="Function helpers.theNowInReadable()=helpers-module.html#theNowInReadable"><a title="helpers.theNowInReadable" class="py-name" href="#" onclick="return doclink('link-7', 'theNowInReadable', 'link-7');">theNowInReadable</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L87"></a><tt class="py-lineno">87</tt>  <tt class="py-line">    <tt class="py-keyword">print</tt> <tt id="link-8" class="py-name"><a title="helpers.dirnames" class="py-name" href="#" onclick="return doclink('link-8', 'dirnames', 'link-5');">dirnames</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L88"></a><tt class="py-lineno">88</tt>  <tt class="py-line">    <tt class="py-keyword">print</tt> <tt id="link-9" class="py-name"><a title="helpers.username" class="py-name" href="#" onclick="return doclink('link-9', 'username', 'link-0');">username</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L89"></a><tt class="py-lineno">89</tt>  <tt class="py-line">    <tt class="py-keyword">print</tt>  </tt>
+<a name="L90"></a><tt class="py-lineno">90</tt>  <tt class="py-line">    <tt id="link-10" class="py-name" targets="Function helpers.test_filesInFolder()=helpers-module.html#test_filesInFolder"><a title="helpers.test_filesInFolder" class="py-name" href="#" onclick="return doclink('link-10', 'test_filesInFolder', 'link-10');">test_filesInFolder</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L91"></a><tt class="py-lineno">91</tt>  <tt class="py-line"> </tt><script type="text/javascript">
+<!--
+expandto(location.href);
+// -->
+</script>
+</pre>
+<br />
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+      <th class="navbar" width="100%"></th>
+  </tr>
+</table>
+<table border="0" cellpadding="0" cellspacing="0" width="100%%">
+  <tr>
+    <td align="left" class="footer">
+    Generated by Epydoc 3.0.1 on Tue Oct 27 16:25:59 2015
+    </td>
+    <td align="right" class="footer">
+      <a target="mainFrame" href="http://epydoc.sourceforge.net"
+        >http://epydoc.sourceforge.net</a>
+    </td>
+  </tr>
+</table>
+
+<script type="text/javascript">
+  <!--
+  // Private objects are initially displayed (because if
+  // javascript is turned off then we want them to be
+  // visible); but by default, we want to hide them.  So hide
+  // them unless we have a cookie that says to show them.
+  checkCookie();
+  // -->
+</script>
+</body>
+</html>
