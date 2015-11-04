@@ -4,7 +4,7 @@
 @summary: Change these defaults - if you know what you are doing
 
 @author:  AltSheets
-@version: v10
+@version: v13.2
 
 @TODO:    needs re-ordering to be more logical
 '''
@@ -23,7 +23,7 @@ SERVER ={
          }
 
 BLOCKSPERMINUTE = {"nxt": 1 / 1.9005,
-                   "nhz": 1 / 1.7861}
+                   "nhz": 1 / 1.74003}  # measured new between block 478988 and 488988 -> timestamp 50043922 to 51087942
 GENESIS = {"nhz": 1395526942.22, 
            "nxt": 1385294400}
 
