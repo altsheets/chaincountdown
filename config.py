@@ -22,7 +22,7 @@ SERVER ={
          # "nhz":  "http://localhost:7776/nhz",
          }
 
-BLOCKSPERMINUTE = {"nxt": 1 / 1.87,  # measured at block height 607838 (see nxtforum post)
+BLOCKSPERMINUTE = {"nxt": 1 / 1.87,  # measured at block height 607838 (see https://nxtforum.org/nrs-releases/nrs-v1-7-4/msg205165/#msg205165 )
                    "nhz": 1 / 1.72}  # measured at block height 539874
 
 GENESIS = {"nhz": 1395526942.22, 
