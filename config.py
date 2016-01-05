@@ -22,8 +22,9 @@ SERVER ={
          # "nhz":  "http://localhost:7776/nhz",
          }
 
-BLOCKSPERMINUTE = {"nxt": 1 / 1.88,     # measured at block height 607838 (see nxtforum post)
-                   "nhz": 1 / 1.74003}  # measured new between block 478988 and 488988 -> timestamp 50043922 to 51087942
+BLOCKSPERMINUTE = {"nxt": 1 / 1.87,  # measured at block height 607838 (see nxtforum post)
+                   "nhz": 1 / 1.72}  # measured at block height 539874
+
 GENESIS = {"nhz": 1395526942.22, 
            "nxt": 1385294400}
 
