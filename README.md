@@ -16,7 +16,8 @@ Put live-rendered [image](http://altsheets.ddns.net:8888/nxt/10000000.png?headin
 ### old example (all this was made for nxthacks2015)
 
 This image is generated automatically, and always up-to-date:  
-http://altsheets.ddns.net:8888/nxt/495997.png?heading=nxthacks%20voting 
+http://altsheets.ddns.net:8888/nxt/495997.png?heading=nxthacks%20voting   
+
 The image can be placed into any webpage, like here:  
 http://altsheets.ddns.net/assetgraphs/
 
