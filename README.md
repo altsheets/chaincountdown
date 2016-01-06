@@ -11,9 +11,12 @@ Built for for the nxthacks voting, and beyond.
 
 ## shortversion
 
+Put live-rendered [image](http://altsheets.ddns.net:8888/nxt/10000000.png?heading=funfact:%2010%20mio%20nxtblocks) into any [website](https://nxtforum.org/index.php?topic=9735).
+
+### old example (all this was made for nxthacks2015)
+
 This image is generated automatically, and always up-to-date:  
 http://altsheets.ddns.net:8888/nxt/495997.png?heading=nxthacks%20voting 
-
 The image can be placed into any webpage, like here:  
 http://altsheets.ddns.net/assetgraphs/
 
