@@ -1,4 +1,4 @@
-# chaincountdown.py v13
+# chaincountdown.py v13.6
 
 Time estimation to targetblock of nxt/hz. 
 
@@ -60,3 +60,6 @@ http://altsheets.ddns.net:8888
 **TL;DR:**
  
 ** A Blockchain aware countdown timer !**
+
+shorturl for this: [2020.fm/ccd](http://2020.fm/ccd)
+
