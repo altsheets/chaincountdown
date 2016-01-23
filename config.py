@@ -4,7 +4,7 @@
 @summary: Change these defaults - if you know what you are doing
 
 @author:  AltSheets
-@version: v13.4
+@version: v14
 
 @TODO:    needs re-ordering to be more logical
 '''
@@ -14,18 +14,15 @@ TIMEOUT     = 3
 
 # coins specifics:
 
-"""
-SERVER ={
-         "nxt" : "http://jnxt.org:7876/nxt",
-         # "nxt" : "http://localhost:7876/nxt",
-         
-         "nhz" : "http://api.nhzcrypto.org:7776/nhz",
-         # "nhz":  "http://localhost:7776/nhz",
-         }
-"""
+BLOCKSPERMINUTE = {"nxt": 1 / 1.87,  # measured at block height 607838 (see https://nxtforum.org/nrs-releases/nrs-v1-7-4/msg205165/#msg205165 )
+                   "nhz": 1 / 1.72}  # measured at block height 539874
+
+GENESIS = {"nhz": 1395526942.22, 
+           "nxt": 1385294400}
 
 SERVERS ={
          "nxt" : [
+                  # "http://localhost:7876/nxt",
                   # "http://dummyToCauseTrouble.org:7876/nxt",
                   "http://jnxt.org:7876/nxt",
                   "http://nxt.cybermailing.com:7876/nxt",
@@ -36,6 +33,7 @@ SERVERS ={
                   ],
          
          "nhz" : [
+                  # "http://localhost:7776/nhz",
                   # "http://dummyToCauseTrouble.org:7776/nhz",
                   "http://api.nhzcrypto.org:7776/nhz",
                   "http://woll-e.net:7776/nhz",
@@ -48,20 +46,12 @@ SERVERS ={
          # "nhz":  "http://localhost:7776/nhz",
          }
 
-
-BLOCKSPERMINUTE = {"nxt": 1 / 1.87,  # measured at block height 607838 (see https://nxtforum.org/nrs-releases/nrs-v1-7-4/msg205165/#msg205165 )
-                   "nhz": 1 / 1.72}  # measured at block height 539874
-
-GENESIS = {"nhz": 1395526942.22, 
-           "nxt": 1385294400}
-
-
 # subfolders:
 FONTFOLDER = "fonts"
 FONTSUFFIX = (".ttf", ".otf",)
 
 STATICFOLDER = "static"
-STATICSUFFICES = (".html", ".htm", ".css", ".png", ".ico")
+STATICSUFFICES = (".html", ".htm", ".css", ".png", ".ico", ".txt")
 
 
 # text webserver:
