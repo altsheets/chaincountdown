@@ -31,14 +31,16 @@
 <p align="right"><span class="small">Quote of the day:</span> &quot; <strong class="serif3"><big> If you can break it, you have grokked it. </big></strong>&quot;<span class="small">  (AltSheetsDev 2015/08/10)</span></p></td>
     <td><h2 class="orange">@news</h2>
       <ul>
-        <li><a href="#history"><strong>v13.5:</strong></a> new <a href="https://github.com/altsheets/chaincountdown/tree/master/tools">measurements</a> for NXT and HZ <a href="https://github.com/altsheets/chaincountdown/blob/master/config.py#L24">blocktimes</a></li>
-        <li>v13: Docker magic &amp; autostarting using systemd</li>
-        <li>v12: my very first Dockerfile and Hub repo altsheets/chaincountdown</li>
-        <li>v11<strong>:</strong> &quot;<span class="orange"><strong>Conceptual Thunderstorm</strong></span>&quot; </li>
-        <li>v10: font &amp; static pages improvements</li>
-        <li>v09 linux server install readme</li>
-        <li>v08 much: new option font; refactoring: massive reorg of the code, cleaned up</li>
-        <li>v07 issue fixed: blocktime not == 1.0 minutes</li>
+        <li><a href="#history"><strong>v14: Much wow tools</strong></a> - <em>Several</em> node servers! Peerexplorer <em>DNS crawler</em>. HZ <em>peer crawler</em>! <br />
+          <em>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&quot;<span class="orange"><strong>126 nodes, 57 with open API, 37 of which have domain names.</strong></span>&quot;</em></li>
+        <li class="small lessLineDistance">v13.5: new measurements for NXT and HZ blocktimes</li>
+        <li class="small lessLineDistance">v13: Docker magic &amp; autostarting using systemd</li>
+        <li class="small lessLineDistance">v12: my very first Dockerfile and Hub repo altsheets/chaincountdown</li>
+        <li class="small lessLineDistance">v11: &quot;Conceptual Thunderstorm&quot; </li>
+        <li class="small lessLineDistance">v10: font &amp; static pages improvements</li>
+        <li class="small lessLineDistance">v09 linux server install readme</li>
+        <li class="small lessLineDistance">v08 much: new option font; refactoring: massive reorg of the code, cleaned up</li>
+        <li class="small lessLineDistance">v07 issue fixed: blocktime not == 1.0 minutes</li>
       </ul>
     <p>scroll down to <a href="#history">history</a>, or to <a href="#giveback">how to spend your money wisely</a>.</p></td>
   </tr>
@@ -98,9 +100,25 @@
   <li><small><a href="architecture.html">architecture.html</a></small></li>
 </ul>
 <p><small></small>While reading ... do you notice your inner voice ... when it whispers &quot;<em>I could do that ...</em>&quot; :-)</p>
-<h2><small><a name="history" id="history"></a></small>@version <strong><span class="red">v13</span></strong>.4 &quot;<span class="orange">BlockTimes revisited</span>&quot; <span class="small">at 2016/01/05 18:00 UTC ~ nxt-block 607838 = hz-block 539874</span></h2>
+<h2><small><a name="history" id="history"></a></small>@version <strong><span class="red">v14</span></strong> &quot;<span class="orange">Much wow tools</span>&quot; <span class="small">at 2016/01/23 22:00 UTC ~ nxt-block 622100 = hz-block 554871</span></h2>
 <p>Sourcecode available on <a href="https://github.com/altsheets/chaincountdown" target="_blank">GitHub altsheets</a></p>
 <h2><small>@history:</small></h2>
+<p>v14: Much wow tools:<br />
+  <em>&nbsp;&nbsp;&nbsp;<strong>&nbsp;&nbsp;&nbsp;&nbsp;&quot;126 nodes, 57 with open API, 37 of which have domain names&quot;</strong></em><br />
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Several node servers! Peerexplorer DNS crawler. HZ peer crawler!<br />
+</p>
+<ul>
+  <li>Why? A user complained to me that my image server is broken ...</li>
+  <li>... but<em> jxnt.org</em> was down, which I had been using  for API queries (of 'getBlockchainStatus' --&gt; blockNumber).</li>
+  <li>New solution: Whenever an API lookup is failing,<strong> the next server is asked.</strong> Only if all are failing, my server is in trouble.</li>
+  <li>Now <strong>server names are <a href="https://github.com/altsheets/chaincountdown/blob/master/config.py#L23-L46">hardcoded</a></strong><a href="https://github.com/altsheets/chaincountdown/blob/master/config.py#L23-L46"> in config</a>, so I wanted servers which may last a while. Choosing by looking at their <strong>domain names</strong>.</li>
+  <li>Using the <a href="http://peerexplorer.com/peerexplorer-api">peerexplorer.com openApi</a> list, I <strong>looked up all domain names</strong>, and <strong>sorted</strong> them fancily (backwards, by TLD first!)</li>
+  <li>Then, when it came to HZ, I was lacking peerexplorer - so I created my own <strong>Horizon Peer Crawler (#HPC)</strong>: <em>57 nodes with open API</em></li>
+  <li>I could recycle the above DNS lookup: <em>37 of which have domain names</em>.</li>
+  <li>And in the end, I even added a test if an <strong>IP is answering on port 7774</strong> - so now I know: <em>126 nodes</em><strong>.</strong></li>
+</ul>
+<p>See <a href="https://github.com/altsheets/chaincountdown/blob/master/tools/peerMagic.py">peerMagic.py</a> for the multithreaded(!) code, and <a href="https://github.com/altsheets/chaincountdown/blob/master/tools/peerMagic_NXT.txt">peerMagic_NXT.txt</a> and <a href="https://github.com/altsheets/chaincountdown/blob/master/tools/peerMagic_HZ.txt">peerMagic_HZ.txt</a> for example output. </p>
+<p align="center"><strong>If you like this, <a href="#giveback">show it</a></strong> !</p>
 <p>v13.5: Block times revisited</p>
 <ul>
   <li>new blocktime measurements, see github <a href="https://github.com/altsheets/chaincountdown/blob/master/config.py#L24">config.py</a> and <a href="https://github.com/altsheets/chaincountdown/tree/master/tools">/tools folder</a></li>

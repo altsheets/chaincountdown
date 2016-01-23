@@ -138,3 +138,6 @@ tr.ListHeaderColor th {
 .serif3 {
 	font-family: Palatino Linotype, Book Antiqua, Palatino, serif;
 }
+.lessLineDistance{
+	line-height:130%;
+}
