@@ -37,7 +37,13 @@ SERVERS ={
          
          "nhz" : [
                   # "http://dummyToCauseTrouble.org:7776/nhz",
-                  "http://api.nhzcrypto.org:7776/nhz"
+                  "http://api.nhzcrypto.org:7776/nhz",
+                  "http://woll-e.net:7776/nhz",
+                  "http://eu2.woll-e.net:7776/nhz",
+                  "http://castor.riteh.hr:7776/nhz",
+                  "http://eu3.woll-e.net:7776/nhz",
+                  "http://eu5.woll-e.net:7776/nhz",
+                  "http://acha02.com:7776/nhz",
                   ],
          # "nhz":  "http://localhost:7776/nhz",
          }

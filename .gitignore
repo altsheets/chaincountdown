@@ -6,3 +6,5 @@
 
 # GFM View files:
 *.md.html      
+
+*.pyc

@@ -44,21 +44,24 @@
 
 import urllib2, urlparse, json, socket, threading, timeit, Queue
 
-TIMEOUT=8
+TIMEOUT=5
 
 # for HZ crawler
 NUM_WORKERS=1000  
 PRINT_EVERY=300 
 
+HZ_PEER_PORT=7774
+HZ_API_PORT=7776
 
 
-def queryAPI(server="http://www.peerexplorer.com", command="/api_openapi", timeout=TIMEOUT):
-    """get all IP addresses"""
+
+def queryAPI(server="http://www.peerexplorer.com", command="/api_openapi", timeout=TIMEOUT, data=None):
+    """send command to server, examine the result. Returns (bool success, json answer)"""
     
     url=urlparse.urljoin(server, command)
     # print url
     try:
-        f=urllib2.urlopen(url, timeout=timeout)
+        f=urllib2.urlopen(url, timeout=timeout, data=data)  # data=None --> GET, otherwise POST
         answer = f.read()
         f.close()
         # print answer
@@ -176,7 +179,28 @@ def nodesTableWithDomainNames_NXT():
   nodesTableWithDomainNames(IPs)
 
 
-def checkOpenAPI_worker(ipQueue, ipDone, openAPI, printLock, thresholds, started):
+ANSWERS=[
+         {"error":"Unexpected token END OF FILE at position 0."},
+         {u'error': u'Your peer address cannot be resolved'}
+         ]
+
+def peerServerON(IP):
+  nodePeerServer="http://%s:%s" % (IP, HZ_PEER_PORT)
+  success, answer=queryAPI(server=nodePeerServer, command="", data="", timeout=3)
+  # if success: print answer
+  return success and (answer in ANSWERS)
+
+def test_CheckPeerServer():
+  for IP in ("localhost", "1.2.3.4", "173.232.15.176"):
+    print IP, peerServerON(IP)
+
+def printAnswers(IPs):
+  for IP in IPs:
+    nodePeerServer="http://%s:%s" % (IP, HZ_PEER_PORT)
+    print queryAPI(server=nodePeerServer, command="", data="", timeout=3)
+    
+
+def checkOpenAPI_worker(ipQueue, ipDone, nodeON, openAPI, printLock, thresholds, started):
   """works through a queue: 
      if 'getPeers' is successful, then append IP to openAPI list 
      also add yet unchecked peers to the queue.
@@ -184,49 +208,55 @@ def checkOpenAPI_worker(ipQueue, ipDone, openAPI, printLock, thresholds, started
   while True:
     
     IP=ipQueue.get()
-    
+    # print IP
     if IP in ipDone:
       ipQueue.task_done()
       
     else:
       ipDone.append(IP)
-      
-      node="http://%s:7776" % IP
-      success, newPeers=queryAPI(server=node, command="/nhz?requestType=getPeers")
+
+      nodeApiAnswers, hisPeers=queryAPI(server="http://%s:%s" % (IP, HZ_API_PORT), command="/nhz?requestType=getPeers")
+
+      nodeAnswers=peerServerON(IP)
+      if nodeAnswers: nodeON.append(IP)
         
       newCount=0  
-      if success:
+      if nodeApiAnswers:
         openAPI.append(IP) # I actually got an answer == this IP has open API
 
-        newPeers=newPeers["peers"]
-        for p in newPeers:
+        hisPeers=hisPeers["peers"]
+        for p in hisPeers:
           if (p not in ipDone):
             newCount+=1
             ipQueue.put(p)     # enqueue all new ones.
+          # print "added", newCount
 
 
       # from here on, it's all about pretty printing:
-      pd, mt = len(ipDone), max(thresholds)
+      checked, mt = len(ipDone), max(thresholds)
 
-      if success or pd>mt: 
-        
-        if pd>mt: 
+      if nodeAnswers or nodeApiAnswers or checked>mt:
+        peerInfo="" 
+
+        if checked > mt: 
           thresholds.append( mt + PRINT_EVERY)
-          peerInfo=""
-        else:
-          peerInfo = " peers=%4d of which unchecked=%4d" % (len(newPeers), newCount)
+          
+        if nodeApiAnswers:
+          peerInfo = " peers=%4d of which unchecked=%4d" % (len(hisPeers), newCount)
         
-        qs,oa=ipQueue.qsize(), len(openAPI)
-        timeSpent=timeit.default_timer()-started
-        
+        nN, qs, oa = len(nodeON), ipQueue.qsize(), len(openAPI)
+        timeSpent = timeit.default_timer()-started
+
+        infoline="(%6.3fs) nodes=%3d openAPI=%3d checked=%4d queue=%5d | %16s: node=%5s openAPI=%5s | %s" 
+        infoline = infoline % (timeSpent, nN, oa, checked,        qs,    IP, nodeAnswers, nodeApiAnswers, peerInfo)        
         printLock.acquire()
-        print "(%6.3fs) openAPI=%3d checked=%4d queue=%5d | %27s: open=%5s | %s" % (timeSpent, oa, pd, qs, node, success, peerInfo)
+        print infoline
         printLock.release()
         
       ipQueue.task_done()
 
 
-def findHZnodes(node="http://localhost:7776"):
+def findHZnodes(node="http://localhost:%s"%HZ_API_PORT):
   """
   Checks thousands of IPs for open API.
   
@@ -236,7 +266,7 @@ def findHZnodes(node="http://localhost:7776"):
   success, peers=queryAPI(server=node, command="/nhz?requestType=getPeers")
   
   if not success:
-    print "%s didn't want to play with me: %s" % (hzserver, peers)
+    print "%s didn't want to play with me: %s" % (node, peers)
     return False
   
   initialPeers=peers["peers"]
@@ -245,11 +275,12 @@ def findHZnodes(node="http://localhost:7776"):
 
   peersToCheck,printLock=Queue.Queue(), threading.Lock()  
   started=timeit.default_timer()
-  openAPI, ipDone=[], []
+  nodeON, openAPI, ipDone=[], [], []
   thresholds=[PRINT_EVERY] # using list because it is thread-safe
 
   for i in range(NUM_WORKERS):
-    t=threading.Thread(target=checkOpenAPI_worker, args=(peersToCheck, ipDone, openAPI, printLock, thresholds, started))
+    args=(peersToCheck, ipDone, nodeON, openAPI, printLock, thresholds, started)
+    t=threading.Thread(target=checkOpenAPI_worker, args=args)
     t.daemon=True
     t.start()
 
@@ -259,28 +290,47 @@ def findHZnodes(node="http://localhost:7776"):
   peersToCheck.join()
  
   duration=timeit.default_timer()-started
-  qs,oa, pd=peersToCheck.qsize(), len(openAPI), len(ipDone)
-  print "(%6.3fs) openAPI=%3d checked=%4d queue=%5d " % (duration, oa, pd, qs)
+  n, qs, oa = len(nodeON), peersToCheck.qsize(), len(openAPI)
+  checked = len(ipDone)
+  
+  print "(%6.3fs) nodes=%3d openAPI=%3d checked=%4d queue=%5d " % (duration, n, oa, checked, qs)
   
   print "\nReady. Found %d nodes with open API." % oa
   # print openAPI 
   
-  return openAPI
+  return nodeON, openAPI
     
 
 
 def nodesTableWithDomainNames_HZ():
   """Query localhost for peers, then IP-->DNS table"""
   
-  openAPI_IPs = findHZnodes()
-  print 
+  nodeON_IPs, openAPI_IPs = findHZnodes()
+  print
+  # printAnswers(nodeON_IPs)
+  print
+  
+  for port, ipList in ((HZ_PEER_PORT,nodeON_IPs),(HZ_API_PORT,openAPI_IPs)):
+    sortIPaddresses(ipList)
+    print "These %d nodes are answering on port %d:" % (len(ipList), port)
+    print ipList
+  
+  print
+
+  print "\nNodes but not open API"
+  nonOpenApiNodes = list ( set(nodeON_IPs) - set(openAPI_IPs) )
+  nodesTableWithDomainNames(nonOpenApiNodes)
+  print "These are all IPs with non open API!"
+  
+  print "\nOpen API:"
   nodesTableWithDomainNames(openAPI_IPs)
   print "These are all IPs with open API!"
 
 
 if __name__=="__main__":
-  print ("-" * 50 + "\n") * 2 + "\nNXT:\n\n" + ("-" * 50 + "\n") * 2
-  nodesTableWithDomainNames_NXT()
+  #print ("-" * 50 + "\n") * 2 + "\nNXT:\n\n" + ("-" * 50 + "\n") * 2
+  #nodesTableWithDomainNames_NXT()
   print ("-" * 50 + "\n") * 2 + "\nHZ :\n\n" + ("-" * 50 + "\n") * 2
   nodesTableWithDomainNames_HZ()
   
+  #test_CheckPeerServer()
