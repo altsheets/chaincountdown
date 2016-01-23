@@ -42,9 +42,15 @@
                http://altsheets.ddns.net/assetgraphs/v2/products/
 '''
 
-import urllib2, urlparse, json, socket, threading, timeit
+import urllib2, urlparse, json, socket, threading, timeit, Queue
 
 TIMEOUT=8
+
+# for HZ crawler
+NUM_WORKERS=1000  
+PRINT_EVERY=300 
+
+
 
 def queryAPI(server="http://www.peerexplorer.com", command="/api_openapi", timeout=TIMEOUT):
     """get all IP addresses"""
@@ -170,41 +176,93 @@ def nodesTableWithDomainNames_NXT():
   nodesTableWithDomainNames(IPs)
 
 
-def findHZnodes(hzserver="http://localhost:7776"):
+def checkOpenAPI_worker(ipQueue, ipDone, openAPI, printLock, thresholds, started):
+  """works through a queue: 
+     if 'getPeers' is successful, then append IP to openAPI list 
+     also add yet unchecked peers to the queue.
+  """
+  while True:
+    
+    IP=ipQueue.get()
+    
+    if IP in ipDone:
+      ipQueue.task_done()
+      
+    else:
+      ipDone.append(IP)
+      
+      node="http://%s:7776" % IP
+      success, newPeers=queryAPI(server=node, command="/nhz?requestType=getPeers")
+        
+      newCount=0  
+      if success:
+        openAPI.append(IP) # I actually got an answer == this IP has open API
+
+        newPeers=newPeers["peers"]
+        for p in newPeers:
+          if (p not in ipDone):
+            newCount+=1
+            ipQueue.put(p)     # enqueue all new ones.
+
+
+      # from here on, it's all about pretty printing:
+      pd, mt = len(ipDone), max(thresholds)
+
+      if success or pd>mt: 
+        
+        if pd>mt: 
+          thresholds.append( mt + PRINT_EVERY)
+          peerInfo=""
+        else:
+          peerInfo = " peers=%4d of which unchecked=%4d" % (len(newPeers), newCount)
+        
+        qs,oa=ipQueue.qsize(), len(openAPI)
+        timeSpent=timeit.default_timer()-started
+        
+        printLock.acquire()
+        print "(%6.3fs) openAPI=%3d checked=%4d queue=%5d | %27s: open=%5s | %s" % (timeSpent, oa, pd, qs, node, success, peerInfo)
+        printLock.release()
+        
+      ipQueue.task_done()
+
+
+def findHZnodes(node="http://localhost:7776"):
+  """
+  Checks thousands of IPs for open API.
   
-  success, peers=queryAPI(server=hzserver, command="/nhz?requestType=getPeers")
+  starting point is localhost --> getPeers
+  """
+  
+  success, peers=queryAPI(server=node, command="/nhz?requestType=getPeers")
   
   if not success:
     print "%s didn't want to play with me: %s" % (hzserver, peers)
     return False
   
-  peers=peers["peers"]
-  print "Got %d peers from %s, now checking which ones have open API ..." % (len(peers), hzserver)
-  print "Patience please, timeout is %d seconds."  % TIMEOUT
-  
+  initialPeers=peers["peers"]
+  print "Got %d peers from %s, now checking which ones have open API, and enqueue'ing their peers:" % (len(initialPeers), node)
+  print "Patience please, this can take minutes. Printing each openAPI IP, plus every approx. %d checked IPs:" % PRINT_EVERY
+
+  peersToCheck,printLock=Queue.Queue(), threading.Lock()  
   started=timeit.default_timer()
-  
-  def openAPIthread(IP, openAPI, printLock):
-    "check :7776, then print (with printLock = in orderly fashion)"
+  openAPI, ipDone=[], []
+  thresholds=[PRINT_EVERY] # using list because it is thread-safe
+
+  for i in range(NUM_WORKERS):
+    t=threading.Thread(target=checkOpenAPI_worker, args=(peersToCheck, ipDone, openAPI, printLock, thresholds, started))
+    t.daemon=True
+    t.start()
+
+  for item in initialPeers:
+    peersToCheck.put(item)
     
-    hzserver="http://%s:7776" % IP
-    success, test=queryAPI(server=hzserver, command="/nhz?requestType=getMyInfo")
-
-    answerTime=timeit.default_timer()-started    
-    printLock.acquire()
-    print "(%.3fs) %27s: %s" % (answerTime, hzserver, success)
-    printLock.release()
-    if success: openAPI.append(IP)
-
-  openAPI=[]
-  threads, printLock=[], threading.Lock()
-  for IP in peers:
-    t=threading.Thread(target=openAPIthread, args=(IP, openAPI, printLock))
-    threads.append(t)
-  for t in threads: t.start()
-  for t in threads: t.join()
+  peersToCheck.join()
+ 
+  duration=timeit.default_timer()-started
+  qs,oa, pd=peersToCheck.qsize(), len(openAPI), len(ipDone)
+  print "(%6.3fs) openAPI=%3d checked=%4d queue=%5d " % (duration, oa, pd, qs)
   
-  print "Ready. Found %d nodes with open API." % len(openAPI)
+  print "\nReady. Found %d nodes with open API." % oa
   # print openAPI 
   
   return openAPI
