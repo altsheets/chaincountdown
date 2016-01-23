@@ -53,6 +53,8 @@ PRINT_EVERY=300
 HZ_PEER_PORT=7774
 HZ_API_PORT=7776
 
+HZ_STARTING_NODE="http://localhost:%s"%HZ_API_PORT
+
 
 
 def queryAPI(server="http://www.peerexplorer.com", command="/api_openapi", timeout=TIMEOUT, data=None):
@@ -258,7 +260,7 @@ def checkOpenAPI_worker(ipQueue, ipDone, nodeON, openAPI, printLock, thresholds,
       ipQueue.task_done()
 
 
-def findHZnodes(node="http://localhost:%s"%HZ_API_PORT):
+def findHZnodes(node=HZ_STARTING_NODE):
   """
   Checks thousands of IPs for open API.
   starting point is localhost --> getPeers
@@ -305,7 +307,13 @@ def findHZnodes(node="http://localhost:%s"%HZ_API_PORT):
 def nodesTableWithDomainNames_HZ():
   """Query localhost for peers, then IP-->DNS table"""
   
-  nodeON_IPs, openAPI_IPs = findHZnodes()
+  result = findHZnodes()
+  if not result:
+    print "You probably have no HZ node running on localhost."
+    print "Start your HZ node, or change HZ_STARTING_NODE to a node with openAPI."
+    return False
+    
+  nodeON_IPs, openAPI_IPs = result
   print
   
   for port, ipList in ((HZ_PEER_PORT,nodeON_IPs),(HZ_API_PORT,openAPI_IPs)):
