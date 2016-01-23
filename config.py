@@ -55,7 +55,7 @@ STATICSUFFICES = (".html", ".htm", ".css", ".png", ".ico", ".txt")
 
 # text webserver:
 
-EXAMPLE     = "http://%s/nxt/600000.png?heading=nxthacks&color=00affe&fontsize=20"
+EXAMPLE     = "http://%s/nxt/1000000.png?heading=1mio&color=00affe&fontsize=20"
 SUGGESTION  = "Your URL should look like: | %s |" % EXAMPLE
 
 INFOPAGE    ="index.html"
