@@ -1,11 +1,11 @@
 #!/usr/bin/python
 '''
-@title:    peerexplorerLookup.py
+@title:    peerexpMagic.py
 
 @summary:  NXT: Queries peerexplorer for nxt nodes with open API.
-           HZ: Queries localhost for 'getPeers'
+           HZ: Queries localhost for 'getPeers', then starts crawling them all!
            
-           BOTH: Then looks up the domainnames for all results,
+           BOTH: Looks up the domainnames for all results,
                  and does fancy sorting:
            
            Final table is:
@@ -74,6 +74,7 @@ def queryAPI(server="http://www.peerexplorer.com", command="/api_openapi", timeo
     else:
         return True, apiResult
       
+      
 def lookupIPs_blocking(IPs, breakEarly=False):
   """
   Given a list of IPs ... this returns domain names.
@@ -125,12 +126,14 @@ def lookupIPs(IPs, breakEarly=False):
     
   return IPdomains
 
+
 def sortBackToFront(myList):
   "Sorts domain names in a cool way: backwards from TLD to the front."
   myList2=[]
   for elements in sorted( [x.strip().split('.')[::-1] for x in myList] ):
     myList2.append(".".join([elem for elem in reversed(elements)]))
   return myList2
+
      
 def sortIPaddresses(ips):
   "Sorts IP address in increasing order."
@@ -140,10 +143,11 @@ def sortIPaddresses(ips):
   for i in range(len(ips)):
     ips[i] = ips[i].replace(" ", "")
 
+
 def nodesTableWithDomainNames(IPs):
   """Put everything together: Query DNS, sort, print"""
   
-  print "Now looking up domain names, patience please ..."
+  print "Looking up domain names, patience please ..."
   NXTnodes=lookupIPs(IPs)
   
   domains=sortBackToFront(zip(*NXTnodes)[0])
@@ -151,7 +155,7 @@ def nodesTableWithDomainNames(IPs):
   print "Ready. For %d of the %d I got domain names." % (len(domains), len(NXTnodes))
   
   formattingString = "%15s: %"+"%d"%(max([len(d) for d in domains])+2)+"s"
-  print "\nNow everything again, sorted. Domain names first, then IP-address-only:"
+  print "\nEverything again, now sorted. Domain names first, then IP-address-only:"
   domainsDict=dict(NXTnodes)
   for d in domains:
     print formattingString % (domainsDict[d], d)
@@ -161,7 +165,6 @@ def nodesTableWithDomainNames(IPs):
   for IP in noDomains:
     print "%15s" % IP
   
-      
 
 def nodesTableWithDomainNames_NXT():
   """Query peerexplorer, then IP-->DNS table"""
@@ -184,15 +187,18 @@ ANSWERS=[
          {u'error': u'Your peer address cannot be resolved'}
          ]
 
+
 def peerServerON(IP):
   nodePeerServer="http://%s:%s" % (IP, HZ_PEER_PORT)
   success, answer=queryAPI(server=nodePeerServer, command="", data="", timeout=3)
   # if success: print answer
   return success and (answer in ANSWERS)
 
+
 def test_CheckPeerServer():
   for IP in ("localhost", "1.2.3.4", "173.232.15.176"):
     print IP, peerServerON(IP)
+
 
 def printAnswers(IPs):
   for IP in IPs:
@@ -206,17 +212,14 @@ def checkOpenAPI_worker(ipQueue, ipDone, nodeON, openAPI, printLock, thresholds,
      also add yet unchecked peers to the queue.
   """
   while True:
-    
     IP=ipQueue.get()
-    # print IP
-    if IP in ipDone:
-      ipQueue.task_done()
+    if IP in ipDone: ipQueue.task_done()
       
     else:
       ipDone.append(IP)
 
-      nodeApiAnswers, hisPeers=queryAPI(server="http://%s:%s" % (IP, HZ_API_PORT), command="/nhz?requestType=getPeers")
-
+      nodeApiAnswers, hisPeers=queryAPI(server="http://%s:%s" % (IP, HZ_API_PORT), 
+                                        command="/nhz?requestType=getPeers")
       nodeAnswers=peerServerON(IP)
       if nodeAnswers: nodeON.append(IP)
         
@@ -226,20 +229,16 @@ def checkOpenAPI_worker(ipQueue, ipDone, nodeON, openAPI, printLock, thresholds,
 
         hisPeers=hisPeers["peers"]
         for p in hisPeers:
-          if (p not in ipDone):
-            newCount+=1
+          if p not in ipDone:
             ipQueue.put(p)     # enqueue all new ones.
-          # print "added", newCount
-
+            newCount+=1
 
       # from here on, it's all about pretty printing:
       checked, mt = len(ipDone), max(thresholds)
 
       if nodeAnswers or nodeApiAnswers or checked>mt:
         peerInfo="" 
-
-        if checked > mt: 
-          thresholds.append( mt + PRINT_EVERY)
+        if checked > mt: thresholds.append( mt + PRINT_EVERY)
           
         if nodeApiAnswers:
           peerInfo = " peers=%4d of which unchecked=%4d" % (len(hisPeers), newCount)
@@ -247,8 +246,11 @@ def checkOpenAPI_worker(ipQueue, ipDone, nodeON, openAPI, printLock, thresholds,
         nN, qs, oa = len(nodeON), ipQueue.qsize(), len(openAPI)
         timeSpent = timeit.default_timer()-started
 
-        infoline="(%6.3fs) nodes=%3d openAPI=%3d checked=%4d queue=%5d | %16s: node=%5s openAPI=%5s | %s" 
-        infoline = infoline % (timeSpent, nN, oa, checked,        qs,    IP, nodeAnswers, nodeApiAnswers, peerInfo)        
+        infoline=("(%6.3fs) nodes=%3d openAPI=%3d checked=%4d queue=%5d | "
+                  "%16s: node=%5s openAPI=%5s | %s") 
+        infoline = infoline % (timeSpent, nN, oa, checked,        qs,
+                   IP, nodeAnswers, nodeApiAnswers, peerInfo)        
+        
         printLock.acquire()
         print infoline
         printLock.release()
@@ -259,19 +261,18 @@ def checkOpenAPI_worker(ipQueue, ipDone, nodeON, openAPI, printLock, thresholds,
 def findHZnodes(node="http://localhost:%s"%HZ_API_PORT):
   """
   Checks thousands of IPs for open API.
-  
   starting point is localhost --> getPeers
   """
-  
   success, peers=queryAPI(server=node, command="/nhz?requestType=getPeers")
-  
   if not success:
     print "%s didn't want to play with me: %s" % (node, peers)
     return False
   
   initialPeers=peers["peers"]
-  print "Got %d peers from %s, now checking which ones have open API, and enqueue'ing their peers:" % (len(initialPeers), node)
-  print "Patience please, this can take minutes. Printing each openAPI IP, plus every approx. %d checked IPs:" % PRINT_EVERY
+  print ("Got %d peers from %s, now checking which ones have open API, "
+         "and enqueue'ing their peers:" % (len(initialPeers), node))
+  print ("Patience please, this can take minutes. Printing each openAPI IP, "
+         "plus every approx. %d checked IPs:" % PRINT_EVERY)
 
   peersToCheck,printLock=Queue.Queue(), threading.Lock()  
   started=timeit.default_timer()
@@ -295,8 +296,7 @@ def findHZnodes(node="http://localhost:%s"%HZ_API_PORT):
   
   print "(%6.3fs) nodes=%3d openAPI=%3d checked=%4d queue=%5d " % (duration, n, oa, checked, qs)
   
-  print "\nReady. Found %d nodes with open API." % oa
-  # print openAPI 
+  print "\nReady. Found %d nodes, and %d with open API." % (n, oa)
   
   return nodeON, openAPI
     
@@ -307,8 +307,6 @@ def nodesTableWithDomainNames_HZ():
   
   nodeON_IPs, openAPI_IPs = findHZnodes()
   print
-  # printAnswers(nodeON_IPs)
-  print
   
   for port, ipList in ((HZ_PEER_PORT,nodeON_IPs),(HZ_API_PORT,openAPI_IPs)):
     sortIPaddresses(ipList)
@@ -317,20 +315,22 @@ def nodesTableWithDomainNames_HZ():
   
   print
 
-  print "\nNodes but not open API"
   nonOpenApiNodes = list ( set(nodeON_IPs) - set(openAPI_IPs) )
+  print "\nNodes but not open API: ", len(nonOpenApiNodes)
+  
   nodesTableWithDomainNames(nonOpenApiNodes)
   print "These are all IPs with non open API!"
   
-  print "\nOpen API:"
+  print "\nOpen API:", len(openAPI_IPs)
   nodesTableWithDomainNames(openAPI_IPs)
   print "These are all IPs with open API!"
 
 
 if __name__=="__main__":
-  #print ("-" * 50 + "\n") * 2 + "\nNXT:\n\n" + ("-" * 50 + "\n") * 2
-  #nodesTableWithDomainNames_NXT()
+  print ("-" * 50 + "\n") * 2 + "\nNXT:\n\n" + ("-" * 50 + "\n") * 2
+  nodesTableWithDomainNames_NXT()
   print ("-" * 50 + "\n") * 2 + "\nHZ :\n\n" + ("-" * 50 + "\n") * 2
   nodesTableWithDomainNames_HZ()
   
   #test_CheckPeerServer()
+  

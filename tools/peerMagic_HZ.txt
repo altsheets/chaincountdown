@@ -1,0 +1,447 @@
+--------------------------------------------------
+--------------------------------------------------
+
+HZ :
+
+--------------------------------------------------
+--------------------------------------------------
+
+Got 431 peers from http://localhost:7776, now checking which ones have open API, and enqueue'ing their peers:
+Patience please, this can take minutes. Printing each openAPI IP, plus every approx. 300 checked IPs:
+( 0.962s) nodes=  1 openAPI=  0 checked= 431 queue=    0 |    178.202.27.14: node= True openAPI=False | 
+( 1.187s) nodes=  3 openAPI=  1 checked= 451 queue=    1 |   198.154.60.183: node= True openAPI=False | 
+( 1.195s) nodes=  3 openAPI=  1 checked= 462 queue=    0 |   85.214.243.229: node= True openAPI= True |  peers= 213 of which unchecked=  32
+( 1.309s) nodes=  7 openAPI=  5 checked= 527 queue=    0 |  138.128.169.227: node= True openAPI= True |  peers=  42 of which unchecked=   1
+( 1.725s) nodes= 12 openAPI= 10 checked= 944 queue=    0 |  192.227.163.233: node= True openAPI= True |  peers=  30 of which unchecked=   0
+( 1.759s) nodes= 12 openAPI= 10 checked= 974 queue=    0 | [fc8d:3d5a:dc4f:567e:cb3d:cbd4:de87:28f0]: node=False openAPI=False | 
+( 1.806s) nodes= 13 openAPI= 10 checked=1006 queue=  295 |  188.226.179.119: node= True openAPI=False | 
+( 1.826s) nodes= 13 openAPI= 10 checked=1007 queue=  566 |     161.53.40.94: node= True openAPI= True |  peers= 576 of which unchecked= 122
+( 1.857s) nodes= 14 openAPI= 10 checked=1008 queue= 1048 |     5.196.143.14: node= True openAPI=False | 
+( 1.947s) nodes= 15 openAPI= 10 checked=1009 queue= 2498 |    185.32.157.60: node= True openAPI=False | 
+( 1.960s) nodes= 16 openAPI= 10 checked=1010 queue= 2676 |    185.32.156.37: node= True openAPI=False | 
+( 1.981s) nodes= 17 openAPI= 10 checked=1011 queue= 2956 |    185.32.157.23: node= True openAPI=False | 
+( 2.005s) nodes= 18 openAPI= 10 checked=1012 queue= 3318 |    185.32.156.36: node= True openAPI=False | 
+( 2.035s) nodes= 19 openAPI= 10 checked=1013 queue= 3800 |    185.32.157.99: node= True openAPI=False | 
+( 2.100s) nodes= 21 openAPI= 11 checked=1014 queue= 4581 |   185.32.157.147: node= True openAPI=False | 
+( 2.110s) nodes= 22 openAPI= 11 checked=1015 queue= 4715 |   185.32.157.150: node= True openAPI=False | 
+( 2.111s) nodes= 23 openAPI= 11 checked=1015 queue= 4718 |     84.198.88.87: node= True openAPI=False | 
+( 2.118s) nodes= 25 openAPI= 12 checked=1016 queue= 4764 |   185.32.157.154: node= True openAPI=False | 
+( 2.158s) nodes= 25 openAPI= 12 checked=1018 queue= 5332 |   193.198.102.54: node= True openAPI= True |  peers=1737 of which unchecked=1052
+( 2.167s) nodes= 25 openAPI= 12 checked=1019 queue= 5457 |     194.135.88.1: node= True openAPI= True |  peers=1773 of which unchecked=1220
+( 2.186s) nodes= 26 openAPI= 13 checked=1020 queue= 5537 |    81.169.133.57: node= True openAPI= True |  peers=1755 of which unchecked=1194
+( 2.192s) nodes= 26 openAPI= 13 checked=1021 queue= 5613 |    178.33.14.208: node= True openAPI= True |  peers=1780 of which unchecked=1193
+( 2.216s) nodes= 27 openAPI= 14 checked=1022 queue= 5904 |       78.46.32.4: node= True openAPI= True |  peers=1864 of which unchecked=1160
+( 2.251s) nodes= 28 openAPI= 14 checked=1023 queue= 6310 |   185.32.157.100: node= True openAPI=False | 
+( 2.251s) nodes= 29 openAPI= 14 checked=1023 queue= 6311 |   185.32.157.102: node= True openAPI=False | 
+( 2.252s) nodes= 29 openAPI= 14 checked=1023 queue= 6315 |   81.169.157.223: node= True openAPI= True |  peers= 646 of which unchecked= 115
+( 2.252s) nodes= 30 openAPI= 14 checked=1023 queue= 6318 |   185.32.157.104: node= True openAPI=False | 
+( 2.266s) nodes= 30 openAPI= 14 checked=1027 queue= 6456 |    159.203.76.78: node= True openAPI= True |  peers=1865 of which unchecked=1124
+( 2.370s) nodes= 33 openAPI= 16 checked=1028 queue= 7621 |    158.69.202.70: node= True openAPI=False | 
+( 2.407s) nodes= 34 openAPI= 17 checked=1029 queue= 8046 |  193.198.102.246: node= True openAPI= True |  peers=1740 of which unchecked= 831
+( 2.476s) nodes= 34 openAPI= 17 checked=1030 queue= 9199 |   194.135.88.110: node= True openAPI= True |  peers=1782 of which unchecked= 853
+( 2.530s) nodes= 35 openAPI= 18 checked=1031 queue=10103 |   192.227.239.69: node= True openAPI= True |  peers=  69 of which unchecked=   0
+( 2.559s) nodes= 35 openAPI= 19 checked=1032 queue=10536 |      40.115.9.55: node= True openAPI= True |  peers=2120 of which unchecked=1286
+( 2.585s) nodes= 35 openAPI= 19 checked=1033 queue=10905 |    194.135.89.18: node= True openAPI= True |  peers=1768 of which unchecked= 842
+( 2.597s) nodes= 35 openAPI= 19 checked=1034 queue=11091 |    85.214.37.185: node= True openAPI= True |  peers=1689 of which unchecked= 814
+( 2.634s) nodes= 35 openAPI= 19 checked=1035 queue=11642 |  159.203.119.139: node= True openAPI= True |  peers=1830 of which unchecked=1020
+( 2.665s) nodes= 36 openAPI= 20 checked=1036 queue=12068 |   70.118.207.119: node= True openAPI= True |  peers= 388 of which unchecked=  53
+( 2.730s) nodes= 36 openAPI= 20 checked=1038 queue=13202 |    107.155.90.83: node=False openAPI= True |  peers=2917 of which unchecked=1967
+( 2.953s) nodes= 37 openAPI= 21 checked=1039 queue=13764 |      52.24.16.77: node= True openAPI= True |  peers=1402 of which unchecked= 563
+( 3.068s) nodes= 39 openAPI= 23 checked=1040 queue=14041 |   173.232.15.176: node= True openAPI= True |  peers= 611 of which unchecked=  89
+( 3.083s) nodes= 40 openAPI= 24 checked=1041 queue=14152 |  138.128.169.220: node= True openAPI= True |  peers= 400 of which unchecked=  55
+( 3.103s) nodes= 40 openAPI= 24 checked=1042 queue=14540 |    161.53.40.242: node= True openAPI= True |  peers=1479 of which unchecked= 642
+( 3.295s) nodes= 40 openAPI= 25 checked=1043 queue=15980 |   107.155.89.207: node=False openAPI= True |  peers=2393 of which unchecked=1442
+( 3.367s) nodes= 41 openAPI= 26 checked=1044 queue=16074 |      52.24.85.12: node= True openAPI= True |  peers= 624 of which unchecked=  96
+( 3.783s) nodes= 42 openAPI= 27 checked=1048 queue=16064 |    185.38.44.173: node= True openAPI= True |  peers=  18 of which unchecked=   0
+( 4.088s) nodes= 44 openAPI= 29 checked=1050 queue=16161 |   193.198.102.32: node= True openAPI= True |  peers= 394 of which unchecked=  47
+( 4.118s) nodes= 45 openAPI= 29 checked=1051 queue=16548 |   143.177.26.246: node= True openAPI=False | 
+( 4.140s) nodes= 45 openAPI= 29 checked=1052 queue=16922 |   194.135.89.218: node= True openAPI= True |  peers=1770 of which unchecked= 822
+( 4.185s) nodes= 46 openAPI= 29 checked=1053 queue=16919 |   85.214.112.215: node= True openAPI=False | 
+( 4.186s) nodes= 47 openAPI= 29 checked=1053 queue=16917 |      5.9.149.197: node= True openAPI=False | 
+( 4.192s) nodes= 48 openAPI= 29 checked=1055 queue=16912 |    185.32.156.44: node= True openAPI=False | 
+( 4.199s) nodes= 49 openAPI= 29 checked=1056 queue=16908 |    185.32.157.29: node= True openAPI=False | 
+( 4.201s) nodes= 50 openAPI= 29 checked=1057 queue=16905 |    185.32.157.20: node= True openAPI=False | 
+( 4.202s) nodes= 51 openAPI= 29 checked=1057 queue=16904 |    162.213.153.7: node= True openAPI=False | 
+( 4.203s) nodes= 52 openAPI= 29 checked=1057 queue=16903 |   194.135.85.170: node= True openAPI=False | 
+( 4.203s) nodes= 53 openAPI= 29 checked=1057 queue=16901 |    185.32.156.41: node= True openAPI=False | 
+( 4.206s) nodes= 54 openAPI= 29 checked=1061 queue=16894 |    185.32.157.19: node= True openAPI=False | 
+( 4.208s) nodes= 55 openAPI= 29 checked=1062 queue=16891 |    185.32.157.25: node= True openAPI=False | 
+( 4.226s) nodes= 56 openAPI= 29 checked=1063 queue=16889 |    185.32.156.42: node= True openAPI=False | 
+( 4.228s) nodes= 57 openAPI= 29 checked=1064 queue=16887 |    185.32.156.40: node= True openAPI=False | 
+( 4.231s) nodes= 58 openAPI= 29 checked=1065 queue=16886 |    185.32.157.26: node= True openAPI=False | 
+( 4.234s) nodes= 59 openAPI= 29 checked=1066 queue=16884 |    185.32.156.46: node= True openAPI=False | 
+( 4.263s) nodes= 60 openAPI= 29 checked=1067 queue=16882 |    185.32.156.47: node= True openAPI=False | 
+( 4.265s) nodes= 61 openAPI= 29 checked=1068 queue=16880 |    185.32.157.28: node= True openAPI=False | 
+( 4.282s) nodes= 62 openAPI= 29 checked=1069 queue=16878 |    185.32.157.30: node= True openAPI=False | 
+( 4.304s) nodes= 62 openAPI= 30 checked=1070 queue=16960 |   178.150.207.53: node=False openAPI= True |  peers= 451 of which unchecked=  83
+( 4.334s) nodes= 64 openAPI= 31 checked=1071 queue=17197 |   185.32.157.149: node= True openAPI=False | 
+( 4.334s) nodes= 65 openAPI= 31 checked=1071 queue=17200 |  192.227.175.158: node= True openAPI=False | 
+( 4.340s) nodes= 66 openAPI= 31 checked=1073 queue=17244 |    185.32.157.95: node= True openAPI=False | 
+( 4.352s) nodes= 66 openAPI= 31 checked=1074 queue=17428 |     31.24.29.221: node= True openAPI= True |  peers=1263 of which unchecked= 479
+( 4.420s) nodes= 67 openAPI= 32 checked=1075 queue=17425 |   107.161.81.146: node= True openAPI= True |  peers=  11 of which unchecked=   0
+( 4.473s) nodes= 68 openAPI= 32 checked=1076 queue=17421 |      69.28.82.75: node= True openAPI=False | 
+( 4.495s) nodes= 69 openAPI= 33 checked=1077 queue=17418 |   107.161.81.142: node= True openAPI= True |  peers=  31 of which unchecked=   0
+( 4.542s) nodes= 70 openAPI= 33 checked=1078 queue=17417 |     23.95.44.142: node= True openAPI=False | 
+( 4.741s) nodes= 71 openAPI= 36 checked=1081 queue=19280 |    194.135.88.20: node= True openAPI= True |  peers=1779 of which unchecked= 807
+( 4.775s) nodes= 71 openAPI= 36 checked=1082 queue=19800 |     194.135.91.6: node=False openAPI= True |  peers=1766 of which unchecked= 793
+( 4.776s) nodes= 71 openAPI= 36 checked=1082 queue=19805 |  150.107.225.218: node=False openAPI= True |  peers=1768 of which unchecked= 797
+( 4.919s) nodes= 73 openAPI= 38 checked=1084 queue=19923 |      52.32.66.50: node= True openAPI= True |  peers= 571 of which unchecked=  57
+( 4.976s) nodes= 73 openAPI= 38 checked=1085 queue=20910 |     45.55.81.226: node= True openAPI= True |  peers=1899 of which unchecked=1054
+( 5.144s) nodes= 75 openAPI= 40 checked=1090 queue=21487 |    54.201.121.58: node= True openAPI= True |  peers= 422 of which unchecked=  48
+( 5.159s) nodes= 75 openAPI= 40 checked=1091 queue=21735 |   194.135.88.186: node= True openAPI= True |  peers=1778 of which unchecked= 793
+( 5.174s) nodes= 76 openAPI= 40 checked=1092 queue=21733 |    198.154.60.61: node= True openAPI=False | 
+( 5.299s) nodes= 78 openAPI= 41 checked=1094 queue=21775 |   85.214.238.143: node= True openAPI=False | 
+( 5.336s) nodes= 78 openAPI= 41 checked=1095 queue=21807 |     52.88.94.131: node= True openAPI= True |  peers= 632 of which unchecked=  82
+( 5.453s) nodes= 79 openAPI= 41 checked=1096 queue=21805 |   37.120.160.148: node= True openAPI=False | 
+( 5.499s) nodes= 80 openAPI= 41 checked=1097 queue=21803 |    185.32.156.39: node= True openAPI=False | 
+( 5.502s) nodes= 81 openAPI= 41 checked=1098 queue=21800 |     52.28.46.180: node= True openAPI=False | 
+( 5.503s) nodes= 82 openAPI= 41 checked=1098 queue=21798 |    185.32.156.38: node= True openAPI=False | 
+( 5.504s) nodes= 83 openAPI= 41 checked=1099 queue=21796 |    185.38.44.174: node= True openAPI=False | 
+( 5.508s) nodes= 84 openAPI= 41 checked=1101 queue=21793 |    185.32.157.18: node= True openAPI=False | 
+( 5.511s) nodes= 85 openAPI= 41 checked=1102 queue=21789 |    185.32.156.35: node= True openAPI=False | 
+( 5.513s) nodes= 86 openAPI= 41 checked=1103 queue=21786 |    185.32.156.43: node= True openAPI=False | 
+( 5.531s) nodes= 87 openAPI= 41 checked=1104 queue=21782 |   178.62.194.195: node= True openAPI=False | 
+( 5.556s) nodes= 88 openAPI= 41 checked=1105 queue=21779 |     77.88.208.12: node= True openAPI=False | 
+( 5.567s) nodes= 89 openAPI= 41 checked=1106 queue=21777 |    185.32.156.45: node= True openAPI=False | 
+( 5.571s) nodes= 90 openAPI= 41 checked=1107 queue=21775 |    185.32.157.21: node= True openAPI=False | 
+( 5.572s) nodes= 91 openAPI= 41 checked=1108 queue=21772 |    185.32.157.24: node= True openAPI=False | 
+( 5.581s) nodes= 92 openAPI= 41 checked=1109 queue=21770 |     85.214.18.69: node= True openAPI=False | 
+( 5.582s) nodes= 93 openAPI= 41 checked=1110 queue=21768 |    185.32.157.22: node= True openAPI=False | 
+( 5.586s) nodes= 94 openAPI= 41 checked=1111 queue=21765 |       40.115.9.5: node= True openAPI=False | 
+( 5.594s) nodes= 95 openAPI= 41 checked=1112 queue=21761 |    185.32.157.52: node= True openAPI=False | 
+( 5.598s) nodes= 96 openAPI= 41 checked=1113 queue=21758 |  193.198.102.245: node= True openAPI=False | 
+( 5.605s) nodes= 97 openAPI= 41 checked=1114 queue=21756 |   193.198.102.51: node= True openAPI=False | 
+( 5.606s) nodes= 98 openAPI= 41 checked=1115 queue=21754 |    185.32.157.56: node= True openAPI=False | 
+( 5.608s) nodes= 99 openAPI= 41 checked=1116 queue=21751 |  130.211.142.219: node= True openAPI=False | 
+( 5.609s) nodes=100 openAPI= 41 checked=1117 queue=21749 |    185.32.157.59: node= True openAPI=False | 
+( 5.615s) nodes=101 openAPI= 41 checked=1119 queue=21744 |     85.214.43.71: node= True openAPI=False | 
+( 5.618s) nodes=102 openAPI= 41 checked=1120 queue=21740 |   193.198.102.53: node= True openAPI=False | 
+( 5.634s) nodes=103 openAPI= 41 checked=1121 queue=21737 |   142.68.155.233: node= True openAPI=False | 
+( 5.638s) nodes=104 openAPI= 41 checked=1122 queue=21734 |    185.32.157.76: node= True openAPI=False | 
+( 5.640s) nodes=105 openAPI= 41 checked=1123 queue=21733 |    192.99.77.148: node= True openAPI=False | 
+( 5.660s) nodes=106 openAPI= 41 checked=1125 queue=21726 |    192.3.148.171: node= True openAPI=False | 
+( 5.663s) nodes=107 openAPI= 41 checked=1126 queue=21723 |   37.120.173.114: node= True openAPI=False | 
+( 5.681s) nodes=108 openAPI= 41 checked=1127 queue=21719 |    85.214.65.220: node= True openAPI=False | 
+( 5.693s) nodes=109 openAPI= 41 checked=1128 queue=21716 |   79.241.209.184: node= True openAPI=False | 
+( 5.698s) nodes=110 openAPI= 41 checked=1130 queue=21712 |   107.178.217.48: node= True openAPI=False | 
+( 5.708s) nodes=111 openAPI= 41 checked=1131 queue=21709 |     104.219.53.3: node= True openAPI=False | 
+( 5.720s) nodes=112 openAPI= 41 checked=1132 queue=21706 |   130.211.178.56: node= True openAPI=False | 
+( 5.722s) nodes=113 openAPI= 41 checked=1133 queue=21705 |   198.46.192.106: node= True openAPI=False | 
+( 5.746s) nodes=114 openAPI= 41 checked=1134 queue=21703 |     52.24.187.95: node= True openAPI=False | 
+( 5.793s) nodes=115 openAPI= 41 checked=1135 queue=21702 |      23.245.7.15: node= True openAPI=False | 
+( 5.876s) nodes=116 openAPI= 41 checked=1137 queue=21696 |   138.128.169.91: node= True openAPI=False | 
+( 6.073s) nodes=117 openAPI= 42 checked=1141 queue=22482 |     45.55.157.54: node= True openAPI= True |  peers=1763 of which unchecked= 798
+( 6.322s) nodes=119 openAPI= 43 checked=1156 queue=23091 |    91.44.204.185: node= True openAPI=False | 
+( 6.328s) nodes=120 openAPI= 43 checked=1157 queue=23092 |      89.78.252.6: node= True openAPI=False | 
+( 6.389s) nodes=121 openAPI= 43 checked=1164 queue=23416 |       93.75.9.10: node= True openAPI=False | 
+( 6.435s) nodes=121 openAPI= 43 checked=1170 queue=23684 |       52.26.95.4: node= True openAPI= True |  peers=2275 of which unchecked=1279
+( 6.689s) nodes=122 openAPI= 43 checked=1180 queue=23660 |     74.14.105.49: node= True openAPI=False | 
+( 6.926s) nodes=123 openAPI= 43 checked=1184 queue=23649 |   77.118.122.241: node= True openAPI=False | 
+( 7.232s) nodes=123 openAPI= 44 checked=1185 queue=24118 |    52.26.118.234: node=False openAPI= True |  peers=1424 of which unchecked= 471
+( 7.326s) nodes=123 openAPI= 45 checked=1192 queue=24795 |    194.135.88.81: node=False openAPI= True |  peers=1762 of which unchecked= 699
+( 7.496s) nodes=123 openAPI= 47 checked=1200 queue=25913 |     52.24.142.13: node=False openAPI= True |  peers=1436 of which unchecked= 469
+( 7.499s) nodes=123 openAPI= 47 checked=1201 queue=25946 |   194.135.88.140: node=False openAPI= True |  peers=1782 of which unchecked= 700
+( 7.972s) nodes=123 openAPI= 48 checked=1209 queue=26949 |   107.155.89.235: node=False openAPI= True |  peers=1987 of which unchecked=1024
+( 8.762s) nodes=124 openAPI= 48 checked=1501 queue=25689 |     99.192.94.44: node= True openAPI=False | 
+( 9.586s) nodes=124 openAPI= 49 checked=1816 queue=24555 |  222.242.191.159: node=False openAPI=False | 
+( 9.855s) nodes=124 openAPI= 49 checked=2022 queue=24227 |    159.203.65.55: node=False openAPI= True |  peers=1904 of which unchecked= 503
+(12.781s) nodes=124 openAPI= 49 checked=2101 queue=23874 |     113.243.8.68: node=False openAPI=False | 
+(16.410s) nodes=124 openAPI= 49 checked=2401 queue=22422 |  223.152.175.141: node=False openAPI=False | 
+(17.417s) nodes=124 openAPI= 49 checked=2701 queue=19743 |     113.243.9.55: node=False openAPI=False | 
+(17.813s) nodes=124 openAPI= 49 checked=3001 queue=18113 |   223.152.175.27: node=False openAPI=False | 
+(22.785s) nodes=124 openAPI= 49 checked=3301 queue=16316 |    185.69.55.177: node=False openAPI=False | 
+(24.549s) nodes=124 openAPI= 49 checked=3601 queue=15338 |   113.243.28.248: node=False openAPI=False | 
+(26.286s) nodes=124 openAPI= 49 checked=3901 queue= 4540 |    113.243.11.65: node=False openAPI=False | 
+(34.931s) nodes=124 openAPI= 49 checked=3980 queue=    0 
+
+Ready. Found 124 nodes, and 49 with open API.
+
+These 124 nodes are answering on port 7774:
+[u'5.9.149.197', u'5.196.143.14', u'23.95.44.142', u'23.245.7.15', u'31.24.29.221', u'37.120.160.148', u'37.120.173.114', u'40.115.9.5', u'40.115.9.55', u'45.55.81.226', u'45.55.157.54', u'52.24.16.77', u'52.24.85.12', u'52.24.187.95', u'52.26.95.4', u'52.28.46.180', u'52.32.66.50', u'52.88.94.131', u'54.201.121.58', u'69.28.82.75', u'70.118.207.119', u'74.14.105.49', u'77.88.208.12', u'77.118.122.241', u'78.46.32.4', u'79.241.209.184', u'81.169.133.57', u'81.169.157.223', u'84.198.88.87', u'85.214.18.69', u'85.214.37.185', u'85.214.43.71', u'85.214.65.220', u'85.214.112.215', u'85.214.238.143', u'85.214.243.229', u'89.78.252.6', u'91.44.204.185', u'93.75.9.10', u'99.192.94.44', u'104.219.53.3', u'107.161.81.142', u'107.161.81.146', u'107.178.217.48', u'130.211.142.219', u'130.211.178.56', u'138.128.169.91', u'138.128.169.220', u'138.128.169.227', u'142.68.155.233', u'143.177.26.246', u'158.69.202.70', u'159.203.76.78', u'159.203.119.139', u'161.53.40.94', u'161.53.40.242', u'162.213.153.7', u'173.232.15.176', u'178.33.14.208', u'178.62.194.195', u'178.202.27.14', u'185.32.156.35', u'185.32.156.36', u'185.32.156.37', u'185.32.156.38', u'185.32.156.39', u'185.32.156.40', u'185.32.156.41', u'185.32.156.42', u'185.32.156.43', u'185.32.156.44', u'185.32.156.45', u'185.32.156.46', u'185.32.156.47', u'185.32.157.18', u'185.32.157.19', u'185.32.157.20', u'185.32.157.21', u'185.32.157.22', u'185.32.157.23', u'185.32.157.24', u'185.32.157.25', u'185.32.157.26', u'185.32.157.28', u'185.32.157.29', u'185.32.157.30', u'185.32.157.52', u'185.32.157.56', u'185.32.157.59', u'185.32.157.60', u'185.32.157.76', u'185.32.157.95', u'185.32.157.99', u'185.32.157.100', u'185.32.157.102', u'185.32.157.104', u'185.32.157.147', u'185.32.157.149', u'185.32.157.150', u'185.32.157.154', u'185.38.44.173', u'185.38.44.174', u'188.226.179.119', u'192.3.148.171', u'192.99.77.148', u'192.227.163.233', u'192.227.175.158', u'192.227.239.69', u'193.198.102.32', u'193.198.102.51', u'193.198.102.53', u'193.198.102.54', u'193.198.102.245', u'193.198.102.246', u'194.135.85.170', u'194.135.88.1', u'194.135.88.20', u'194.135.88.110', u'194.135.88.186', u'194.135.89.18', u'194.135.89.218', u'198.46.192.106', u'198.154.60.61', u'198.154.60.183']
+These 49 nodes are answering on port 7776:
+[u'31.24.29.221', u'40.115.9.55', u'45.55.81.226', u'45.55.157.54', u'52.24.16.77', u'52.24.85.12', u'52.24.142.13', u'52.26.95.4', u'52.26.118.234', u'52.32.66.50', u'52.88.94.131', u'54.201.121.58', u'70.118.207.119', u'78.46.32.4', u'81.169.133.57', u'81.169.157.223', u'85.214.37.185', u'85.214.243.229', u'107.155.89.207', u'107.155.89.235', u'107.155.90.83', u'107.161.81.142', u'107.161.81.146', u'138.128.169.220', u'138.128.169.227', u'150.107.225.218', u'159.203.65.55', u'159.203.76.78', u'159.203.119.139', u'161.53.40.94', u'161.53.40.242', u'173.232.15.176', u'178.33.14.208', u'178.150.207.53', u'185.38.44.173', u'192.227.163.233', u'192.227.239.69', u'193.198.102.32', u'193.198.102.54', u'193.198.102.246', u'194.135.88.1', u'194.135.88.20', u'194.135.88.81', u'194.135.88.110', u'194.135.88.140', u'194.135.88.186', u'194.135.89.18', u'194.135.89.218', u'194.135.91.6']
+
+
+Nodes but not open API:  86
+Looking up domain names, patience please ...
+(0.0084s)   85.214.238.143: h1973540.stratoserver.net
+(0.0090s)    185.32.157.76: host-185-32-157-76.pwsz.elblag.pl
+(0.0203s)    192.3.148.171: 192-3-148-171-host.colocrossing.com
+(0.0210s)   142.68.155.233: drmons0540w-142068155233.pppoe-dynamic.High-Speed.ns.bellaliant.net
+(0.0214s)     84.198.88.87: d54C65857.access.telenet.be
+(0.0218s)   107.178.217.48: 48.217.178.107.bc.googleusercontent.com
+(0.0225s)      89.78.252.6: 89-78-252-6.dynamic.chello.pl
+(0.0229s)   185.32.157.150: host-185-32-157-150.pwsz.elblag.pl
+(0.0232s)    185.32.157.99: host-185-32-157-99.pwsz.elblag.pl
+(0.0237s)   185.32.157.154: host-185-32-157-154.pwsz.elblag.pl
+(0.0256s)    85.214.65.220: h1746043.stratoserver.net
+(0.0259s)    185.32.157.95: host-185-32-157-95.pwsz.elblag.pl
+(0.0268s)   37.120.160.148: v22015032143523922.yourvserver.net
+(0.0273s)     85.214.18.69: eu5.woll-e.net
+(0.0279s)   185.32.157.104: host-185-32-157-104.pwsz.elblag.pl
+(0.0284s)  192.227.175.158: host.colocrossing.com
+(0.0289s)    185.32.157.18: host-185-32-157-18.pwsz.elblag.pl
+(0.0297s)    185.32.157.19: host-185-32-157-19.pwsz.elblag.pl
+(0.0301s)   185.32.157.149: host-185-32-157-149.pwsz.elblag.pl
+(0.0303s)   185.32.157.147: host-185-32-157-147.pwsz.elblag.pl
+(0.0306s)      5.9.149.197: eu6.woll-e.net
+(0.0323s)    185.32.157.29: host-185-32-157-29.pwsz.elblag.pl
+(0.0326s)    185.32.157.28: host-185-32-157-28.pwsz.elblag.pl
+(0.0332s)    185.32.157.26: host-185-32-157-26.pwsz.elblag.pl
+(0.0333s)    185.32.157.25: host-185-32-157-25.pwsz.elblag.pl
+(0.0340s)    185.32.157.24: host-185-32-157-24.pwsz.elblag.pl
+(0.0347s)    185.32.157.22: host-185-32-157-22.pwsz.elblag.pl
+(0.0348s)    185.32.157.21: host-185-32-157-21.pwsz.elblag.pl
+(0.0352s)    178.202.27.14: ip-178-202-27-14.hsi09.unitymediagroup.de
+(0.0357s)       93.75.9.10: duration.expertise.volia.net
+(0.0363s)     52.24.187.95: ec2-52-24-187-95.us-west-2.compute.amazonaws.com
+(0.0364s)     52.28.46.180: ec2-52-28-46-180.eu-central-1.compute.amazonaws.com
+(0.0369s)    185.32.157.20: p2pool.vert-coin.pl
+(0.0371s)    91.44.204.185: p5B2CCCB9.dip0.t-ipconnect.de
+(0.0379s)    185.32.157.30: host-185-32-157-30.pwsz.elblag.pl
+(0.0397s)     74.14.105.49: bas4-toronto06-1242458417.dsl.bell.ca
+(0.0411s)   194.135.85.170: 8954.s.time4vps.eu
+(0.0432s)  130.211.142.219: 219.142.211.130.bc.googleusercontent.com
+(0.0437s)    158.69.202.70: 70.ip-158-69-202.net
+(0.0538s)    185.32.157.23: host-185-32-157-23.pwsz.elblag.pl
+(0.0540s)   77.118.122.241: 77.118.122.241.wireless.dyn.drei.com
+(0.0543s)   198.46.192.106: 198-46-192-106-host.colocrossing.com
+(0.0547s)    185.32.157.59: host-185-32-157-59.pwsz.elblag.pl
+(0.0548s)    185.32.157.56: host-185-32-157-56.pwsz.elblag.pl
+(0.0556s)    185.32.157.52: host-185-32-157-52.pwsz.elblag.pl
+(0.0558s)   185.32.157.102: host-185-32-157-102.pwsz.elblag.pl
+(0.0565s)   185.32.157.100: host-185-32-157-100.pwsz.elblag.pl
+(0.0572s)     23.95.44.142: 23-95-44-142-host.colocrossing.com
+(0.0606s)   130.211.178.56: 56.178.211.130.bc.googleusercontent.com
+(0.0616s)    185.32.157.60: host-185-32-157-60.pwsz.elblag.pl
+(0.1005s)   79.241.209.184: p4FF1D1B8.dip0.t-ipconnect.de
+(0.1009s)   85.214.112.215: eu4.woll-e.net
+(0.1193s)   37.120.173.114: v22015042143524346.yourvserver.net
+(0.1248s)     85.214.43.71: h2492484.stratoserver.net
+(0.1633s)     99.192.94.44: hlfxns0188w-099192094044.pppoe-dynamic.High-Speed.ns.bellaliant.net
+(0.1996s)  188.226.179.119: cryptocoins.ninja
+(4.5075s)    192.99.77.148: 
+(4.5077s)   143.177.26.246: 
+(4.5106s)    185.32.156.42: 
+(4.5135s)    185.32.156.41: 
+(4.5136s)    185.32.156.46: 
+(4.5166s)    185.32.156.47: 
+(4.5166s)     77.88.208.12: 
+(4.5195s)    185.32.156.44: 
+(4.5295s)     104.219.53.3: 
+(4.5316s)      69.28.82.75: 
+(4.5335s)       40.115.9.5: 
+(4.5415s)    185.32.156.40: 
+(4.5416s)    185.32.156.43: 
+(4.5445s)    185.32.156.45: 
+(4.5465s)   198.154.60.183: 
+(4.5476s)    198.154.60.61: 
+(4.5485s)    185.32.156.39: 
+(4.5505s)    185.32.156.38: 
+(4.5525s)    185.32.156.37: 
+(4.5535s)    185.32.156.35: 
+(4.5555s)    185.32.156.36: 
+(4.5605s)     5.196.143.14: 
+(4.5646s)    185.38.44.174: 
+(4.5646s)   178.62.194.195: 
+(4.7197s)   193.198.102.53: 
+(4.7246s)   193.198.102.51: 
+(4.7371s)  193.198.102.245: 
+(4.8706s)    162.213.153.7: 
+(4.9807s)      23.245.7.15: 
+(5.1228s)   138.128.169.91: 
+Ready. For 56 of the 86 I got domain names.
+
+Everything again, now sorted. Domain names first, then IP-address-only:
+   84.198.88.87:                                           d54C65857.access.telenet.be
+   74.14.105.49:                                 bas4-toronto06-1242458417.dsl.bell.ca
+   52.28.46.180:                   ec2-52-28-46-180.eu-central-1.compute.amazonaws.com
+   52.24.187.95:                      ec2-52-24-187-95.us-west-2.compute.amazonaws.com
+  192.3.148.171:                                   192-3-148-171-host.colocrossing.com
+ 198.46.192.106:                                  198-46-192-106-host.colocrossing.com
+   23.95.44.142:                                    23-95-44-142-host.colocrossing.com
+192.227.175.158:                                                 host.colocrossing.com
+ 77.118.122.241:                                  77.118.122.241.wireless.dyn.drei.com
+ 107.178.217.48:                               48.217.178.107.bc.googleusercontent.com
+130.211.142.219:                              219.142.211.130.bc.googleusercontent.com
+ 130.211.178.56:                               56.178.211.130.bc.googleusercontent.com
+ 79.241.209.184:                                         p4FF1D1B8.dip0.t-ipconnect.de
+  91.44.204.185:                                         p5B2CCCB9.dip0.t-ipconnect.de
+  178.202.27.14:                             ip-178-202-27-14.hsi09.unitymediagroup.de
+ 194.135.85.170:                                                    8954.s.time4vps.eu
+ 142.68.155.233:   drmons0540w-142068155233.pppoe-dynamic.High-Speed.ns.bellaliant.net
+   99.192.94.44:   hlfxns0188w-099192094044.pppoe-dynamic.High-Speed.ns.bellaliant.net
+  158.69.202.70:                                                  70.ip-158-69-202.net
+  85.214.65.220:                                             h1746043.stratoserver.net
+ 85.214.238.143:                                             h1973540.stratoserver.net
+   85.214.43.71:                                             h2492484.stratoserver.net
+     93.75.9.10:                                          duration.expertise.volia.net
+ 85.214.112.215:                                                        eu4.woll-e.net
+   85.214.18.69:                                                        eu5.woll-e.net
+    5.9.149.197:                                                        eu6.woll-e.net
+ 37.120.160.148:                                    v22015032143523922.yourvserver.net
+ 37.120.173.114:                                    v22015042143524346.yourvserver.net
+188.226.179.119:                                                     cryptocoins.ninja
+    89.78.252.6:                                         89-78-252-6.dynamic.chello.pl
+ 185.32.157.100:                                    host-185-32-157-100.pwsz.elblag.pl
+ 185.32.157.102:                                    host-185-32-157-102.pwsz.elblag.pl
+ 185.32.157.104:                                    host-185-32-157-104.pwsz.elblag.pl
+ 185.32.157.147:                                    host-185-32-157-147.pwsz.elblag.pl
+ 185.32.157.149:                                    host-185-32-157-149.pwsz.elblag.pl
+ 185.32.157.150:                                    host-185-32-157-150.pwsz.elblag.pl
+ 185.32.157.154:                                    host-185-32-157-154.pwsz.elblag.pl
+  185.32.157.18:                                     host-185-32-157-18.pwsz.elblag.pl
+  185.32.157.19:                                     host-185-32-157-19.pwsz.elblag.pl
+  185.32.157.21:                                     host-185-32-157-21.pwsz.elblag.pl
+  185.32.157.22:                                     host-185-32-157-22.pwsz.elblag.pl
+  185.32.157.23:                                     host-185-32-157-23.pwsz.elblag.pl
+  185.32.157.24:                                     host-185-32-157-24.pwsz.elblag.pl
+  185.32.157.25:                                     host-185-32-157-25.pwsz.elblag.pl
+  185.32.157.26:                                     host-185-32-157-26.pwsz.elblag.pl
+  185.32.157.28:                                     host-185-32-157-28.pwsz.elblag.pl
+  185.32.157.29:                                     host-185-32-157-29.pwsz.elblag.pl
+  185.32.157.30:                                     host-185-32-157-30.pwsz.elblag.pl
+  185.32.157.52:                                     host-185-32-157-52.pwsz.elblag.pl
+  185.32.157.56:                                     host-185-32-157-56.pwsz.elblag.pl
+  185.32.157.59:                                     host-185-32-157-59.pwsz.elblag.pl
+  185.32.157.60:                                     host-185-32-157-60.pwsz.elblag.pl
+  185.32.157.76:                                     host-185-32-157-76.pwsz.elblag.pl
+  185.32.157.95:                                     host-185-32-157-95.pwsz.elblag.pl
+  185.32.157.99:                                     host-185-32-157-99.pwsz.elblag.pl
+  185.32.157.20:                                                   p2pool.vert-coin.pl
+   5.196.143.14
+    23.245.7.15
+     40.115.9.5
+    69.28.82.75
+   77.88.208.12
+   104.219.53.3
+ 138.128.169.91
+ 143.177.26.246
+  162.213.153.7
+ 178.62.194.195
+  185.32.156.35
+  185.32.156.36
+  185.32.156.37
+  185.32.156.38
+  185.32.156.39
+  185.32.156.40
+  185.32.156.41
+  185.32.156.42
+  185.32.156.43
+  185.32.156.44
+  185.32.156.45
+  185.32.156.46
+  185.32.156.47
+  185.38.44.174
+  192.99.77.148
+ 193.198.102.51
+ 193.198.102.53
+193.198.102.245
+  198.154.60.61
+ 198.154.60.183
+These are all IPs with non open API!
+
+Open API: 49
+Looking up domain names, patience please ...
+(0.0019s)     31.24.29.221: acha02.com
+(0.0057s)      52.24.16.77: ec2-52-24-16-77.us-west-2.compute.amazonaws.com
+(0.0062s)      52.24.85.12: ec2-52-24-85-12.us-west-2.compute.amazonaws.com
+(0.0070s)     52.24.142.13: ec2-52-24-142-13.us-west-2.compute.amazonaws.com
+(0.0075s)       52.26.95.4: ec2-52-26-95-4.us-west-2.compute.amazonaws.com
+(0.0077s)    52.26.118.234: ec2-52-26-118-234.us-west-2.compute.amazonaws.com
+(0.0085s)    54.201.121.58: ec2-54-201-121-58.us-west-2.compute.amazonaws.com
+(0.0085s)   70.118.207.119: cpe-70-118-207-119.kc.res.rr.com
+(0.0086s)     52.88.94.131: ec2-52-88-94-131.us-west-2.compute.amazonaws.com
+(0.0091s)       78.46.32.4: static.4.32.46.78.clients.your-server.de
+(0.0096s)    81.169.133.57: eu3.woll-e.net
+(0.0105s)    85.214.37.185: mail.cochet.de
+(0.0109s)   85.214.243.229: eu2.woll-e.net
+(0.0110s)   107.155.89.207: 107-155-89-207-customer-at-wable.com
+(0.0116s)   107.155.89.235: 107-155-89-235-customer-at-wable.com
+(0.0118s)   107.161.81.142: mail2.turboxafiliados.biz
+(0.0120s)    107.155.90.83: 107-155-90-83-customer-at-wable.com
+(0.0123s)   107.161.81.146: serv1.care-market.biz
+(0.0128s)  138.128.169.220: spcr-5.interspireservidores.com.br
+(0.0128s)  138.128.169.227: spcr-6.interspireservidores.com.br
+(0.0167s)     161.53.40.94: penguinium.riteh.hr
+(0.0170s)    161.53.40.242: castor.riteh.hr
+(0.0175s)   173.232.15.176: 173-232-15.static.rdns.serverhub.com
+(0.0190s)   178.150.207.53: 53.207.150.178.triolan.net
+(0.0205s)   192.227.239.69: 192-227-239-69-host.colocrossing.com
+(0.0234s)     194.135.88.1: 7146.s.time4vps.eu
+(0.0241s)    194.135.88.20: 7174.s.time4vps.eu
+(0.0266s)   194.135.88.186: 7175.s.time4vps.eu
+(0.0275s)   194.135.89.218: 7169.s.time4vps.eu
+(0.0329s)      52.32.66.50: ec2-52-32-66-50.us-west-2.compute.amazonaws.com
+(0.0587s)   81.169.157.223: woll-e.net
+(0.0712s)    194.135.88.81: 7172.s.time4vps.eu
+(0.0732s)   194.135.88.110: 7173.s.time4vps.eu
+(0.0776s)   194.135.88.140: 7176.s.time4vps.eu
+(0.0790s)    194.135.89.18: 7171.s.time4vps.eu
+(0.1081s)     194.135.91.6: 7170.s.time4vps.eu
+(4.5044s)     45.55.81.226: 
+(4.5046s)      40.115.9.55: 
+(4.5075s)     45.55.157.54: 
+(4.5154s)    159.203.65.55: 
+(4.5156s)  150.107.225.218: 
+(4.5194s)    159.203.76.78: 
+(4.5196s)  159.203.119.139: 
+(4.5214s)  192.227.163.233: 
+(4.5222s)    185.38.44.173: 
+(4.6502s)    178.33.14.208: 
+(4.7212s)   193.198.102.32: 
+(4.7252s)   193.198.102.54: 
+(4.7282s)  193.198.102.246: 
+Ready. For 36 of the 49 I got domain names.
+
+Everything again, now sorted. Domain names first, then IP-address-only:
+ 107.161.81.146:                               serv1.care-market.biz
+ 107.161.81.142:                           mail2.turboxafiliados.biz
+138.128.169.220:                  spcr-5.interspireservidores.com.br
+138.128.169.227:                  spcr-6.interspireservidores.com.br
+ 107.155.89.207:                107-155-89-207-customer-at-wable.com
+ 107.155.89.235:                107-155-89-235-customer-at-wable.com
+  107.155.90.83:                 107-155-90-83-customer-at-wable.com
+   31.24.29.221:                                          acha02.com
+   52.24.142.13:    ec2-52-24-142-13.us-west-2.compute.amazonaws.com
+    52.24.16.77:     ec2-52-24-16-77.us-west-2.compute.amazonaws.com
+    52.24.85.12:     ec2-52-24-85-12.us-west-2.compute.amazonaws.com
+  52.26.118.234:   ec2-52-26-118-234.us-west-2.compute.amazonaws.com
+     52.26.95.4:      ec2-52-26-95-4.us-west-2.compute.amazonaws.com
+    52.32.66.50:     ec2-52-32-66-50.us-west-2.compute.amazonaws.com
+   52.88.94.131:    ec2-52-88-94-131.us-west-2.compute.amazonaws.com
+  54.201.121.58:   ec2-54-201-121-58.us-west-2.compute.amazonaws.com
+ 192.227.239.69:                192-227-239-69-host.colocrossing.com
+ 70.118.207.119:                    cpe-70-118-207-119.kc.res.rr.com
+ 173.232.15.176:                173-232-15.static.rdns.serverhub.com
+  85.214.37.185:                                      mail.cochet.de
+     78.46.32.4:            static.4.32.46.78.clients.your-server.de
+   194.135.88.1:                                  7146.s.time4vps.eu
+ 194.135.89.218:                                  7169.s.time4vps.eu
+   194.135.91.6:                                  7170.s.time4vps.eu
+  194.135.89.18:                                  7171.s.time4vps.eu
+  194.135.88.81:                                  7172.s.time4vps.eu
+ 194.135.88.110:                                  7173.s.time4vps.eu
+  194.135.88.20:                                  7174.s.time4vps.eu
+ 194.135.88.186:                                  7175.s.time4vps.eu
+ 194.135.88.140:                                  7176.s.time4vps.eu
+  161.53.40.242:                                     castor.riteh.hr
+   161.53.40.94:                                 penguinium.riteh.hr
+ 178.150.207.53:                          53.207.150.178.triolan.net
+ 81.169.157.223:                                          woll-e.net
+ 85.214.243.229:                                      eu2.woll-e.net
+  81.169.133.57:                                      eu3.woll-e.net
+    40.115.9.55
+   45.55.81.226
+   45.55.157.54
+150.107.225.218
+  159.203.65.55
+  159.203.76.78
+159.203.119.139
+  178.33.14.208
+  185.38.44.173
+192.227.163.233
+ 193.198.102.32
+ 193.198.102.54
+193.198.102.246
+These are all IPs with open API!
