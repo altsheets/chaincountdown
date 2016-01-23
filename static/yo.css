@@ -1,8 +1,16 @@
 @charset "utf-8";
 a {	
-	color: #3366CC;	
+	color: #20A8A8;	
 	text-decoration: none
 }
+a:hover {	
+	text-decoration: underline
+	}
+a:visited {	
+	color: #008888;
+	}
+
+
 body {	
 	background-color: #DCDCDC;
 	font-family: Arial, Helvetica, sans-serif;	
@@ -109,9 +117,7 @@ ul {
 .TitleColor {
 	color: #000000
 	}
-a:hover {	
-	text-decoration: underline
-	}
+
 tr.ListHeaderColor th {
 	text-align: left;
 	}.small {

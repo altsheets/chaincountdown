@@ -14,13 +14,15 @@
     <h1>image server</h1>
     <h1>by AltSheets</h1></td>
     <td><div align="center">
-      <p>NXT example:<a href="http://altsheets.ddns.net/assetgraphs/" target="_blank"></a></p>
-      <p><a href="https://nxtforum.org/nrs-releases/nrs-v1-7-4/"><img src="http://altsheets.ddns.net:8888/nxt/621000.png?heading=NXT hardfork @ 621000&amp;fontsize=35&amp;headingfontsize=42&amp;bgcolor=F1F2F4&amp;color=476C8E" alt="nxt chaincountdown" align="absmiddle" /></a></p>
-    </div></td>
-    <td><div align="center">
       <p>HZ example:</p>
       <p><a href="https://horizonplatform.io/get-started/" target="_blank"><img src="/hz/1000000.gif?heading=one million&amp;color=0099ff&amp;bgcolor=003366&amp;fontsize=24&amp;headingfontsize=62" alt="hz chaincountdown" align="middle" /></a></p>
       <p>&nbsp;</p>
+    </div></td>
+    <td><div align="center">
+      <p>NXT example:<a href="http://altsheets.ddns.net/assetgraphs/" target="_blank"></a></p>
+      <p><a href="https://nxtforum.org/nrs-releases/nrs-v1-7-4/">
+      <img src="http://altsheets.ddns.net:8888/nxt/621000.png?heading=NXT hardfork @ 621000&amp;fontsize=35&amp;headingfontsize=42&amp;bgcolor=F1F2F4&amp;color=476C8E" 
+      alt="nxt chaincountdown" align="absmiddle" /></a></p>
     </div></td>
   </tr>
   <tr>
@@ -100,7 +102,7 @@
   <li><small><a href="architecture.html">architecture.html</a></small></li>
 </ul>
 <p><small></small>While reading ... do you notice your inner voice ... when it whispers &quot;<em>I could do that ...</em>&quot; :-)</p>
-<h2><small><a name="history" id="history"></a></small>@version <strong><span class="red">v14</span></strong> &quot;<span class="orange">Much wow tools</span>&quot; <span class="small">at 2016/01/23 22:00 UTC ~ nxt-block 622100 = hz-block 554871</span></h2>
+<h2><small><a name="history" id="history"></a></small>@version <strong><span class="red">v14</span></strong> &quot;<span class="orange">Much wow tools</span>&quot; <span class="small">at 2016/01/23 22:00 UTC ~ nxt-block 622118 = hz-block 554881</span></h2>
 <p>Sourcecode available on <a href="https://github.com/altsheets/chaincountdown" target="_blank">GitHub altsheets</a></p>
 <h2><small>@history:</small></h2>
 <p>v14: Much wow tools:<br />
@@ -111,7 +113,7 @@
   <li>Why? A user complained to me that my image server is broken ...</li>
   <li>... but<em> jxnt.org</em> was down, which I had been using  for API queries (of 'getBlockchainStatus' --&gt; blockNumber).</li>
   <li>New solution: Whenever an API lookup is failing,<strong> the next server is asked.</strong> Only if all are failing, my server is in trouble.</li>
-  <li>Now <strong>server names are <a href="https://github.com/altsheets/chaincountdown/blob/master/config.py#L23-L46">hardcoded</a></strong><a href="https://github.com/altsheets/chaincountdown/blob/master/config.py#L23-L46"> in config</a>, so I wanted servers which may last a while. Choosing by looking at their <strong>domain names</strong>.</li>
+  <li>Now <strong>server names are hardcoded</strong><a href="https://github.com/altsheets/chaincountdown/blob/master/config.py#L23-L46"> in config</a>, so I wanted servers which may last a while. Choosing by looking at their <strong>domain names</strong>.</li>
   <li>Using the <a href="http://peerexplorer.com/peerexplorer-api">peerexplorer.com openApi</a> list, I <strong>looked up all domain names</strong>, and <strong>sorted</strong> them fancily (backwards, by TLD first!)</li>
   <li>Then, when it came to HZ, I was lacking peerexplorer - so I created my own <strong>Horizon Peer Crawler (#HPC)</strong>: <em>57 nodes with open API</em></li>
   <li>I could recycle the above DNS lookup: <em>37 of which have domain names</em>.</li>
