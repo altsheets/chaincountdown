@@ -43,7 +43,6 @@ SERVERS ={
                   "http://eu5.woll-e.net:7776/nhz",
                   "http://acha02.com:7776/nhz",
                   ],
-         # "nhz":  "http://localhost:7776/nhz",
          }
 
 # subfolders:
