@@ -1,0 +1,35 @@
+
+unsorted bits and pieces ...
+
+2015/08/10 17:55 UT
+new image idea when I read this:
+"Only 77K NXT worth of the TVE asset remaining!"
+https://sprnt.slack.com/archives/general/p1439228846009774
+
+code:
+A=getAsset(asset) 
+--> T=asset.quantity
+--> I=getAccount(Issuer) 
+----> B=I.assetbalance(asset)
+
+create image: "asset.name (asset.id) is sold to 100*(T-B)/T percent"  
+
+bamm!
+
+Now mozarello cooking from "Use-Before-Long-Ago"-date, because that was price-reduced in the shop 
+poverty is fun, too! :-)
+
+---
+
+:thumbsup: lol! Glad to be of assistance
+
+altsheets [9:41 PM] 
+You were indeed. The thing above is a snippet that went into my "unsorted.txt" collection. 
+The idea is to have s.th. like my "chaincountdown", but for unsold assets. If it were ready now,
+you could put it on your webpage, or even post the link into this slack - and each time s.o.
+buys more TVE, and thus your balance decreases - that image would change, by itself.
+
+Anyways, thanks for the inspiration - and congrats to your 85% success already. Well done!
+
+GN
+
