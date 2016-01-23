@@ -3,3 +3,6 @@
 /obsolete/
 .project
 .pydevproject
+
+# GFM View files:
+*.md.html      

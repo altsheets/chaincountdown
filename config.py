@@ -14,6 +14,7 @@ TIMEOUT     = 3
 
 # coins specifics:
 
+"""
 SERVER ={
          "nxt" : "http://jnxt.org:7876/nxt",
          # "nxt" : "http://localhost:7876/nxt",
@@ -21,6 +22,26 @@ SERVER ={
          "nhz" : "http://api.nhzcrypto.org:7776/nhz",
          # "nhz":  "http://localhost:7776/nhz",
          }
+"""
+
+SERVERS ={
+         "nxt" : [
+                  # "http://dummyToCauseTrouble.org:7876/nxt",
+                  "http://jnxt.org:7876/nxt",
+                  "http://nxt.cybermailing.com:7876/nxt",
+                  "http://multi.djaeger.net:7876/nxt",
+                  "http://nxt.sx:7876/nxt",
+                  "http://abctc.vps.nxtcrypto.org:7876/nxt",
+                  "http://daemon.bevolved.net:7876/nxt"
+                  ],
+         
+         "nhz" : [
+                  # "http://dummyToCauseTrouble.org:7776/nhz",
+                  "http://api.nhzcrypto.org:7776/nhz"
+                  ],
+         # "nhz":  "http://localhost:7776/nhz",
+         }
+
 
 BLOCKSPERMINUTE = {"nxt": 1 / 1.87,  # measured at block height 607838 (see https://nxtforum.org/nrs-releases/nrs-v1-7-4/msg205165/#msg205165 )
                    "nhz": 1 / 1.72}  # measured at block height 539874

@@ -16,7 +16,7 @@
 import chaincountdown, imaging, helpers 
 
 from config import PORT_NUMBER, INFOPAGE, STYLESHEET, SUGGESTION
-from config import SERVER
+from config import SERVERS
 from config import FILENAMEPIC, IMAGETYPES
 from config import FONTS, IMAGEDEFAULTS, FONTSIZEFOOTER_MIN
 from config import BASEDIR, TEMPDIRNAME
@@ -60,7 +60,7 @@ class myHandler(BaseHTTPRequestHandler):
         pfn = o.path.split("/")[1].lower()
         if pfn =="hz": pfn="nhz"
         if pfn=="": raise Exception("no platform specified")
-        if pfn not in SERVER.keys():
+        if pfn not in SERVERS.keys():
             raise ParsingException(self.NOT_IMPLEMENTED, 
                                    "Unknown chain. Contact me if you want your coin implemented here.")
     

@@ -35,18 +35,18 @@
 '''
 
 from config import TIMEOUT
-from config import SERVER, BLOCKSPERMINUTE, GENESIS
+from config import SERVERS, BLOCKSPERMINUTE, GENESIS
 
 import server
 
 import urllib2, urllib, json, time
 
 
-def queryApi(data, pfn):
+def queryApiOneServer(data, server):
     """urlencode data parameters, urlopen, result to json
        returns (True, json) or (False, error message)  
     """
-    url = SERVER[pfn] + "?%s" % urllib.urlencode(data)
+    url = server + "?%s" % urllib.urlencode(data)
     
     try:
         f=urllib2.urlopen(url, timeout=TIMEOUT)
@@ -60,6 +60,13 @@ def queryApi(data, pfn):
         return False, apiResult
     else:
         return True, apiResult
+
+def queryApi(data, pfn):
+  for oneServer in SERVERS[pfn]:
+    success, result = queryApiOneServer(data, oneServer)
+    if success: break # as soon as one server delivers, be happy
+    print "Server '%s' resulted in '%s'. Trying next one ..." % (oneServer, result)
+  return success, result
 
 def getBlockchainStatus(pfn):
     "api getBlockchainStatus"
