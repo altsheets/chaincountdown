@@ -2,9 +2,9 @@
 """
 attempt to contact the peerServer port 7774 on HZ
 
+the example from MaWo's script https://bitcointalk.org/index.php?topic=823785.msg13656332#msg13656332 is: 
 curl -4 -m5 --data '{"platform":"TEST","protocol":1,"application":"TEST Bot","requestType":"getInfo","version":"v0.1"}' "http://woll-e.net:7774/nhz"
 
-is the example.
 
 But I just cannot get it working, however I try. Always the same answer:
 
