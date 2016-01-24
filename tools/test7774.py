@@ -1,13 +1,12 @@
 
 """
+attempt to contact the peerServer port 7774 on HZ
 
 curl -4 -m5 --data '{"platform":"TEST","protocol":1,"application":"TEST Bot","requestType":"getInfo","version":"v0.1"}' "http://woll-e.net:7774/nhz"
 
 is the example.
 
-But I just cannot get it working, however I try.
-
-Always the same answer:
+But I just cannot get it working, however I try. Always the same answer:
 
 http://woll-e.net:7774/nhz
 test 1:
@@ -21,13 +20,13 @@ Please help. Thanks.
  
 import urllib2
 
-NODE="eu6.woll-e.net"
-NODE="woll-e.net"
-
 PORT=7774
+
+NODE="eu6.woll-e.net"
+# NODE="woll-e.net"
+
 URL="http://%s:%s/nhz" % (NODE, PORT)
 
-print URL
 
 def test1():
   print "test 1:"
@@ -49,13 +48,9 @@ def test2():
   r=requests.post(URL, data=data)
   print r.text
   
-
-
-
   
 if __name__=="__main__":
-  
+  print URL
   test1()
   test2()
-  
   
