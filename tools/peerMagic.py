@@ -15,7 +15,6 @@
 @related:  Made for chaincountdown.py when jnxt.org was down.
            https://github.com/altsheets/chaincountdown            
 
-@version:  v0.15
 @since:    2016/01/23
 
 @author:   AltSheets
@@ -42,31 +41,41 @@
                http://altsheets.ddns.net/assetgraphs/v2/products/
 '''
 
-import urllib2, urlparse, json, socket, threading, timeit, Queue
+VERSION =      "v0.18"
 
-TIMEOUT=5
+# wow, I am becoming more and more pythonic (-: 
+import urllib, urllib2, urlparse, json, socket, threading, timeit, Queue, time, collections, pickle, datetime, os
+
+try: import requests
+except: print "pip install requests"
+
+TIMEOUT=3
 
 # for HZ crawler
-NUM_WORKERS=1000  
-PRINT_EVERY=300 
+NUM_WORKERS=150  # do not put too high. For unknown reasons, it then doesn't visit the whole network. Strange bug.
+PRINT_EVERY=100 
 
 HZ_PEER_PORT=7774
 HZ_API_PORT=7776
+HZ_SUFFIX="nhz"
 
-HZ_STARTING_NODE="http://localhost:%s"%HZ_API_PORT
+HZ_START_NODE="woll-e.net" # api.nhzcrypto.org
 
+# for 7774 peerserver:
+HEADERS = {'content-type': 'application/x-www-form-urlencoded'} 
+DATA = {"protocol":1, "application":"peerMagic", "version":VERSION}
 
 
 def queryAPI(server="http://www.peerexplorer.com", command="/api_openapi", timeout=TIMEOUT, data=None):
-    """send command to server, examine the result. Returns (bool success, json answer)"""
+    """
+    Send command to server, examine the result. 
+    Returns (bool success, json answer)"""
     
-    url=urlparse.urljoin(server, command)
-    # print url
+    url=urlparse.urljoin(server, command) if command!="" else server
     try:
         f=urllib2.urlopen(url, timeout=timeout, data=data)  # data=None --> GET, otherwise POST
         answer = f.read()
         f.close()
-        # print answer
         apiResult = json.loads(answer)
     except Exception as e:
         return False, e
@@ -99,7 +108,7 @@ def lookupIPs_blocking(IPs, breakEarly=False):
   return IPdomains
 
 
-def lookupIPs(IPs, breakEarly=False):
+def lookupIPs(IPs, breakEarly=False, printSteps=True):
   """
   Given a list of IPs ... this returns domain names.
   Threaded version, very fast.
@@ -113,13 +122,14 @@ def lookupIPs(IPs, breakEarly=False):
       domain=socket.gethostbyaddr(IP)[0]
     except:
       domain=""
-    printLock.acquire()
-    print "(%.4fs) %16s: %s" % (timeit.default_timer()-started, IP, domain)
-    printLock.release()
     IPdomains.append((domain, IP))
+    if printLock!=None:
+      printLock.acquire()
+      print "(%.4fs) %16s: %s" % (timeit.default_timer()-started, IP, domain)
+      printLock.release()
 
-  IPdomains=[]
-  threads, printLock=[], threading.Lock()
+  IPdomains, threads = [], []
+  printLock = threading.Lock() if printSteps else None 
   for IP in IPs:
     t=threading.Thread(target=IPthread, args=(IP, IPdomains, printLock))
     threads.append(t)
@@ -140,17 +150,20 @@ def sortBackToFront(myList):
 def sortIPaddresses(ips):
   "Sorts IP address in increasing order."
   for i in range(len(ips)):
-    ips[i] = "%3s.%3s.%3s.%3s" % tuple(ips[i].split("."))
+    try:
+      ips[i] = "%3s.%3s.%3s.%3s" % tuple(ips[i].split("."))
+    except:
+      print "probably not an ip address:", ips[i] 
   ips.sort()
   for i in range(len(ips)):
     ips[i] = ips[i].replace(" ", "")
 
 
-def nodesTableWithDomainNames(IPs):
+def nodesTableWithDomainNames(IPs, printSteps=True):
   """Put everything together: Query DNS, sort, print"""
   
   print "Looking up domain names, patience please ..."
-  NXTnodes=lookupIPs(IPs)
+  NXTnodes=lookupIPs(IPs, printSteps=printSteps)
   
   domains=sortBackToFront(zip(*NXTnodes)[0])
   domains = filter(lambda x:x!="", domains)
@@ -184,91 +197,181 @@ def nodesTableWithDomainNames_NXT():
   nodesTableWithDomainNames(IPs)
 
 
-ANSWERS=[
-         {"error":"Unexpected token END OF FILE at position 0."},
-         {u'error': u'Your peer address cannot be resolved'}
-         ]
+
+#####################################################################
+#                           HZ crawler
+#####################################################################
 
 
-def peerServerON(IP):
-  nodePeerServer="http://%s:%s" % (IP, HZ_PEER_PORT)
-  success, answer=queryAPI(server=nodePeerServer, command="", data="", timeout=3)
-  # if success: print answer
-  return success and (answer in ANSWERS)
+def requestPOST(url, requestType="getInfo", timeout=TIMEOUT, headers=HEADERS):
+  """POST request to peer node, incl. correct headers.
+  
+  MaWo's script was the example, how to do it with 'curl':
+  https://bitcointalk.org/index.php?topic=823785.msg13656332#msg13656332
+  
+  Check out my testing script  'test7774.py' where I found the headers trick.
+  """
+  
+  data=DATA
+  data["requestType"] = requestType
+  data=json.dumps(data)
+  try:
+    r=requests.post(url, data=data, headers=headers, timeout=timeout)
+  except Exception as e:
+    return False, "(%s) %s" % (type(e), e)
+  
+  if r.status_code == requests.codes.ok:
+    return True, r.json()
+  else:
+    return False, r.text
+  
+
+def makeUrl_perhapsAddPort(address):
+  """
+  Prepend http://
+  If the address already has a :port then just return it. 
+  Otherwise :7776
+  """
+  if ":" not in address:
+    address+=":%s"%HZ_PEER_PORT
+  address="http://"+address
+  return address
 
 
+def getInfo(node):
+  """ask peernode for its infos (e.g. hallmark, version, etc.)"""
+  success, info = requestPOST(url=makeUrl_perhapsAddPort(node), requestType="getInfo")
+  return success, info
+  
+
+def getPeers(node):
+  """ask peernode for its peers"""
+  success, peers = requestPOST(url=makeUrl_perhapsAddPort(node), requestType="getPeers")
+  return success, peers
+
+    
+def getInfo_then_GetPeers(node):
+  """The protocol seems to insist to first ask for getInfo."""
+  
+  success, info = requestPOST(url=makeUrl_perhapsAddPort(node), requestType="getInfo")
+  if not success: return success, info
+  time.sleep(0.2) # to avoid "Peer request received before 'getInfo' request"
+  
+  success, peers = requestPOST(url=makeUrl_perhapsAddPort(node), requestType="getPeers")
+  return success, peers  
+   
+
+def test7774(thenExit=False):
+  """test post, getPeers"""
+  print requestPOST( url="http://%s:%s/%s"%(node, HZ_PEER_PORT, HZ_SUFFIX) )
+  success, peers = getPeers(HZ_START_NODE)
+  if success:
+    print "\n".join([p for p in peers["peers"]])
+  if thenExit: exit()
+  
+def peerServerON(node):
+  """asks 'getInfo' and checks results for key 'version'
+  """
+  success, info = requestPOST(url=makeUrl_perhapsAddPort(node))
+  return success and info.has_key('version')
+    
 def test_CheckPeerServer():
-  for IP in ("localhost", "1.2.3.4", "173.232.15.176"):
+  """test the above"""
+  for IP in ("1.2.3.4", "173.232.15.176", HZ_START_NODE, "localhost"):
     print IP, peerServerON(IP)
 
 
 def printAnswers(IPs):
+  """to study the peer node answers"""
   for IP in IPs:
     nodePeerServer="http://%s:%s" % (IP, HZ_PEER_PORT)
     print queryAPI(server=nodePeerServer, command="", data="", timeout=3)
     
 
-def checkOpenAPI_worker(ipQueue, ipDone, nodeON, openAPI, printLock, thresholds, started):
-  """works through a queue: 
-     if 'getPeers' is successful, then append IP to openAPI list 
+def checkOpenAPI_worker(apQueue, apDone, apON, openAPI, apInfo, network, printLock, thresholds, started):
+  """Multi-threaded. Works through a queue: 
+     If 'getPeers' is successful, then append AP (address+port) to apON list. 
      also add yet unchecked peers to the queue.
+     if :API_PORT getTime successful, then append IP to openAPI.
   """
+  
   while True:
-    IP=ipQueue.get()
-    if IP in ipDone: ipQueue.task_done()
+    
+    AP=apQueue.get() # dequeue one (address+port)
+    if AP in apDone: 
+      apQueue.task_done() # been here before, in another thread
       
     else:
-      ipDone.append(IP)
+      apDone.append(AP)
 
-      nodeApiAnswers, hisPeers=queryAPI(server="http://%s:%s" % (IP, HZ_API_PORT), 
-                                        command="/nhz?requestType=getPeers")
-      nodeAnswers=peerServerON(IP)
-      if nodeAnswers: nodeON.append(IP)
+      # question 1: open API server?
+      IP=AP.split(":")[0]
+      apiNodeAnswers, _ =queryAPI(server="http://%s:%s" % (IP, HZ_API_PORT),
+                                  command="/nhz?requestType=getTime")
+      if apiNodeAnswers: openAPI.append(IP) # == this IP has an open API
         
-      newCount=0  
-      if nodeApiAnswers:
-        openAPI.append(IP) # I actually got an answer == this IP has open API
+      # question 2: is this a peer node server?
+      peerNodeAnswers, infos = getInfo(AP)
+      if peerNodeAnswers: 
+        try:
+          apInfo[AP]=[infos['platform'], infos['version']]
+        except Exception as e:
+          print "(%s) %s" % (type(e), e), infos 
+        apON.append(AP)
 
-        hisPeers=hisPeers["peers"]
-        for p in hisPeers:
-          if p not in ipDone:
-            ipQueue.put(p)     # enqueue all new ones.
-            newCount+=1
+        # only if it answers, try to get peers:        
+        time.sleep(0.2)
+        peerNodeGotPeers, hisPeers = getPeers(AP)
+        
+        if peerNodeGotPeers:
+          newCount=0   
+          try:
+            hisPeers=hisPeers["peers"]
+          except:
+            print "STRANGE, this should not happen:", hisPeers
+          else:
+            for p in hisPeers:
+              network[IP]=hisPeers
+              if p not in apDone:
+                apQueue.put(p)     # enqueue the new peers
+                newCount+=1
 
       # from here on, it's all about pretty printing:
-      checked, mt = len(ipDone), max(thresholds)
+      checked, mt = len(apDone), max(thresholds)
 
-      if nodeAnswers or nodeApiAnswers or checked>mt:
-        peerInfo="" 
+      if peerNodeAnswers or apiNodeAnswers or checked>mt:
+        peerInfo=""
         if checked > mt: thresholds.append( mt + PRINT_EVERY)
           
-        if nodeApiAnswers:
-          peerInfo = " peers=%4d of which unchecked=%4d" % (len(hisPeers), newCount)
+        if peerNodeAnswers and peerNodeGotPeers:
+          peerInfo = "peers=%3d of which unchecked=%3d" % (len(hisPeers), newCount)
         
-        nN, qs, oa = len(nodeON), ipQueue.qsize(), len(openAPI)
+        nN, qs, oa = len(apON), apQueue.qsize(), len(openAPI)
         timeSpent = timeit.default_timer()-started
 
-        infoline=("(%6.3fs) nodes=%3d openAPI=%3d checked=%4d queue=%5d | "
+        infoline=("(%6.3fs) nodes=%3d openAPI=%3d checked=%4d queue=%4d |"
                   "%16s: node=%5s openAPI=%5s | %s") 
         infoline = infoline % (timeSpent, nN, oa, checked,        qs,
-                   IP, nodeAnswers, nodeApiAnswers, peerInfo)        
+                   IP, peerNodeAnswers, apiNodeAnswers, peerInfo)        
         
         printLock.acquire()
         print infoline
         printLock.release()
         
-      ipQueue.task_done()
+      apQueue.task_done()
 
 
-def findHZnodes(node=HZ_STARTING_NODE):
+def crawlHZnodes(node=HZ_START_NODE):
   """
-  Checks thousands of IPs for open API.
+  Checks hundreds of IPs for open API.
   starting point is localhost --> getPeers
   """
-  success, peers=queryAPI(server=node, command="/nhz?requestType=getPeers")
+  
+  url="http://%s:%s" % (HZ_START_NODE, HZ_API_PORT)
+  
+  success, peers=queryAPI(server=url, command="/nhz?requestType=getPeers")
   if not success:
-    print "%s didn't want to play with me: %s" % (node, peers)
-    return False
+    print "%s didn't want to play with me: %s" % (node, peers); return False
   
   initialPeers=peers["peers"]
   print ("Got %d peers from %s, now checking which ones have open API, "
@@ -278,11 +381,11 @@ def findHZnodes(node=HZ_STARTING_NODE):
 
   peersToCheck,printLock=Queue.Queue(), threading.Lock()  
   started=timeit.default_timer()
-  nodeON, openAPI, ipDone=[], [], []
+  apON, openAPI, apDone, apInfo, network=[], [], [], {}, {}
   thresholds=[PRINT_EVERY] # using list because it is thread-safe
 
   for i in range(NUM_WORKERS):
-    args=(peersToCheck, ipDone, nodeON, openAPI, printLock, thresholds, started)
+    args=(peersToCheck, apDone, apON, openAPI, apInfo, network, printLock, thresholds, started)
     t=threading.Thread(target=checkOpenAPI_worker, args=args)
     t.daemon=True
     t.start()
@@ -290,55 +393,267 @@ def findHZnodes(node=HZ_STARTING_NODE):
   for item in initialPeers:
     peersToCheck.put(item)
     
-  peersToCheck.join()
+  peersToCheck.join() # waits until the queue is finished
  
   duration=timeit.default_timer()-started
-  n, qs, oa = len(nodeON), peersToCheck.qsize(), len(openAPI)
-  checked = len(ipDone)
+  n, qs, oa = len(apON), peersToCheck.qsize(), len(openAPI)
+  checked = len(apDone)
   
-  print "(%6.3fs) nodes=%3d openAPI=%3d checked=%4d queue=%5d " % (duration, n, oa, checked, qs)
+  print "(%6.3fs) nodes=%3d openAPI=%3d checked=%4d queue=%4d " % (duration, n, oa, checked, qs)
   
   print "\nReady. Found %d nodes, and %d with open API." % (n, oa)
   
-  return nodeON, openAPI
+  return apON, openAPI, apInfo, network
     
+
+def makeIP(ap):
+  """
+  If already IP, then just return it. 
+  Otherwise DNS lookup, to get IP.
+  ap=address+port or IP
+  """
+  ap=ap.split(":")
+  
+  if len(ap)==1: addr,p=ap[0],""
+  else:          addr,p=ap
+  
+  try:
+    socket.inet_aton(addr)
+    ip=addr
+  except socket.error:
+    try:    
+      ip = socket.gethostbyname(addr)
+    except Exception as e:
+      print "gethostbyname: (%s) %s" % (type(e), e) 
+      ip=addr # fallback back to input
+
+  # attach the port again, if it had one
+  if p!="": ip+=":"+p
+  return ip
+
+def test_makeIP():
+  "test cases for the above"
+  for ap in ["www.google.de", "www.google.de:80", "23.245.7.15", "23.245.7.15:99"]:
+    print "%20s = %20s" % (ap, makeIP(ap))
+    
+def makeAllIP(apList):
+  "DNS lookup of a whole list of APs"
+  return [makeIP(ap) for ap in apList]
+
+
+def infoStatistics(apInfo):
+  """Overview of 'versions' and 'platforms'"""
+  
+  # print apInfo.values()
+  pf, ver = zip(*(apInfo.values()))
+  
+  print "Names:", 
+  names=collections.Counter(pf).items()
+  names.sort(key=lambda x:x[1], reverse=True)
+  print ", ".join(["%s (%s)"%(k, v) for k,v in names])
+
+  print "Versions:"
+  versions = collections.Counter(ver).items()
+  versions.sort(key=lambda x:x[1], reverse=True)
+  print "\n".join(["%3d  %s"%(v,k) for k,v in versions])
+  print
+
+  
+def timestampForFilename():
+    "coarse to fine grained timestamp"
+    return datetime.datetime.now().strftime("%Y%m%d-%H%M%S")
 
 
 def nodesTableWithDomainNames_HZ():
-  """Query localhost for peers, then IP-->DNS table"""
+  """
+  Query localhost for peers, then crawl, then IP-->DNS table.
   
-  result = findHZnodes()
+  Network and node-information is pickled to file.
+  Filename is returned.
+  """
+  
+  result = crawlHZnodes() # crawler
+  
   if not result:
     print "You probably have no HZ node running on localhost."
-    print "Start your HZ node, or change HZ_STARTING_NODE to a node with openAPI."
+    print "Start your HZ node, or change HZ_STARTING_NODE_URL to a node with openAPI."
     return False
     
-  nodeON_IPs, openAPI_IPs = result
-  print
+  nodeON_APs, openAPI_IPs, apInfo, network = result
   
-  for port, ipList in ((HZ_PEER_PORT,nodeON_IPs),(HZ_API_PORT,openAPI_IPs)):
+  try:
+    fn="HZ_%s.pickle" % timestampForFilename()
+    with open(fn, 'w') as pkl_file:
+      pickle.dump((network, openAPI_IPs, apInfo), pkl_file)
+    print "Network written to: %s\n" %fn
+  except:
+    pass 
+
+  infoStatistics(apInfo)
+  
+  print "Convert all into IP addresses."
+  openAPI_IPs =makeAllIP(openAPI_IPs)
+  nodeON_APs  =makeAllIP( nodeON_APs)
+  
+  print "Drop port numbers."
+  nodeON_IPs = [AP.split(":")[0] for AP in nodeON_APs] 
+  
+  for purpose, ipList in (("peerservers", nodeON_IPs),("apiservers", openAPI_IPs)):
     sortIPaddresses(ipList)
-    print "These %d nodes are answering on port %d:" % (len(ipList), port)
+    print "These %d IPs are %s:" % (len(ipList), purpose)
     print ipList
   
-  print
+  print "These peers are using a non-standard port:"
+  nodeON_diffPort = list ( set(nodeON_APs) - set(nodeON_IPs))
+  print nodeON_diffPort 
+  
+  nonPeerButApiNodes = list ( set(openAPI_IPs) - set(nodeON_IPs) )
+  print "open API but not peer nodes ('d be a bit STRANGE actually): "
+  print nonPeerButApiNodes
 
   nonOpenApiNodes = list ( set(nodeON_IPs) - set(openAPI_IPs) )
   print "\nNodes but not open API: ", len(nonOpenApiNodes)
-  
-  nodesTableWithDomainNames(nonOpenApiNodes)
-  print "These are all IPs with non open API!"
+  nodesTableWithDomainNames(nonOpenApiNodes, printSteps=False)
+  print "These are all peer IPs with non-open API!"
   
   print "\nOpen API:", len(openAPI_IPs)
-  nodesTableWithDomainNames(openAPI_IPs)
+  nodesTableWithDomainNames(openAPI_IPs, printSteps=False)
   print "These are all IPs with open API!"
+  
+  return fn
 
+
+def makeIPdropPort(ap):
+  """returns IP of (addr+port)"""
+  ap=makeIP(ap)
+  ip=ap.split(":")[0] # DNS-->IP, and drop port
+  return ip 
+
+  
+
+
+def saveNetworkFiles(fn="HZ_20160125-105105.pickle"):
+  """
+  Long code, sorry. But not spaghetti!
+  
+  It is simply ... 
+  sequentially transforming everything ... 
+  into network files - to be read with Pajek.
+  """ 
+  print 
+  
+  try:
+    with open(fn, 'r') as pkl_file:
+      network, openAPI_IPs, apInfo = pickle.load(pkl_file)
+    print "Network loaded from: %s" %fn
+  except:
+    print "Load failed. Exit."
+    return
+  
+  print dict([(name, len(eval(name))) for name in ("network", "openAPI_IPs", "apInfo")])
+
+  # transform all (addr+port) to IP address, merge duplicates on the way  
+  ipNetwork={}
+  for n, peers in network.items():
+    nodeIP=makeIPdropPort(n)
+    peerIPs=map(makeIPdropPort, peers)
+    peerIPs=list(set(peerIPs)) # unique only
+    if len(peerIPs)!=len(peers): print "Neighbours of %s just got less when DNS lookup" % n
+    
+    if ipNetwork.has_key(nodeIP):
+      print "%s was already added, probably DNS as well as IP entry in list. MERGED!" % nodeIP
+      #print "before:", ipNetwork[nodeIP]
+      #print "   new:", peerIPs
+      ipNetwork[nodeIP]=list(set (ipNetwork[nodeIP] + peerIPs))
+      #print "merged:", ipNetwork[nodeIP] 
+       
+    ipNetwork[nodeIP]=peerIPs
+    
+  print "ipNetwork: ", len(ipNetwork)
+
+  print "sort IP addresses increasing:"
+  IPsSorted=ipNetwork.keys()
+  sortIPaddresses(IPsSorted)
+  print "IPsSorted: ",  len(IPsSorted)  
+
+  pajekFilename="%s_network-%s" % (os.path.splitext(fn)[0], timestampForFilename())
+  
+    
+  with open(pajekFilename+".net", "w") as f:
+    f.write("*Vertices %s\n" % len(ipNetwork))
+    
+    IP2index, index2IP={}, {}
+    for i, n in enumerate(IPsSorted):
+      f.write('%d "%s"\n'% (i+1, n))
+      IP2index[n] = i+1
+      index2IP[i+1] = n
+      
+    f.write("*Edges\n")  
+    for n, peers in ipNetwork.items():
+      dropped=0
+      for p in peers:
+        if p in IP2index.keys(): # only talk about nodes which are answering, drop all others!
+          f.write("%d %d 1\n" % (IP2index[n], IP2index[p]))
+        else:
+          dropped+=1
+      #if dropped: print "dropped %d nodes, kept %d nodes" % (dropped, len(peers)-dropped) 
+      
+      
+  print "Network written to '%s.net'\n" % pajekFilename
+  print dict([(name, len(eval(name))) for name in ("IP2index", "index2IP")])
+  
+  ipInfo={}
+  for ap, info in apInfo.items():
+    ip=makeIPdropPort(ap)
+    if ipInfo.has_key(ip):
+      print "collision, please check that equal:", 
+      print ipInfo[ip], info
+    ipInfo[ip]=info
+    
+  print dict([(name, len(eval(name))) for name in ("apInfo", "ipInfo")])
+  
+  print "Sorting and saving version numbers...\n"
+  versions=zip(*(ipInfo.values()))[1]
+  # print versions
+  versions=list(set(versions)) # make unique
+  versions.sort()
+  
+  # print versions
+  versionDict=dict([(v,i) for i, v in enumerate(versions)])
+  # print versionDict 
+  
+  versionDictKeys=sorted(versionDict.keys())
+  with open(pajekFilename+"_versions_names.txt", "w") as f:
+    f.write("\n".join(["%2d %s"%(versionDict[k],k) for k in versionDictKeys])+"\n")
+  # todo: Could do statistics, too.
+  print "Versions names written to '%s_versions_names.txt'" % pajekFilename
+    
+  with open(pajekFilename+"_versions.clu", "w") as f:
+    f.write("*Vertices %s\n" % len(IPsSorted))
+    for IP in IPsSorted:
+      f.write("%s\n" % versionDict[ ipInfo[IP][1] ] )
+    
+  print "Cluster of versions written to '%s.clu'" % pajekFilename
+  
+  
+def countInFile(fn="HZ_20160125-105105_network-20160125-112807_versions.clu"):
+  "Just to check which dataset I had actually used... *g*"
+  with open(fn,"r") as f:
+    lines=f.readlines()
+  lines=lines[1:]
+  print collections.Counter(lines)
 
 if __name__=="__main__":
+  # test7774(thenExit=True)
+  # test_CheckPeerServer(); exit()
+  # test_makeIP(); exit()
+  
   print ("-" * 50 + "\n") * 2 + "\nNXT:\n\n" + ("-" * 50 + "\n") * 2
   nodesTableWithDomainNames_NXT()
+  
   print ("-" * 50 + "\n") * 2 + "\nHZ :\n\n" + ("-" * 50 + "\n") * 2
-  nodesTableWithDomainNames_HZ()
-  
-  #test_CheckPeerServer()
-  
+  fn=nodesTableWithDomainNames_HZ()
+    
+  saveNetworkFiles(fn)
+  #
+  # countInFile()

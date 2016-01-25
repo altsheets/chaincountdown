@@ -6,60 +6,64 @@ NXT:
 --------------------------------------------------
 --------------------------------------------------
 
-Got 46 node IPs from Peerexplorer, for command /api_openapi
+Got 49 node IPs from Peerexplorer, for command /api_openapi
 Looking up domain names, patience please ...
-(0.0177s)     192.3.196.10: 192-3-196-10-host.colocrossing.com
-(0.0217s)     62.194.6.113: h6113.upc-h.chello.nl
-(0.0220s)   76.176.202.107: cpe-76-176-202-107.san.res.rr.com
-(0.0227s)    62.75.159.113: vader.cybermailing.com
-(0.0228s)    37.187.96.196: humanoide.thican.net
-(0.0230s)    69.163.47.173: host4.topserver4.com
-(0.0239s)     82.0.250.119: cpc80669-stap13-2-0-cust118.12-2.cable.virginm.net
-(0.0240s)  162.243.122.251: jefdiesel.vps.nxtcrypto.org
-(0.0240s)      80.86.92.70: nxt.cybermailing.com
-(0.0242s)    62.75.145.171: euve35997.vserver.de
-(0.0244s)   176.31.167.127: 127.ip-176-31-167.eu
-(0.0248s)  174.140.167.239: abctc.vps.nxtcrypto.org
-(0.0291s)    80.150.243.95: multi.djaeger.net
-(0.0307s)   178.150.207.53: 53.207.150.178.triolan.net
-(0.0312s)     62.57.18.152: 62.57.18.152.dyn.user.ono.com
-(0.0315s)  146.185.168.142: nxt.sx
-(0.0320s)     52.28.97.208: ec2-52-28-97-208.eu-central-1.compute.amazonaws.com
-(0.0322s)     91.239.69.78: 91.239.69.78.delfintelecom.ru
-(0.0332s)     198.27.81.25: ai.lasthop.ca
-(0.0350s)   198.46.193.111: 111-193-46-198.openvirtuals.com
-(0.0358s)   198.105.223.72: 198.105.223.72.static.midphase.com
-(0.0359s)      5.9.180.173: daemon.bevolved.net
-(0.0364s)   188.165.250.19: megaman.thican.net
-(0.0366s)     52.29.122.21: ec2-52-29-122-21.eu-central-1.compute.amazonaws.com
-(0.0373s)   192.99.151.160: ps10.bitcoindark.ca
-(0.0376s)   167.114.113.27: 27.ip-167-114-113.net
-(0.0377s)  167.114.113.197: ps12.bitcoindark.ca
-(0.0381s)  167.114.113.250: 250.ip-167-114-113.net
-(0.0383s)   167.114.113.25: 25.ip-167-114-113.net
-(0.0386s)  167.114.113.194: ps13.bitcoindark.ca
-(4.5198s)   178.33.203.157: 
-(4.5208s)    69.163.40.132: 
-(4.5209s)   104.193.41.253: 
-(4.5217s)  192.227.136.194: 
-(4.5237s)     94.102.50.75: 
-(4.5247s)     91.235.72.49: 
-(4.5267s)    80.150.243.13: 
-(4.5277s)    80.150.243.99: 
-(4.5280s)    80.150.243.98: 
-(4.5299s)    80.150.243.96: 
-(4.5307s)    80.150.243.97: 
-(4.5308s)    80.150.243.12: 
-(4.5348s)    91.205.131.95: 
-(4.5357s)   46.101.239.121: 
-(4.5358s)    95.215.47.221: 
-(4.5390s)    158.69.33.172: 
-Ready. For 30 of the 46 I got domain names.
+(0.1250s)     81.83.17.240: d515311F0.static.telenet.be
+(0.1292s)     62.194.6.113: h6113.upc-h.chello.nl
+(0.1316s)    37.187.96.196: humanoide.thican.net
+(0.1460s)    62.75.159.113: vader.cybermailing.com
+(0.1466s)    62.75.145.171: euve35997.vserver.de
+(0.1485s)   176.31.167.127: 127.ip-176-31-167.eu
+(0.1589s)    80.150.243.95: multi.djaeger.net
+(0.1620s)    85.25.198.120: astra2991.server4you.de
+(0.1670s)     52.28.97.208: ec2-52-28-97-208.eu-central-1.compute.amazonaws.com
+(0.1674s)      80.86.92.70: nxt.cybermailing.com
+(0.1766s)     82.0.250.119: cpc80669-stap13-2-0-cust118.12-2.cable.virginm.net
+(0.1857s)     52.29.122.21: ec2-52-29-122-21.eu-central-1.compute.amazonaws.com
+(0.2027s)     178.63.60.81: static.81.60.63.178.clients.your-server.de
+(0.2137s)   188.165.250.19: megaman.thican.net
+(0.2142s)    94.226.61.134: 94-226-61-134.access.telenet.be
+(0.2150s)     192.3.196.10: 192-3-196-10-host.colocrossing.com
+(0.2177s)      5.9.180.173: daemon.bevolved.net
+(0.2540s)     62.57.18.152: 62.57.18.152.dyn.user.ono.com
+(0.2896s)    69.163.47.173: host4.topserver4.com
+(0.2921s)     91.239.69.78: 91.239.69.78.delfintelecom.ru
+(0.2928s)  174.140.167.239: abctc.vps.nxtcrypto.org
+(0.2934s)   167.114.113.27: 27.ip-167-114-113.net
+(0.2941s)     198.27.81.25: ai.lasthop.ca
+(0.2949s)   76.176.202.107: cpe-76-176-202-107.san.res.rr.com
+(0.2960s)  167.114.113.197: ps12.bitcoindark.ca
+(0.2971s)  162.243.122.251: jefdiesel.vps.nxtcrypto.org
+(0.2975s)  167.114.113.250: 250.ip-167-114-113.net
+(0.2976s)   167.114.113.25: 25.ip-167-114-113.net
+(0.2982s)  167.114.113.201: ps14.bitcoindark.ca
+(0.2999s)   198.105.223.72: 198.105.223.72.static.midphase.com
+(0.3870s)  146.185.168.142: nxt.sx
+(0.4335s)   91.202.253.240: qob.pp.ua
+(0.5121s)   198.46.193.111: 111-193-46-198.openvirtuals.com
+(4.7550s)    80.150.243.99: 
+(4.7553s)    80.150.243.13: 
+(4.7555s)    80.150.243.98: 
+(4.7555s)   178.33.203.157: 
+(4.7556s)    80.150.243.97: 
+(4.7557s)    80.150.243.96: 
+(4.7558s)     94.102.50.75: 
+(4.7560s)    80.150.243.12: 
+(4.7561s)     91.235.72.49: 
+(4.8732s)    158.69.33.172: 
+(4.8733s)    95.215.47.221: 
+(4.8845s)    91.205.131.95: 
+(4.9952s)    69.163.40.132: 
+(5.0602s)   46.101.239.121: 
+(5.1482s)  192.227.136.194: 
+(5.3313s)   104.193.41.253: 
+Ready. For 33 of the 49 I got domain names.
 
 Everything again, now sorted. Domain names first, then IP-address-only:
- 192.99.151.160:                                   ps10.bitcoindark.ca
+  94.226.61.134:                       94-226-61-134.access.telenet.be
+   81.83.17.240:                           d515311F0.static.telenet.be
 167.114.113.197:                                   ps12.bitcoindark.ca
-167.114.113.194:                                   ps13.bitcoindark.ca
+167.114.113.201:                                   ps14.bitcoindark.ca
    198.27.81.25:                                         ai.lasthop.ca
    52.28.97.208:   ec2-52-28-97-208.eu-central-1.compute.amazonaws.com
    52.29.122.21:   ec2-52-29-122-21.eu-central-1.compute.amazonaws.com
@@ -71,7 +75,9 @@ Everything again, now sorted. Domain names first, then IP-address-only:
  198.46.193.111:                       111-193-46-198.openvirtuals.com
  76.176.202.107:                     cpe-76-176-202-107.san.res.rr.com
   69.163.47.173:                                  host4.topserver4.com
+  85.25.198.120:                               astra2991.server4you.de
   62.75.145.171:                                  euve35997.vserver.de
+   178.63.60.81:            static.81.60.63.178.clients.your-server.de
  176.31.167.127:                                  127.ip-176-31-167.eu
     5.9.180.173:                                   daemon.bevolved.net
   80.150.243.95:                                     multi.djaeger.net
@@ -80,13 +86,13 @@ Everything again, now sorted. Domain names first, then IP-address-only:
  167.114.113.27:                                 27.ip-167-114-113.net
   37.187.96.196:                                  humanoide.thican.net
  188.165.250.19:                                    megaman.thican.net
- 178.150.207.53:                            53.207.150.178.triolan.net
    82.0.250.119:    cpc80669-stap13-2-0-cust118.12-2.cable.virginm.net
    62.194.6.113:                                 h6113.upc-h.chello.nl
 174.140.167.239:                               abctc.vps.nxtcrypto.org
 162.243.122.251:                           jefdiesel.vps.nxtcrypto.org
    91.239.69.78:                         91.239.69.78.delfintelecom.ru
 146.185.168.142:                                                nxt.sx
+ 91.202.253.240:                                             qob.pp.ua
  46.101.239.121
   69.163.40.132
   80.150.243.12
