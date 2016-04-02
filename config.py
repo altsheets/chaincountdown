@@ -15,7 +15,8 @@ TIMEOUT     = 3
 # coins specifics:
 
 BLOCKSPERMINUTE = {"nxt": 1 / 1,  # measured at block height 721965 (see https://nxtforum.org/index.php?topic=10581.msg214558#msg214558 )
-                   "nhz": 1 / 1.72}  # measured at block height 539874
+                   "nhz": 1 / 1.75,  # measured at block height 612782 (https://bitcointalk.org/index.php?topic=823785.msg14402842#msg14402842)
+                   "burst": 1 / 4.03} # measured at height 214629 (https://bitcointalk.org/index.php?topic=1323657.msg14402520#msg14402520)
 
 GENESIS = {"nhz": 1395526942.22, 
            "nxt": 1385294400}
