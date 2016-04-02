@@ -1,22 +1,25 @@
-# chaincountdown.py v13.6
+# chaincountdown.py v13.7
 
 Time estimation to targetblock of nxt/hz. 
 
 Image rendered at request. Comes with httpserver.
 Choose heading, fontsizes, fontface, colors.
 
-Built for for the nxthacks voting, and beyond.
+Built for for the nxthacks voting, and beyond. Useful e.g. for voting, and phased transactions.
 
-**New:** Complete docker solution, incl. systemd autostart!
+**New:** 
+* Complete docker solution
+* incl. systemd autostart! 
+* Adjusted to new faster NXT blockspeed.
 
 ## shortversion
 
 Put live-rendered [image](http://altsheets.ddns.net:8888/nxt/10000000.png?heading=funfact:%2010%20mio%20nxtblocks) into any [website](https://nxtforum.org/index.php?topic=9735).
 
 ![example image](http://altsheets.ddns.net:8888/nxt/10000000.png?heading=funfact:%2010%20mio%20nxtblocks)  
-( github is making them static? Here is the link: http://altsheets.ddns.net:8888/nxt/10000000.png?heading=funfact:%2010%20mio%20nxtblocks )
+Is github making them static? Then here is the direct link:  
+http://altsheets.ddns.net:8888/nxt/10000000.png?heading=funfact:%2010%20mio%20nxtblocks 
 
-TODO: Hasn't been adjusted to the new faster NXT blockspeed.
 
 ### old example (all this was made for nxthacks2015 voting countdown)
 
