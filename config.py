@@ -14,7 +14,7 @@ TIMEOUT     = 3
 
 # coins specifics:
 
-BLOCKSPERMINUTE = {"nxt": 1 / 1.87,  # measured at block height 607838 (see https://nxtforum.org/nrs-releases/nrs-v1-7-4/msg205165/#msg205165 )
+BLOCKSPERMINUTE = {"nxt": 1 / 1,  # measured at block height 721965 (see https://nxtforum.org/index.php?topic=10581.msg214558#msg214558 )
                    "nhz": 1 / 1.72}  # measured at block height 539874
 
 GENESIS = {"nhz": 1395526942.22, 
