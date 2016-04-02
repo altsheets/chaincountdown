@@ -1,4 +1,4 @@
-# chaincountdown.py v13.7
+# chaincountdown.py v14.1
 
 Time estimation to targetblock of nxt/hz. 
 
